@@ -91,11 +91,11 @@ const SignIn = () => {
               <input type="checkbox" className='checkbox'/>
               <p className='left-text-checkbox'>Запомнить меня</p>
             </div>
-            {/* <div className="forgot-password">
+            <div className="forgot-password">
               <Link to="/forgot_password">
                 Забыли пароль?
               </Link>
-            </div> */}
+            </div>
           </div>
           <div className="login">
             <Button
