@@ -16,55 +16,49 @@
 
 .wrapper-lottie {
     width: 70%;
-    height: 50%;
+    height: 60%;
+    
 }
+
+.image-404 {
+    width: 60%;
+    height: 100%;
+}
+
 
 .title-not-found {
     width: 100%;
-
     font-family: Nunito;
     font-style: normal;
-    font-weight: 800;
-    font-size: 60px;
+    font-weight: 700;
+    font-size: 50px;
     line-height: 82px;
     text-align: center;
-
-    color: #34363E;
+    color: #323235;
 }
 
 .summary-not-found {
-    width: 35%;
-
+    width: 40%;
     font-family: Nunito;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 17px;
     line-height: 20px;
     text-align: center;
-
-    color: #54585E;
+    color: #444649;
 }
 
-.button-back {
-    margin-top: 20px;
-    background: #215BFD;
 
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-
-    mix-blend-mode: normal;
-    box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.25);
-    border-radius: 16px;
+.link-back {
+    font-weight: 600;
+    color: red;
+    
 }
 
-.button-back:hover {
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+.link-back:hover {
+ cursor: pointer;
 }
+
 
 @media screen and (max-width: 1024px) {
 }
@@ -72,6 +66,10 @@
 @media screen and (max-width: 768px) {
     .summary-not-found  {
         width: 65%;
+    }
+
+    .image-404 {
+        height: 80%;
     }
 }
 
@@ -83,6 +81,10 @@
     .summary-not-found {
         font-size: 18px;
     }
+
+    
+
+    
 }
 
 @media screen and (max-width: 376px) {
@@ -93,6 +95,8 @@
     .summary-not-found {
         font-size: 18px;
     }
+
+    
 }
 
 @media screen and (max-width: 321px) {
@@ -102,5 +106,9 @@
 
     .summary-not-found {
         font-size: 16px;
+    }
+
+    .image-404 {
+        height: 65%;
     }
 }
