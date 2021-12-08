@@ -1,17 +1,17 @@
 import React from "react";
-import {NavLink} from "react-router-dom";
-import Header from "../../Components/Header/Header";
+import { NavLink } from "react-router-dom";
 import "./404.css";
-
-
 
 const NotFoundPage = () => {
   return (
     <>
-      <Header />
-      <div className="wrapper-main-not-found">
-        <div className="wrapper-lottie">
-          <img src="/images/image-404.gif" className="image-404" alt="page not found gif"/>
+      <div className="main-container-not-found">
+        <div className="gif-wrapper">
+          <img
+            src="/images/image-404.gif"
+            className="image-404"
+            alt="page not found gif"
+          />
         </div>
 
         <span className="title-not-found">Page not found</span>
