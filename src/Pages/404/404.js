@@ -1,6 +1,9 @@
 import { NavLink } from "react-router-dom";
+
 import Header from "../../Components/Header/Header";
+
 import "./404.css";
+
 import React from "react";
 
 
@@ -10,7 +13,7 @@ const NotFoundPage = () => {
     
   return (
     <>
-      {<Header />}
+      <Header />
       <div className="wrapper-main-not-found">
         <div className="wrapper-lottie">
           <img src="/images/image-404.gif" className="image-404" alt=""/>
