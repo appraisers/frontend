@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import errorImage from '../../assets/images/404.gif';
+import errorImage from "../../assets/images/404.gif";
 
 import "./404.scss";
 

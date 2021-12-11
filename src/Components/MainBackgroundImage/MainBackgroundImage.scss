@@ -1,6 +1,5 @@
 .main-background-image {
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    z-index: 0;
+  background-image: url(../../assets/images/mainBackgroundImage.jpg);
+  background-size: cover;
+  background-size: 100vw;
 }

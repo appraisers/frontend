@@ -1,11 +1,9 @@
-import backgroundImage from '../../assets/images/mainBackgroundImage.jpg';
+import backgroundImage from "../../assets/images/mainBackgroundImage.jpg";
 
 import "./MainBackgroundImage.scss";
 
-const MainBackgroundImage = () => {
-  return (
-    <img src={backgroundImage} className="main-background-image" alt="page not found gif" />
-  );
+const MainBackgroundImage = ({ children }) => {
+  return <div className="main-background-image">{children}</div>;
 };
 
 export default MainBackgroundImage;
