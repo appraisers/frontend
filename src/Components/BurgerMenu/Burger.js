@@ -1,10 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState } from 'react';
 import { slide as Menu } from "react-burger-menu";
-import Account from '../PersonalData/PersonalData';
 import { Backdrop, Modal } from '@material-ui/core';
-import "./Burger.css";
+
+import Account from '../PersonalData/PersonalData';
 import AlertHelper from '../Alert/Alert';
+
+import "./Burger.scss";
 
 const BurgerMenu = (props) => {
   const [isModal , setIsModal] = useState(false);

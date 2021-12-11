@@ -6,8 +6,10 @@ import {
 } from 'victory';
 import _ from 'lodash';
 import { Table, TableBody, TableCell, TableHead, TableRow, Paper, TableContainer, Modal, Backdrop }  from '@material-ui/core';
+
 import DescriptionFaculty from "../DescriptionFaculty/Faculty.js";
-import './DiagramResult.css';
+
+import './DiagramResult.scss';
 
 const directions = {
     0: "Математическое моделирование", 

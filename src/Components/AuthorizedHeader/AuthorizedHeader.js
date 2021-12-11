@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import appLogo from '../../assets/branding/logo.png';
 import { Backdrop, Modal } from '@material-ui/core';
+
+import appLogo from '../../assets/branding/logo.png';
 import useWindowDimensions from '../windowSizeHook/windowSize.js';
 import BurgerMenu from '../BurgerMenu/Burger.js';
 import Account from '../PersonalData/PersonalData';
 import AlertHelper from '../Alert/Alert';
-import './AuthorizedHeader.css';
+
+import './AuthorizedHeader.scss';
 
 const AuthorizedHeader = () => {
     const { width } = useWindowDimensions();

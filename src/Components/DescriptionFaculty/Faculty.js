@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { CircularProgress } from '@material-ui/core';
+
 import icon1 from '../../assets/icons/Icon1.png'
 import icon2 from '../../assets/icons/Icon2.png';
 import icon3 from '../../assets/icons/Icon3.png';
 import icon4 from '../../assets/icons/Icon4.png';
-import './Faculty.css';
+
+import './Faculty.scss';
 
 const Faculty = ({ data }) => {
     const [offers, setOffers] = useState([]);

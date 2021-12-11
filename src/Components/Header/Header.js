@@ -1,8 +1,10 @@
 import { NavLink } from "react-router-dom";
+
 import appLogo from '../../assets/branding/logo.png';
 import useWindowDimensions from '../windowSizeHook/windowSize.js';
 import BurgerMenu from '../BurgerMenu/Burger.js';
-import './Header.css';
+
+import './Header.scss';
 
 const Header = () => {
     const { width } = useWindowDimensions();

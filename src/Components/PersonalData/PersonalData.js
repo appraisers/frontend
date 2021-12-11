@@ -2,9 +2,11 @@ import { useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { TextField } from "@material-ui/core";
+
 import personalIcon from '../../assets/icons/personal-img.png';
 import PasswordInput from '../PasswordTextField/PasswordTextField';
-import './PersonalData.css';
+
+import './PersonalData.scss';
 
 const PersonalData = ({active, setActive, setError, setErrorText, setAlert}) => {
     const [name, setName] = useState("");
