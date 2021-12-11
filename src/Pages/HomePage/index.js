@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import Lottie from "lottie-react-web";
 
-import Header from "../../Components/MainHeader/MainHeader";
+import Header from "../../Components/MainHeader";
 import HomePagePicture from "../../assets/lottie/welcome.json";
 
 import "./HomePage.scss";

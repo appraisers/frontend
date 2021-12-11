@@ -3,8 +3,8 @@ import { useHistory, Link } from "react-router-dom";
 import { TextField, Button } from "@material-ui/core";
 
 import appLogo from "../../../../assets/branding/logo.png";
-import SignImage from "../../../../Components/SignImage/SignImage.js";
-import PasswordTextField from "../../../../Components/PasswordTextField/PasswordTextField";
+import SignImage from "../../../../Components/SignImage";
+import PasswordTextField from "../../../../Components/PasswordTextField";
 import AlertHelper from "../../../../Components/Alert/Alert";
 
 import "./SignUpFirstPage.scss";

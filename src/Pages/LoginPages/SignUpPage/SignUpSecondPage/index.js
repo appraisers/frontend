@@ -5,7 +5,7 @@ import axios from "axios";
 
 import appLogo from "../../../../assets/branding/logo.png";
 import AlertHelper from "../../../../Components/Alert/Alert";
-import SignImage from "../../../../Components/SignImage/SignImage.js";
+import SignImage from "../../../../Components/SignImage";
 
 import "./SignUpSecondPage.scss";
 

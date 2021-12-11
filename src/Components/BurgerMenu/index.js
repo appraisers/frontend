@@ -3,7 +3,7 @@ import { useState } from "react";
 import { slide as Menu } from "react-burger-menu";
 import { Backdrop, Modal } from "@material-ui/core";
 
-import Account from "../PersonalData/PersonalData";
+import Account from "../PersonalData";
 import AlertHelper from "../Alert/Alert";
 
 import "./Burger.scss";

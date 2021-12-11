@@ -3,7 +3,7 @@ import { useHistory, Link } from "react-router-dom";
 import { TextField, Button } from "@material-ui/core";
 import appLogo from '../../../assets/branding/logo.png';
 import AlertHelper from "../../../Components/Alert/Alert";
-import SignImage from '../../../Components/SignImage/SignImage.js';
+import SignImage from '../../../Components/SignImage';
 import "./RestorePasswordPage.scss";
 
 const RestorePasswordPage = () => {

@@ -4,7 +4,7 @@ import axios from "axios";
 import { TextField } from "@material-ui/core";
 
 import personalIcon from "../../assets/icons/personal-img.png";
-import PasswordInput from "../PasswordTextField/PasswordTextField";
+import PasswordInput from "../PasswordTextField";
 
 import "./PersonalData.scss";
 

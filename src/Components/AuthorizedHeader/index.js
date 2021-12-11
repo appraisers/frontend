@@ -4,8 +4,8 @@ import { Backdrop, Modal } from "@material-ui/core";
 
 import appLogo from "../../assets/branding/logo.png";
 import useWindowDimensions from "../windowSizeHook/windowSize.js";
-import BurgerMenu from "../BurgerMenu/Burger.js";
-import Account from "../PersonalData/PersonalData";
+import BurgerMenu from "../BurgerMenu/index.js";
+import Account from "../PersonalData";
 import AlertHelper from "../Alert/Alert";
 
 import "./AuthorizedHeader.scss";
