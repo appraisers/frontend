@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { TextField, Button } from "@material-ui/core";
 
-import appLogo from "../../../assets/branding/logo.png";
+import appLogo from "../../../../assets/branding/logo.png";
+import SignImage from "../../../../Components/SignImage/SignImage.js";
+import PasswordTextField from "../../../../Components/PasswordTextField/PasswordTextField";
+import AlertHelper from "../../../../Components/Alert/Alert";
 
-import SignImage from "../../../Components/SignImage/SignImage.js";
-import PasswordTextField from "../../../Components/PasswordTextField/PasswordTextField";
 import "./SignUpFirstPage.scss";
-import AlertHelper from "../../../Components/Alert/Alert";
 
 const SignUpFirstPage = () => {
   const history = useHistory();

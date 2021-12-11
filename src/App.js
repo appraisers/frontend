@@ -3,12 +3,12 @@ import { Switch, Route } from "react-router-dom";
 
 import RegisterPage from "./Pages/LoginPages/SignUpPage/SignUpFirstPage";
 import SecondRegisterPage from "./Pages/LoginPages/SignUpPage/SignUpSecondPage";
-import LoginPage from "./Pages/LoginPages/SignInPage/SignInPage";
+import LoginPage from "./Pages/LoginPages/SignInPage";
 import RestorePassword from "./Pages/LoginPages/RestorePasswordPage/RestorePasswordPage.js";
 
-import Main from "./Pages/HomePage/HomePage.js";
-import About from "./Pages/AboutPage/AboutPage.js";
-import PageNotFound from "./Pages/404/404.js";
+import Main from "./Pages/HomePage";
+import About from "./Pages/AboutPage";
+import PageNotFound from "./Pages/404";
 
 const App = () => {
   return (

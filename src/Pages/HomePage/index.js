@@ -2,14 +2,13 @@ import { NavLink } from "react-router-dom";
 import Lottie from "lottie-react-web";
 
 import Header from "../../Components/MainHeader/MainHeader";
-import MainBackgroundImage from "../../Components/MainBackgroundImage/MainBackgroundImage";
 import HomePagePicture from "../../assets/lottie/welcome.json";
 
 import "./HomePage.scss";
 
 const HomePage = () => {
   return (
-    <MainBackgroundImage>
+    <>
       <Header />
       <div className="wrapper-main">
         <div className="wrapper-left">
@@ -37,7 +36,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-    </MainBackgroundImage>
+    </>
   );
 };
 
