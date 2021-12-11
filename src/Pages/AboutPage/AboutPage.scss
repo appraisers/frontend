@@ -1,0 +1,131 @@
+.wrapper-description {
+    display: grid;
+    grid-template-columns: repeat(2, [col] 1fr);
+    grid-auto-rows: minmax(1fr, auto);
+    background-color: white;
+    font-size: 10vh;
+    height: 90vh;
+}
+
+.img-description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-description img{
+    width: 72%;
+    height: 72%;
+}
+
+.box-description {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.box-description h2 {
+    font-family: 'Nunito', sans-serif;
+
+    font-style: normal;
+    font-weight: 800;
+    font-size: 60px;
+
+    margin: 0 0 15px 0;
+
+    color: #34363E;
+}
+
+.box-description p {
+    width: 80%;
+
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 33px;
+    text-align: center;
+
+    margin: 0 0 25px 0;
+
+    color: #54585E;
+}
+
+.box-description p:last-child {
+    margin: 0;
+}
+
+@media screen and (max-width: 1024px) {
+    .img-description img{
+        width: 75%;
+        height: 60%;
+    }
+
+    .box-description h2 {
+        font-size: 55px;
+    }
+
+    .box-description p {
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .img-description img{
+        width: 78%;
+        height: 45%;
+    }
+
+    .box-description h2 {
+        font-size: 48px;
+    }
+
+    .box-description p {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .wrapper-description {
+        display: list-item;
+    }
+
+    .img-description img{
+        width: 60%;
+    }
+
+    .box-description h2 {
+        font-size: 35px;
+    }
+
+    .box-description p {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 376px) {
+    .box-description h2 {
+        font-size: 32px;
+    }
+
+    .box-description p {
+    
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .img-description img{
+        width: 70%;
+    }
+
+    .box-description h2 {
+        font-size: 27px;
+    }
+
+    .box-description p {
+        font-size: 15px;
+    }
+}

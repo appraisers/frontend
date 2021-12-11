@@ -1,11 +1,10 @@
 import { NavLink } from 'react-router-dom';
-
 import Lottie from 'lottie-react-web'
 
 import HomePagePicture from '../../assets/lottie/welcome.json';
-
 import Header from "../../Components/MainHeader/MainHeader";
-import './HomePage.css';
+
+import './HomePage.scss';
 
 const HomePage = () => {
     return (

@@ -1,7 +1,8 @@
 import aboutPagePicture from '../../assets/illustrations/aboutPagePicture.png';
 import Header from "../../Components/Header/Header";
 import AuthorizedHeader from '../../Components/AuthorizedHeader/AuthorizedHeader';
-import './AboutPage.css';
+
+import './AboutPage.scss';
 
 const AboutPage = () => {
     return (
