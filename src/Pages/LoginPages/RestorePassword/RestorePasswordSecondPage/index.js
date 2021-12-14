@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { TextField, Button } from "@material-ui/core";
-import AlertHelper from "../../../Components/Alert/Alert";
-import "./SecondPasswordPage.scss";
+import AlertHelper from "../../../../Components/Alert/Alert";
+import "./RestorePasswordSecondPage.scss";
 
-const SecondPasswordPage = () => {
+const RestorePasswordSecondPage = () => {
   const history = useHistory();
   const RegexPassword = /(\w|@)+/;
 
@@ -79,4 +79,4 @@ const SecondPasswordPage = () => {
   );
 };
 
-export default SecondPasswordPage;
+export default RestorePasswordSecondPage;
