@@ -1,6 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "./404.css";
+
+import errorImage from "../../assets/images/404.gif";
+
+import "./404.scss";
 
 const NotFoundPage = () => {
   return (
@@ -8,7 +11,7 @@ const NotFoundPage = () => {
       <div className="main-container-not-found">
         <div className="gif-wrapper">
           <img
-            src="/images/image-404.gif"
+            src={errorImage}
             className="image-404"
             alt="page not found gif"
           />
@@ -19,7 +22,7 @@ const NotFoundPage = () => {
         <p className="summary-not-found">
           Seems you have lost your way. Let's take you back to the
           <NavLink to="/">
-            <a className="link-back"> main page</a>
+            <span className="link-back"> main page</span>
           </NavLink>
         </p>
       </div>

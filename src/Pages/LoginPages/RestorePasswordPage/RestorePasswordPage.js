@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { TextField, Button } from "@material-ui/core";
 import AlertHelper from "../../../Components/Alert/Alert";
+
+
+import SignImage from '../../../Components/SignImage';
+
 import "./RestorePasswordPage.scss";
 
 const RestorePasswordPage = () => {
