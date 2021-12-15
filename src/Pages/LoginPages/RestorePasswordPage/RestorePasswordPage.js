@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { TextField, Button } from "@material-ui/core";
 import AlertHelper from "../../../Components/Alert/Alert";
 import "./RestorePasswordPage.scss";
+import BackgroundImage from "../../BackgroundImage/BackgroundImage";
 
 const RestorePasswordPage = () => {
   const history = useHistory();
@@ -26,6 +27,8 @@ const RestorePasswordPage = () => {
   };
 
   return (
+    <>
+   <BackgroundImage />
     <div className="restore-password">
       <div className="restore-password-flexbox">
         <p className="header-text">Восстановление пароля</p>
@@ -37,7 +40,6 @@ const RestorePasswordPage = () => {
           }}
           label="Почта"
           type="email"
-          required={true}
           className="input"
           variant="outlined"
           value={email}
@@ -61,6 +63,9 @@ const RestorePasswordPage = () => {
         />
       </div>
     </div>
+    
+    </>
+  
   );
 };
 
