@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { TextField, Button } from "@material-ui/core";
-import AlertHelper from "../../../Components/Alert/Alert";
-import "./RestorePasswordPage.scss";
-import BackgroundImage from "../../BackgroundImage/BackgroundImage";
 
-const RestorePasswordPage = () => {
+import AlertHelper from "../../../Components/Alert/Alert";
+import BackgroundImage from "../../BackgroundImage/BackgroundImage";
+import "./RestorePasswordFirstPage.scss";
+
+const RestorePasswordFirstPage = () => {
   const history = useHistory();
   const regexpEmail =
     /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -50,7 +51,7 @@ const RestorePasswordPage = () => {
         <Button
           className="restore-password-btn"
           variant="outlined"
-          onClick={() => history.push("/second_password")}
+          onClick={() => history.push("/forgot_password_2")}
         >
           Продолжить
         </Button>
@@ -69,4 +70,4 @@ const RestorePasswordPage = () => {
   );
 };
 
-export default RestorePasswordPage;
+export default RestorePasswordFirstPage;
