@@ -1,8 +1,10 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import { TextField, Button } from "@material-ui/core";
-import AlertHelper from "../../../../Components/Alert/Alert";
-import "./RestorePasswordSecondPage.scss";
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { TextField, Button } from '@material-ui/core';
+
+import AlertHelper from '../../../../Components/Alert/Alert';
+import BackgroundImage from '../../../../Components/BackgroundImage';
+import './RestorePasswordSecondPage.scss';
 
 const RestorePasswordSecondPage = () => {
   const history = useHistory();
@@ -13,14 +15,14 @@ const RestorePasswordSecondPage = () => {
   const [errorText, setErrorText] = useState(false);
   const [alert, setAlert] = useState('');
 
-  const checkPassword = (pwd) => {
+  const checkPassword = () => {
     if (!password.match(RegexPassword)) {
       setAlert('error');
-      setErrorText(`Пример: myname@360`);
+      setErrorText(`Пароль может содержать буквы, цифры и @`);
       setError(true);
     } else {
       setAlert('success');
-      setErrorText(`Корректый Пароль`);
+      setErrorText(`Корректый пароль`);
       setError(true);
     }
   };
@@ -37,7 +39,7 @@ const RestorePasswordSecondPage = () => {
               shrink: true,
               className: 'label'
             }}
-            label="Новый Пароль"
+            label="Новый пароль"
             type="password"
             className="input"
             variant="outlined"
@@ -51,19 +53,20 @@ const RestorePasswordSecondPage = () => {
               shrink: true,
               className: 'label'
             }}
-            label="Повтор Пароль"
+            label="Повтор пароля"
             type="password"
             className="input"
             variant="outlined"
             value={password}
-            onChange={(pwd) => setPassword(pwd.target.value)}
-            onBlur={checkPassword}
+            onChange={(e) => setPassword(e.target.value)}
+            onBlur={ checkPassword}
           />
 
           <Button
             className="second-password-btn"
             variant="outlined"
             onClick={() => history.push('/')}
+            disabled={openError}
           >
             Восстановить
           </Button>
@@ -76,7 +79,6 @@ const RestorePasswordSecondPage = () => {
           />
         </div>
       </div>
-      
     </>
   );
 };
