@@ -21,27 +21,27 @@ const Header = () => {
             <ul className="nav-main-header">
               <li className="nav-button-main-header">
                 <NavLink to="/about" activeClassName="active-header">
-                  О проекте
+                  О нас
                 </NavLink>
               </li>
 
               <li className="nav-button-main-header">
                 <NavLink to="/departments" activeClassName="active-header">
-                  Кафедры
+                  Личный кабинет
                 </NavLink>
               </li>
 
               <li className="nav-button-main-header">
                 <NavLink to="/login" activeClassName="active-header">
-                  Вход
-                </NavLink>
-              </li>
-
-              <li className="round-button-main-header">
-                <NavLink to="/sign/up" activeClassName="active-header">
                   Регистрация
                 </NavLink>
               </li>
+
+              {/* <li className="round-button-main-header">
+                <NavLink to="/sign/up" activeClassName="active-header">
+                  Регистрация
+                </NavLink>
+              </li> */}
             </ul>
           </div>
         </>

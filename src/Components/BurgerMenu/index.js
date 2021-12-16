@@ -37,17 +37,17 @@ const BurgerMenu = (props) => {
       ) : (
         <Menu {...props}>
           <a className="menu-item" href="/about">
-            О проекте
+            О нас
           </a>
           <a className="menu-item" href="/departments">
-            Кафедры
+            Личный кабинет
           </a>
           <a className="menu-item" href="/login">
-            Вход
-          </a>
-          <a className="menu-item" href="/sign/up">
             Регистрация
           </a>
+          {/* <a className="menu-item" href="/sign/up">
+            Регистрация
+          </a> */}
         </Menu>
       )}
       <Modal
