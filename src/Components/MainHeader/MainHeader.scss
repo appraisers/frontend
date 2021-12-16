@@ -3,8 +3,6 @@
   grid-template-columns: 1.5fr 1fr;
   grid-auto-columns: minmax(1fr, auto);
   align-items: center;
-  
-
   width: 100%;
   height:100%;
   position: absolute;
@@ -17,20 +15,13 @@
 
 .main-header-background {
   display: flex;
-  // margin-left: 120px;
   margin-right: 5%;
-  // justify-content: left;
   padding: 0 2%;
-
   height: 100%;
-
-  
 }
-
 
 .nav-main-header {
   display: flex;
-  // justify-content: space-between;
   justify-content: right;
   list-style: none;
   align-items: center;
@@ -41,7 +32,6 @@
 .nav-button-main-header {
   text-decoration: none;
   box-shadow: 0px 7px 15px rgba(0, 0, 0, 0.25);
-  
   border-radius: 10px;
   padding: 14px 18px;
   margin-left: 30px;
@@ -53,16 +43,10 @@
   border: 3px solid #CFB389;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
   transition: 0.3s;
-  
-  
-
-
 }
-// наверняка тут что-то не так!
+
 .nav-button-main-header a:hover{
   color: #fff;
- 
-  
 }
 
 .ourMain-icon {
@@ -73,10 +57,7 @@
 .nav-button-main-header a {
   text-decoration: none;
   color: #000000;
-  
   font-weight: 600;
-  //  font-size: 24px;
-  // background-color: #fff;
 }
 
 // .nav-button-main-header a.active-header {

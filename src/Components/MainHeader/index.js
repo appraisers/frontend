@@ -36,12 +36,6 @@ const Header = () => {
                   Регистрация
                 </NavLink>
               </li>
-
-              {/* <li className="round-button-main-header">
-                <NavLink to="/sign/up" activeClassName="active-header">
-                  Регистрация
-                </NavLink>
-              </li> */}
             </ul>
           </div>
         </>
