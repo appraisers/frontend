@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-import appLogo from "../../assets/branding/logo.png";
+import appLogo from "../../assets/branding/logo.svg";
 import useWindowDimensions from "../windowSizeHook/windowSize.js";
 import BurgerMenu from "../BurgerMenu/index.js";
 
@@ -20,7 +20,7 @@ const Header = () => {
           <ul className="nav">
             <li className="nav-button">
               <NavLink to="/about" activeClassName="active-header">
-                О проекте
+                О нас
               </NavLink>
             </li>
 
