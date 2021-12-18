@@ -18,36 +18,34 @@ const BurgerMenu = (props) => {
     <>
       {props.isAuth ? (
         <Menu {...props} disableAutoFocus>
-          <a className="menu-item" href="/about">
+          <a className="menu-item" href="#">
             О проекте
           </a>
-          <a className="menu-item" href="/my/results">
+          <a className="menu-item" href="#">
             Результаты
           </a>
-          <a className="menu-item" href="/departments">
+          <a className="menu-item" href="#">
             Кафедры
           </a>
           <a className="menu-item" href="#" onClick={() => setIsModal(true)}>
             Аккаунт
           </a>
-          <a className="menu-item" href="/my/test">
+          <a className="menu-item" href="#">
             Пройти тестирование
           </a>
         </Menu>
       ) : (
         <Menu {...props}>
-          <a className="menu-item" href="/about">
+          <a className="menu-item" href="#">
             О нас
           </a>
-          <a className="menu-item" href="/departments">
+          <a className="menu-item" href="#">
             Личный кабинет
           </a>
-          <a className="menu-item" href="/login">
+          <a className="menu-item" href="#">
             Регистрация
           </a>
-          {/* <a className="menu-item" href="/sign/up">
-            Регистрация
-          </a> */}
+         
         </Menu>
       )}
       <Modal
