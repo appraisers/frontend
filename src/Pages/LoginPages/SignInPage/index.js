@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
-import { TextField, Button } from "@material-ui/core";
+
 import appLogo from "../../../assets/branding/logo.png";
 import PasswordTextField from "../../../Components/PasswordTextField";
 import SignImage from "../../../Components/SignImage";
 import AlertHelper from "../../../Components/Alert/Alert";
+import InputHelper from "../../../Components/InputHelper";
+import ButtonHelper from "../../../Components/ButtonHelper";
+
 import "./SignInPage.scss";
 
 const SignIn = () => {
@@ -70,7 +73,7 @@ const SignIn = () => {
         <h2 className="header-text">Вход в личный кабинет</h2>
         <div className="sign-in">
           <div className="input-fields">
-            <TextField
+            <InputHelper
               label="Почта"
               className="input"
               variant="outlined"
@@ -96,14 +99,13 @@ const SignIn = () => {
             </div>
           </div>
           <div className="login">
-            <Button
-              className="login-btn"
+            <ButtonHelper
               variant="outlined"
               disabled={checkDisabled}
               onClick={() => loginUser()}
             >
               Вход
-            </Button>
+            </ButtonHelper>
           </div>
         </div>
         <div className="buttons">

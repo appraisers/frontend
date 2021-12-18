@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
-import { TextField, Button } from "@material-ui/core";
 
 import appLogo from "../../../../assets/branding/logo.png";
 import SignImage from "../../../../Components/SignImage";
 import PasswordTextField from "../../../../Components/PasswordTextField";
 import AlertHelper from "../../../../Components/Alert/Alert";
+import InputHelper from "../../../../Components/InputHelper";
+import ButtonHelper from "../../../../Components/ButtonHelper";
 
 import "./SignUpFirstPage.scss";
 
@@ -64,7 +65,7 @@ const SignUpFirstPage = () => {
         </div>
         <p className="header-text-1">Регистрация</p>
         <div className="input-fields-sign-up">
-          <TextField
+          <InputHelper
             InputLabelProps={{
               shrink: true,
               className: "label",
@@ -88,13 +89,12 @@ const SignUpFirstPage = () => {
           />
         </div>
         <div className="sign-up">
-          <Button
-            className="sign-up-btn"
+          <ButtonHelper
             variant="outlined"
             onClick={() => nextPage()}
           >
             Продолжить
-          </Button>
+          </ButtonHelper>
         </div>
         <AlertHelper
           isOpen={openError}

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { TextField, Button } from '@material-ui/core';
 
 import AlertHelper from '../../../../Components/Alert/Alert';
 import BackgroundImage from '../../../../Components/BackgroundImage';
+import ButtonHelper from '../../../../Components/ButtonHelper';
+import InputHelper from '../../../../Components/InputHelper';
+
 import './RestorePasswordSecondPage.scss';
 
 const RestorePasswordSecondPage = () => {
@@ -35,7 +37,7 @@ const RestorePasswordSecondPage = () => {
         <div className="second-password-flexbox">
           <p className="header-text">Восстановление пароля</p>
 
-          <TextField
+          <InputHelper
             InputLabelProps={{
               shrink: true,
               className: 'label'
@@ -49,7 +51,7 @@ const RestorePasswordSecondPage = () => {
             onBlur={checkPassword}
           />
 
-          <TextField
+          <InputHelper
             InputLabelProps={{
               shrink: true,
               className: 'label'
@@ -63,14 +65,14 @@ const RestorePasswordSecondPage = () => {
             onBlur={ checkPassword}
           />
 
-          <Button
+          <ButtonHelper
             className="second-password-btn"
             variant="outlined"
             onClick={() => history.push('/')}
             disabled={openError}
           >
             Восстановить
-          </Button>
+          </ButtonHelper>
 
           <AlertHelper
             isOpen={openError}

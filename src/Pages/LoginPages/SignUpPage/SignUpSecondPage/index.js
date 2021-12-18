@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
-import { TextField, Button } from "@material-ui/core";
 import axios from "axios";
 
 import appLogo from "../../../../assets/branding/logo.png";
 import AlertHelper from "../../../../Components/Alert/Alert";
 import SignImage from "../../../../Components/SignImage";
+import InputHelper from "../../../../Components/InputHelper";
+import ButtonHelper from "../../../../Components/ButtonHelper";
 
 import "./SignUpSecondPage.scss";
 
@@ -63,7 +64,7 @@ const SignUpSecondPage = () => {
         </div>
         <p className="header-text-1">Регистрация</p>
         <div className="input-fields-sign-up-second-page">
-          <TextField
+          <InputHelper
             InputLabelProps={{
               shrink: true,
               className: "label",
@@ -76,7 +77,7 @@ const SignUpSecondPage = () => {
           />
         </div>
         <div className="input-fields-sign-up-second-page">
-          <TextField
+          <InputHelper
             InputLabelProps={{
               shrink: true,
               className: "label",
@@ -89,7 +90,7 @@ const SignUpSecondPage = () => {
           />
         </div>
         <div className="input-fields-sign-up-second-page">
-          <TextField
+          <InputHelper
             InputLabelProps={{
               shrink: true,
               className: "label",
@@ -102,7 +103,7 @@ const SignUpSecondPage = () => {
           />
         </div>
         <div className="input-fields-sign-up-second-page">
-          <TextField
+          <InputHelper
             InputLabelProps={{
               shrink: true,
               className: "label",
@@ -115,13 +116,13 @@ const SignUpSecondPage = () => {
           />
         </div>
         <div className="sign-up-second-page">
-          <Button
+          <ButtonHelper
             className="sign-up-btn-second-page"
             variant="outlined"
             onClick={() => registerUser()}
           >
             Создать аккаунт
-          </Button>
+          </ButtonHelper>
         </div>
         <AlertHelper
           isOpen={openError}
