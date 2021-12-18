@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 import personalIcon from "../../assets/icons/personal-img.png";
-import PasswordInput from "../PasswordTextField";
+import InputPassword from "../InputPassword";
 import InputHelper from "../InputHelper";
 
 import "./PersonalData.scss";
@@ -173,7 +173,7 @@ const PersonalData = ({
         </div>
 
         <div className="span-col-2">
-          <PasswordInput value={password} setValue={setPassword} />
+          <InputPassword value={password} setValue={setPassword} />
         </div>
 
         <div />

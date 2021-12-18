@@ -13,6 +13,7 @@ const RestorePasswordSecondPage = () => {
   const RegexPassword = /(\w|@)+/;
 
   const [password, setPassword] = useState('');
+  const [repeatPassword, setRepeatPassword] = useState('');
   const [openError, setError] = useState(false);
   const [errorText, setErrorText] = useState(false);
   const [alert, setAlert] = useState('');
@@ -38,10 +39,6 @@ const RestorePasswordSecondPage = () => {
           <p className="header-text">Восстановление пароля</p>
 
           <InputHelper
-            InputLabelProps={{
-              shrink: true,
-              className: 'label'
-            }}
             label="Новый пароль"
             type="password"
             className="input"
@@ -52,16 +49,12 @@ const RestorePasswordSecondPage = () => {
           />
 
           <InputHelper
-            InputLabelProps={{
-              shrink: true,
-              className: 'label'
-            }}
             label="Повтор пароля"
             type="password"
             className="input"
             variant="outlined"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={repeatPassword}
+            onChange={(e) => setRepeatPassword(e.target.value)}
             onBlur={ checkPassword}
           />
 

@@ -9,9 +9,9 @@ import {
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Visibility from "@material-ui/icons/Visibility";
 
-import "./PasswordTextField.scss";
+import "./InputPassword.scss";
 
-const InputAdornments = ({
+const InputPassword = ({
   checkPassword,
   repeatPasswordError,
   passwordError,
@@ -68,4 +68,4 @@ const InputAdornments = ({
   );
 };
 
-export default InputAdornments;
+export default InputPassword;
