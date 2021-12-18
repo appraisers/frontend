@@ -9,7 +9,7 @@ const AboutPage = () => {
     <>
       {localStorage.getItem("user") ? <AuthorizedHeader /> : <Header />}
       <div className="wrapper-description">
-        <div class="img-description">
+        <div className="img-description">
           <img alt="logo" src={aboutPagePicture} />
         </div>
 

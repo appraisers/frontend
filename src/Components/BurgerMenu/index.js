@@ -18,7 +18,7 @@ const BurgerMenu = (props) => {
     <>
       {props.isAuth ? (
         <Menu {...props} disableAutoFocus>
-          <a className="menu-item" href="#">
+          <a className="menu-item" href="/about">
             О проекте
           </a>
           <a className="menu-item" href="#">
@@ -36,10 +36,10 @@ const BurgerMenu = (props) => {
         </Menu>
       ) : (
         <Menu {...props}>
-          <a className="menu-item" href="#">
+          <a className="menu-item" href="/about">
             О нас
           </a>
-          <a className="menu-item" href="#">
+          <a className="menu-item" href="/my">
             Личный кабинет
           </a>
           <a className="menu-item" href="#">
