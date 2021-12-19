@@ -21,33 +21,31 @@ const BurgerMenu = (props) => {
           <a className="menu-item" href="/about">
             О проекте
           </a>
-          <a className="menu-item" href="/my/results">
+          <a className="menu-item" href="#">
             Результаты
           </a>
-          <a className="menu-item" href="/departments">
+          <a className="menu-item" href="#">
             Кафедры
           </a>
           <a className="menu-item" href="#" onClick={() => setIsModal(true)}>
             Аккаунт
           </a>
-          <a className="menu-item" href="/my/test">
+          <a className="menu-item" href="#">
             Пройти тестирование
           </a>
         </Menu>
       ) : (
         <Menu {...props}>
           <a className="menu-item" href="/about">
-            О проекте
+            О нас
           </a>
-          <a className="menu-item" href="/departments">
-            Кафедры
+          <a className="menu-item" href="/my">
+            Личный кабинет
           </a>
-          <a className="menu-item" href="/login">
-            Вход
-          </a>
-          <a className="menu-item" href="/sign/up">
+          <a className="menu-item" href="#">
             Регистрация
           </a>
+         
         </Menu>
       )}
       <Modal

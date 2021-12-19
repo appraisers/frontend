@@ -1,3 +1,4 @@
+<<<<<<< HEAD:src/Pages/HomePage/HomePage.js
 import { NavLink } from "react-router-dom";
 import Lottie from "lottie-react-web";
 
@@ -41,3 +42,31 @@ const HomePage = () => {
 };
 
 export default HomePage;
+=======
+import Header from "../../Components/MainHeader";
+import BackgroundImage from "../../Components/BackgroundImage";
+
+import "./HomePage.scss";
+
+const HomePage = () => {
+  return (
+
+    <>
+      <Header />
+
+      <BackgroundImage />
+
+      <div className="wrapper-main">
+        <div className="wrapper-left">
+          <span className="greeting-main">Собирайте обратную связь в формате опроса по методу «360 градусов»</span>
+          <p className="description-main">
+             Профессиональные качества сотрудника оценивают все, с кем он работает: от подчиненных до руководителей
+          </p>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default HomePage;
+>>>>>>> de70b33aac734e91ef425bd35f1df99f31e0d751:src/Pages/HomePage/index.js

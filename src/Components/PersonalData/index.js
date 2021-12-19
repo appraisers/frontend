@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import { TextField } from "@material-ui/core";
 
 import personalIcon from "../../assets/icons/personal-img.png";
-import PasswordInput from "../PasswordTextField";
+import InputPassword from "../InputPassword";
+import InputHelper from "../InputHelper";
 
 import "./PersonalData.scss";
 
@@ -108,7 +108,7 @@ const PersonalData = ({
         </div>
 
         <div>
-          <TextField
+          <InputHelper
             label="Имя"
             className="personal-input"
             variant="outlined"
@@ -121,7 +121,7 @@ const PersonalData = ({
         </div>
 
         <div>
-          <TextField
+          <InputHelper
             label="Фамилия"
             className="personal-input"
             variant="outlined"
@@ -134,7 +134,7 @@ const PersonalData = ({
         </div>
 
         <div className="span-col-2">
-          <TextField
+          <InputHelper
             label="Отчество(необязательно)"
             className="personal-input"
             variant="outlined"
@@ -147,7 +147,7 @@ const PersonalData = ({
         </div>
 
         <div className="span-col-2">
-          <TextField
+          <InputHelper
             label="ВУЗ"
             className="personal-input"
             variant="outlined"
@@ -160,7 +160,7 @@ const PersonalData = ({
         </div>
 
         <div className="span-col-2">
-          <TextField
+          <InputHelper
             label="Почта"
             className="personal-input"
             variant="outlined"
@@ -173,7 +173,7 @@ const PersonalData = ({
         </div>
 
         <div className="span-col-2">
-          <PasswordInput value={password} setValue={setPassword} />
+          <InputPassword value={password} setValue={setPassword} />
         </div>
 
         <div />

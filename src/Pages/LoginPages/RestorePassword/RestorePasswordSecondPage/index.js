@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { TextField, Button } from '@material-ui/core';
 
 import AlertHelper from '../../../../Components/Alert/Alert';
 import BackgroundImage from '../../../../Components/BackgroundImage';
+import ButtonHelper from '../../../../Components/ButtonHelper';
+import InputHelper from '../../../../Components/InputHelper';
+
 import './RestorePasswordSecondPage.scss';
 
 const RestorePasswordSecondPage = () => {
@@ -11,6 +13,7 @@ const RestorePasswordSecondPage = () => {
   const RegexPassword = /(\w|@)+/;
 
   const [password, setPassword] = useState('');
+  const [repeatPassword, setRepeatPassword] = useState('');
   const [openError, setError] = useState(false);
   const [errorText, setErrorText] = useState(false);
   const [alert, setAlert] = useState('');
@@ -34,11 +37,7 @@ const RestorePasswordSecondPage = () => {
         <div className="second-password-flexbox">
           <p className="header-text">Восстановление пароля</p>
 
-          <TextField
-            InputLabelProps={{
-              shrink: true,
-              className: 'label'
-            }}
+          <InputHelper
             label="Новый пароль"
             type="password"
             className="input"
@@ -48,28 +47,24 @@ const RestorePasswordSecondPage = () => {
             onBlur={checkPassword}
           />
 
-          <TextField
-            InputLabelProps={{
-              shrink: true,
-              className: 'label'
-            }}
+          <InputHelper
             label="Повтор пароля"
             type="password"
             className="input"
             variant="outlined"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={repeatPassword}
+            onChange={(e) => setRepeatPassword(e.target.value)}
             onBlur={ checkPassword}
           />
 
-          <Button
+          <ButtonHelper
             className="second-password-btn"
             variant="outlined"
             onClick={() => history.push('/')}
             disabled={openError}
           >
             Восстановить
-          </Button>
+          </ButtonHelper>
 
           <AlertHelper
             isOpen={openError}

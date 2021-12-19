@@ -1,52 +1,40 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
-import appLogo from "../../assets/branding/logo.png";
-import useWindowDimensions from "../windowSizeHook/windowSize.js";
-import BurgerMenu from "../BurgerMenu/index.js";
+import appLogo from '../../assets/branding/logo.png';
+import useWindowDimensions from '../windowSizeHook/windowSize.js';
+import BurgerMenu from '../BurgerMenu/index.js';
 
-import "./MainHeader.scss";
+import './MainHeader.scss';
 
 const Header = () => {
   const { width } = useWindowDimensions();
 
   return (
-    <div className="mainPage-header">
+    <div className="main-header-page">
       {width > 1010 ? (
         <>
           <NavLink to="/">
-            <img className="ourMain-icon" src={appLogo} alt="logo" />
+            <img className="main-header-icon" src={appLogo} alt="logo" />
           </NavLink>
 
-          <div className="main-header-background">
-            <ul className="nav-main-header">
-              <li className="nav-button-main-header">
-                <NavLink to="/about" activeClassName="active-header">
-                  О проекте
-                </NavLink>
-              </li>
+          <div className="main-header-container">
+            <ul className="nav-main-header-ul">
+              <NavLink to="/about" activeClassName="active-header">
+                <li className="nav-button-main-header">О нас</li>
+              </NavLink>
 
-              <li className="nav-button-main-header">
-                <NavLink to="/departments" activeClassName="active-header">
-                  Кафедры
-                </NavLink>
-              </li>
+              <NavLink to="/my" activeClassName="active-header">
+                <li className="nav-button-main-header">Личный кабинет</li>
+              </NavLink>
 
-              <li className="nav-button-main-header">
-                <NavLink to="/login" activeClassName="active-header">
-                  Вход
-                </NavLink>
-              </li>
-
-              <li className="round-button-main-header">
-                <NavLink to="/sign/up" activeClassName="active-header">
-                  Регистрация
-                </NavLink>
-              </li>
+              <NavLink to="#" activeClassName="active-header">
+                <li className="nav-button-main-header">Регистрация</li>
+              </NavLink>
             </ul>
           </div>
         </>
       ) : (
-        <BurgerMenu pageWrapId={"page-wrap"} />
+        <BurgerMenu pageWrapId="page-wrap" />
       )}
     </div>
   );

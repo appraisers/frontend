@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { TextField, Button } from '@material-ui/core';
 
 import AlertHelper from '../../../../Components/Alert/Alert';
 import BackgroundImage from '../../../../Components/BackgroundImage';
+import InputHelper from '../../../../Components/InputHelper';
+import ButtonHelper from '../../../../Components/ButtonHelper';
 
 import './RestorePasswordFirstPage.scss';
 
@@ -36,29 +37,22 @@ const RestorePasswordFirstPage = () => {
         <div className="restore-password-flexbox">
           <p className="header-text">Восстановление пароля</p>
 
-          <TextField
-            InputLabelProps={{
-              shrink: true,
-              className: 'label'
-            }}
+          <InputHelper
             label="Почта"
             type="email"
-            required={true}
-            className="input"
             variant="outlined"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             onBlur={() => checkEmail()}
+            required
           />
 
-          <Button
-            className="restore-password-btn"
-            variant="outlined"
+          <ButtonHelper
             onClick={() => history.push('/forgot_password_2')}
             disabled={openError}
           >
             Продолжить
-          </Button>
+          </ButtonHelper>
 
           <AlertHelper
             isOpen={openError}
