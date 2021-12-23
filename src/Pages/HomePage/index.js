@@ -53,9 +53,9 @@ const HomePage = () => {
               // disabled={openError}
               className="main-button-helper"
             >
-              <p class="entrance">Войти</p>
+              <p className="entrance">Войти</p>
             </ButtonHelper>
-            <p class="restore">Забыли пароль?</p>
+            <p className="restore">Забыли пароль?</p>
             <NavLink to="/forgot_password">
               <span className="link-restore">Восcтановить</span>
             </NavLink>
