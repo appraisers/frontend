@@ -4,14 +4,13 @@
 }
 
 .input-helper .MuiOutlinedInput-notchedOutline {
-  border: 2px black;
   color: #cfb389;
 }
 
 .input-helper .PrivateNotchedOutline-root-1 {
   font-size: 20px;
   background: rgba(255, 255, 255, 0.17);
-  border: 1px solid #000000;
+  border: 1px solid #CFB389;
   box-sizing: border-box;
 }
 
