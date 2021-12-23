@@ -19,11 +19,6 @@
   flex-direction: column;
 }
 
-.wrapper-right {
-  background-color: #e5f8ff;
-  align-items: center;
-}
-
 .lottie-shadow {
   height: 100%;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -52,46 +47,63 @@
   color: #CFB389;
 }
 
-.button {
-  display: inline-block;
-  border-radius: 12px;
-  background-color: #215bfd;
-  border: none;
-  color: #ffffff;
+.loginForm {
+  margin-top: 270px;
+  padding-left: 40px;
+  padding-right: 60px;
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 50px;
+  line-height: 78px;
+  color: #CFB389;
+  margin-bottom: 30px;
   text-align: center;
-  font-size: 25px;
-  padding: 20px;
-  width: 100%;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-  mix-blend-mode: normal;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
-.button span {
-  cursor: pointer;
+.loginForm_ToComeIn{
+  margin-bottom: 50px;
+}
+
+.main-button-helper {
+  font-size: 50px; 
+  transition: 0.3s;
+  width: 400px;
+  height: 80px;
+  padding-left: 120px;
+  padding-right: auto;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  margin-top: 50px;
+  margin-bottom: 5px;
+}
+
+.main-button-helper:hover {
+  color: #cfb389;
+  background: rgba(255, 255, 255, 0.17);
+}
+
+.input-helper .PrivateNotchedOutline-root-1 {
+  font-size: 20px;
+  background: rgba(254, 254, 254, 0.17);
+  border: 1px solid #CFB389;
+  border-radius: 10px;
+}
+
+.restore{
+  font-weight: 400;
+  font-size: 30px;
+  text-align: center;
+  color: #FFFFFF;
   display: inline-block;
-  position: relative;
-  transition: 0.5s;
 }
 
-.button span:after {
-  content: "\00bb";
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.button:hover span {
-  padding-right: 25px;
-}
-
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
+.link_restore{
+  color: #CFB389;
+  display: inline-block;
+  margin-left: 14px;
+  font-size: 30px;
 }
 
 @media screen and (max-width: 1750px) {
@@ -131,6 +143,18 @@
     }
   }
 }
+.main-button-helper{
+  width: 300px;
+  height: 60px;
+  font-size: 40px;
+  padding-left: 90px;
+}
+.restore{
+  font-size: 20px;
+}
+.link_restore{
+  font-size: 20px;
+}
 }
 
 @media screen and (max-width: 850px) {
@@ -151,6 +175,18 @@
       }
     }
   }
+  .main-button-helper{
+    width: 200px;
+    height: 55px;
+    font-size: 30px;
+    padding-left: 55px;
+  }
+  .restore{
+    font-size: 20px;
+  }
+  .link_restore{
+    font-size: 20px;
+  }
 }
 
 @media screen and (max-width: 670px) {
@@ -169,6 +205,22 @@
         margin-left: 10%;
       }
     }
+  }
+  .main-button-helper{
+    width: 200px;
+    height: 55px;
+    font-size: 30px;
+    padding-left: 55px;
+    margin-top: 40px;
+  }
+  .restore{
+    font-size: 15px;
+  }
+  .link_restore{
+    font-size: 15px;
+  }
+  .loginForm{
+    margin-top: 200px;
   }
 }
 
@@ -191,6 +243,26 @@
         margin-left: 17%;
       }
     }
+  }
+  .main-button-helper{
+    width: 150px;
+    height: 50px;
+    font-size: 25px;
+    padding-left: 35px;
+    margin-top: 40px;
+  }
+  .restore{
+    font-size: 15px;
+  }
+  .link_restore{
+    font-size: 15px;
+  }
+  .loginForm{
+    margin-top: 200px;
+  }
+  .loginForm_ToComeIn{
+  font-size: 40px;
+  margin-bottom: 30px;
   }
 }
 
