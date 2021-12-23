@@ -30,7 +30,7 @@ const HomePage = () => {
           </p>
         </div>
         <div className="wrapper-right">
-          <form className="login-form">
+          <div className="login-form">
             <p className="login-form-come-in">Вход</p>
             <InputHelper
               label="Почта"
@@ -59,7 +59,7 @@ const HomePage = () => {
             <NavLink to="/forgot_password">
               <span className="link-restore">Восcтановить</span>
             </NavLink>
-          </form>
+          </div>
         </div>
       </div>
     </>
