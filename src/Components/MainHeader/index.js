@@ -19,11 +19,11 @@ const Header = () => {
 
           <div className="main-header-container">
             <ul className="nav-main-header-ul">
-              <NavLink to="/about" activeClassName="active-header">
+              <NavLink to="#" activeClassName="active-header">
                 <li className="nav-button-main-header">О нас</li>
               </NavLink>
 
-              <NavLink to="/my" activeClassName="active-header">
+              <NavLink to="#" activeClassName="active-header">
                 <li className="nav-button-main-header">Личный кабинет</li>
               </NavLink>
 

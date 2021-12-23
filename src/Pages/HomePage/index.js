@@ -49,7 +49,7 @@ const HomePage = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
             <ButtonHelper
-              onClick={() => history.push('/forgot_password_2')}
+              // onClick={() => history.push('/my')}
               // disabled={openError}
               className="main-button-helper"
             >
