@@ -56,10 +56,9 @@ const HomePage = () => {
               <p class="entrance">Войти</p>
             </ButtonHelper>
             <p class="restore">Забыли пароль?</p>
-            {/* <NavLink to="/forgot_password" activeClassName="link-restore">
-              Восcтановить
-            </NavLink> */}
-            <p class="link-restore"> Восcтановить</p>
+            <NavLink to="/forgot_password">
+              <span className="link-restore">Восcтановить</span>
+            </NavLink>
           </form>
         </div>
       </div>
