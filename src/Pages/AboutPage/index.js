@@ -6,7 +6,7 @@ import "./AboutPage.scss";
 
 const AboutPage = () => {
   return (
-    <>
+    <div>
       {localStorage.getItem("user") ? <AuthorizedHeader /> : <Header />}
       <div className="wrapper-description">
         <div className="img-description">
@@ -26,7 +26,7 @@ const AboutPage = () => {
           </p>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -31,7 +31,7 @@ const RestorePasswordSecondPage = () => {
   };
 
   return (
-    <>
+    <div>
       <BackgroundImage />
 
       <div className="second-password">
@@ -75,7 +75,7 @@ const RestorePasswordSecondPage = () => {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

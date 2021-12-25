@@ -14,7 +14,7 @@ const HomePage = () => {
   const [password, setPassword] = useState('');
 
   return (
-    <>
+    <div>
       <Header />
 
       <BackgroundImage />
@@ -62,7 +62,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
