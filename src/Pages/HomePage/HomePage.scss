@@ -123,15 +123,26 @@
         line-height: 2;
       }
     }
-  }
-  .main-button-helper {
-    font-size: 40px;
-  }
-  .restore {
-    font-size: 20px;
-  }
-  .link-restore {
-    font-size: 20px;
+  
+     .wrapper-right{
+      .login-form{
+        .login-form-come-in{
+          font-size: 40px;
+        }
+        .main-button-helper{
+          width: 60%;
+          .entrance{
+            font-size: 40px;
+           }
+        }
+       .restore {
+        font-size: 20px;
+        }
+       .link-restore {
+       font-size: 20px;
+        }
+     }
+   }
   }
 }
 
@@ -153,18 +164,33 @@
         margin-left: 10%;
       }
     }
-  }
-
-  .main-button-helper {
-    font-size: 30px;
-  }
-
-  .restore {
-    font-size: 20px;
-  }
-
-  .link-restore {
-    font-size: 20px;
+    .wrapper-right{
+      .login-form{
+        .login-form-come-in{
+          font-size: 40px;
+          margin-bottom: 10%;
+        }
+        .main-button-helper{
+          width: 50%;
+          padding-bottom: 4%;
+          padding-top: 4%;
+          margin-top: 10%;
+          .entrance{
+            font-size: 30px;
+           }
+        }
+       .restore {
+        font-size: 18px;
+        height:60px;
+        margin-bottom: 0;
+        }
+       .link-restore {
+         margin-top: 0;
+       font-size: 18px;
+       height:60px;
+        }
+     }
+   }
   }
 }
 
@@ -185,23 +211,33 @@
         margin-left: 10%;
       }
     }
-  }
-
-  .main-button-helper {
-    font-size: 30px;
-    margin-top: 40px;
-  }
-
-  .restore {
-    font-size: 15px;
-  }
-
-  .link-restore {
-    font-size: 15px;
-  }
-
-  .login-form {
-    margin-top: 200px;
+    .wrapper-right{
+      .login-form{
+        .login-form-come-in{
+          font-size: 40px;
+          margin-bottom: 10%;
+        }
+        .main-button-helper{
+          width: 50%;
+          padding-bottom: 4%;
+          padding-top: 4%;
+          margin-top: 10%;
+          .entrance{
+            font-size: 30px;
+           }
+        }
+       .restore {
+        font-size: 15px;
+        height:60px;
+        margin-bottom: 0;
+        }
+       .link-restore {
+         margin-top: 0;
+       font-size: 15px;
+       height:60px;
+        }
+     }
+   }
   }
 }
 
@@ -225,28 +261,34 @@
         margin-left: 17%;
       }
     }
-  }
-
-  .main-button-helper {
-    font-size: 25px;
-    margin-top: 40px;
-  }
-
-  .restore {
-    font-size: 15px;
-  }
-
-  .link-restore {
-    font-size: 15px;
-  }
-
-  .login-form {
-    margin-top: 200px;
-  }
-
-  .login-form-come-in {
-    font-size: 40px;
-    margin-bottom: 30px;
+    .wrapper-right{
+      .login-form{
+        .login-form-come-in{
+          font-size: 30px;
+          margin-bottom: 10%;
+        }
+        .main-button-helper{
+          width: 50%;
+          padding-bottom: 4%;
+          padding-top: 4%;
+          margin-top: 10%;
+          margin-bottom: 0;
+          .entrance{
+            font-size: 20px;
+           }
+        }
+       .restore {
+        font-size: 10px;
+        height:60px;
+        margin-bottom: 0;
+        }
+       .link-restore {
+         margin-top: 0;
+       font-size: 10px;
+       height:60px;
+        }
+     }
+   }
   }
 }
 
@@ -255,5 +297,32 @@
     .wrapper-left {
       width: 90%;
     }
+    .wrapper-right{
+      .login-form{
+        .login-form-come-in{
+          font-size: 30px;
+          margin-bottom: 5%;
+        }
+        .main-button-helper{
+          width: 50%;
+          padding-bottom: 4%;
+          padding-top: 4%;
+          margin-top: 10%;
+          .entrance{
+            font-size: 20px;
+           }
+        }
+       .restore {
+        font-size: 10px;
+        height:60px;
+        margin-bottom: 0;
+        } 
+       .link-restore {
+         margin-top: 0;
+       font-size: 10px;
+       height:60px;
+        }
+     }
+   }
   }
 }
