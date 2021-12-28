@@ -31,13 +31,17 @@ const RestorePasswordSecondPage = () => {
   };
 
   const handleCheckRepeatPassword = () => {
-    if (!repeatPassword.match(RegexPassword)) {
-      setAlert('error');
-      setErrorText(`Пароль может содержать буквы, цифры и @`);
+    if (
+      password.length &&
+      repeatPassword.length &&
+      password === repeatPassword
+    ) {
+      setAlert('success');
+      setErrorText(`Пароли совпадают`);
       setError(true);
     } else {
-      setAlert('success');
-      setErrorText(`Корректый пароль`);
+      setAlert('error');
+      setErrorText(`Пароли не совпадают`);
       setError(true);
     }
   };
@@ -49,10 +53,6 @@ const RestorePasswordSecondPage = () => {
       password === repeatPassword
     ) {
       history.push('/');
-    } else {
-      setAlert('error');
-      setErrorText(`Пароли не совпадают`);
-      setError(true);
     }
   };
 

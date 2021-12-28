@@ -56,7 +56,7 @@ const InputPassword = ({
         type={showPassword ? 'text' : 'password'}
         value={value}
         onChange={(e) => handleChange(e)}
-        onBlur={(e) => onBlur(e)}
+        onBlur={(e) => onBlur?.(e)}
         endAdornment={
           <InputAdornment position="end">
             <IconButton
