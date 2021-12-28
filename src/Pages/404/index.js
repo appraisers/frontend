@@ -7,7 +7,7 @@ import "./404.scss";
 
 const NotFoundPage = () => {
   return (
-    <>
+    <div>
       <div className="main-container-not-found">
         <div className="gif-wrapper">
           <img
@@ -26,7 +26,7 @@ const NotFoundPage = () => {
           </NavLink>
         </p>
       </div>
-    </>
+    </div>
   );
 };
 

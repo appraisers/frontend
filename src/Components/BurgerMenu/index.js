@@ -15,7 +15,7 @@ const BurgerMenu = (props) => {
   const [alert, setAlert] = useState("");
 
   return (
-    <>
+    <div>
       {props.isAuth ? (
         <Menu {...props} disableAutoFocus>
           <a className="menu-item" href="#">
@@ -72,7 +72,7 @@ const BurgerMenu = (props) => {
         alertColor={alert}
         onClose={setError}
       />
-    </>
+    </div>
   );
 };
 
