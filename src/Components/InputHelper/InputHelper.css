@@ -10,9 +10,8 @@
 .input-helper .PrivateNotchedOutline-root-1 {
   font-size: 20px;
   background: rgba(255, 255, 255, 0.17);
-  border: 1px solid #CFB389;
+  border: 1px solid #cfb389;
   box-sizing: border-box;
-  
 }
 
 .input-helper .MuiInputBase-input {
@@ -21,12 +20,10 @@
   height: 1vh;
 }
 
-.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline{
-  border-color:#cfb389 !important;
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #cfb389 !important;
 }
 
-
-.Mui-focused{
+.Mui-focused {
   color: #cfb389 !important;
-  
 }

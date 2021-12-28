@@ -18,7 +18,7 @@ const RestorePasswordSecondPage = () => {
   const [errorText, setErrorText] = useState(false);
   const [alert, setAlert] = useState('');
 
-  const checkPassword = () => {
+  const handleCheckPassword = () => {
     if (!password.match(RegexPassword)) {
       setAlert('error');
       setErrorText(`Пароль может содержать буквы, цифры и @`);
@@ -26,6 +26,32 @@ const RestorePasswordSecondPage = () => {
     } else {
       setAlert('success');
       setErrorText(`Корректый пароль`);
+      setError(true);
+    }
+  };
+
+  const handleCheckRepeatPassword = () => {
+    if (!repeatPassword.match(RegexPassword)) {
+      setAlert('error');
+      setErrorText(`Пароль может содержать буквы, цифры и @`);
+      setError(true);
+    } else {
+      setAlert('success');
+      setErrorText(`Корректый пароль`);
+      setError(true);
+    }
+  };
+
+  const handleSubmit = () => {
+    if (
+      password.length &&
+      repeatPassword.length &&
+      password === repeatPassword
+    ) {
+      history.push('/');
+    } else {
+      setAlert('error');
+      setErrorText(`Пароли не совпадают`);
       setError(true);
     }
   };
@@ -43,7 +69,7 @@ const RestorePasswordSecondPage = () => {
             className="input"
             value={password}
             onChange={setPassword}
-            onBlur={checkPassword}
+            onBlur={handleCheckPassword}
           />
 
           <InputPassword
@@ -51,13 +77,13 @@ const RestorePasswordSecondPage = () => {
             className="input"
             value={repeatPassword}
             onChange={setRepeatPassword}
-            onBlur={checkPassword}
+            onBlur={handleCheckRepeatPassword}
           />
 
           <ButtonHelper
             className="second-password-btn"
             variant="outlined"
-            onClick={() => history.push('/')}
+            onClick={handleSubmit}
             disabled={openError}
           >
             Восстановить

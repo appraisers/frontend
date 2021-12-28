@@ -16,6 +16,7 @@ const InputPassword = ({
   passwordError,
   value,
   onChange,
+  onBlur,
   label = 'Пароль'
 }) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -47,8 +48,6 @@ const InputPassword = ({
           backgroundColor: 'black',
           padding: '0 3px',
           color: '#cfb389',
-          opacity: '0.8'
-          
         }}
       >
         {label}
@@ -57,6 +56,7 @@ const InputPassword = ({
         type={showPassword ? 'text' : 'password'}
         value={value}
         onChange={(e) => handleChange(e)}
+        onBlur={(e) => onBlur(e)}
         endAdornment={
           <InputAdornment position="end">
             <IconButton
