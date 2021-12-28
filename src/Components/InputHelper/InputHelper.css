@@ -12,9 +12,21 @@
   background: rgba(255, 255, 255, 0.17);
   border: 1px solid #CFB389;
   box-sizing: border-box;
+  
 }
 
 .input-helper .MuiInputBase-input {
   color: white;
   width: 30vw;
+  height: 1vh;
+}
+
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline{
+  border-color:#cfb389 !important;
+}
+
+
+.Mui-focused{
+  color: #cfb389 !important;
+  
 }
