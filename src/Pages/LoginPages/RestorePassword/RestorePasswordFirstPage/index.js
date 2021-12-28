@@ -29,6 +29,12 @@ const RestorePasswordFirstPage = () => {
     }
   };
 
+  const handleSubmit = () => {
+    if (email.match(regexpEmail)) {
+      history.push('/forgot_password_2');
+    }
+  };
+
   return (
     <>
       <BackgroundImage />
@@ -47,10 +53,7 @@ const RestorePasswordFirstPage = () => {
             required
           />
 
-          <ButtonHelper
-            onClick={() => history.push('/forgot_password_2')}
-            disabled={openError}
-          >
+          <ButtonHelper onClick={handleSubmit}>
             Продолжить
           </ButtonHelper>
 

@@ -84,7 +84,6 @@ const RestorePasswordSecondPage = () => {
             className="second-password-btn"
             variant="outlined"
             onClick={handleSubmit}
-            disabled={openError}
           >
             Восстановить
           </ButtonHelper>
