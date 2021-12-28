@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import AlertHelper from '../../../../Components/Alert/Alert';
 import BackgroundImage from '../../../../Components/BackgroundImage';
 import ButtonHelper from '../../../../Components/ButtonHelper';
-import InputHelper from '../../../../Components/InputHelper';
+import InputPassword from '../../../../Components/InputPassword';
 
 import './RestorePasswordSecondPage.scss';
 
@@ -38,24 +38,20 @@ const RestorePasswordSecondPage = () => {
         <div className="second-password-flexbox">
           <p className="header-text">Восстановление пароля</p>
 
-          <InputHelper
+          <InputPassword
             label="Новый пароль"
-            type="password"
             className="input"
-            variant="outlined"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={setPassword}
             onBlur={checkPassword}
           />
 
-          <InputHelper
+          <InputPassword
             label="Повтор пароля"
-            type="password"
             className="input"
-            variant="outlined"
             value={repeatPassword}
-            onChange={(e) => setRepeatPassword(e.target.value)}
-            onBlur={ checkPassword}
+            onChange={setRepeatPassword}
+            onBlur={checkPassword}
           />
 
           <ButtonHelper

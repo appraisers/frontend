@@ -1,28 +1,27 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   IconButton,
   OutlinedInput,
   InputAdornment,
   InputLabel,
-  FormControl,
-} from "@material-ui/core";
-import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import Visibility from "@material-ui/icons/Visibility";
+  FormControl
+} from '@material-ui/core';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import Visibility from '@material-ui/icons/Visibility';
 
-import "./InputPassword.scss";
+import './InputPassword.scss';
 
 const InputPassword = ({
-  checkPassword,
   repeatPasswordError,
   passwordError,
   value,
-  setValue,
-  label = "Пароль",
+  onChange,
+  label = 'Пароль'
 }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
-    setValue(e.target.value);
+    onChange(e.target.value);
   };
 
   const handleClickShowPassword = () => {
@@ -37,18 +36,25 @@ const InputPassword = ({
     <FormControl
       variant="outlined"
       className={
-        passwordError || repeatPasswordError ? "input-password-error" : "input"
+        passwordError || repeatPasswordError ? 'input-password-error' : 'input'
       }
     >
       <InputLabel
+        className="input-password-label"
         shrink
         variant="outlined"
-        style={{ backgroundColor: "white", padding: "0 3px", color: "black" }}
+        style={{
+          backgroundColor: 'black',
+          padding: '0 3px',
+          color: '#cfb389',
+          opacity: '0.8'
+          
+        }}
       >
         {label}
       </InputLabel>
       <OutlinedInput
-        type={showPassword ? "text" : "password"}
+        type={showPassword ? 'text' : 'password'}
         value={value}
         onChange={(e) => handleChange(e)}
         endAdornment={
