@@ -6,12 +6,14 @@ import BurgerMenu from '../BurgerMenu/index.js';
 
 import './MainHeader.scss';
 
+const MOBILE_SCREEN_WIDTH = 700;
+
 const Header = () => {
   const { width } = useWindowDimensions();
 
   return (
     <div className="main-header-page">
-      {width > 1010 ? (
+      {width > MOBILE_SCREEN_WIDTH ? (
         <>
           <NavLink to="/">
             <img className="main-header-icon" src={appLogo} alt="logo" />

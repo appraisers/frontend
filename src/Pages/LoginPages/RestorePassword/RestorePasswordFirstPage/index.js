@@ -36,7 +36,7 @@ const RestorePasswordFirstPage = () => {
   };
 
   return (
-    <>
+    <div>
       <BackgroundImage />
 
       <div className="restore-password">
@@ -65,7 +65,7 @@ const RestorePasswordFirstPage = () => {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
