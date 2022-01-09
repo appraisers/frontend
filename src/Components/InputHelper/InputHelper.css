@@ -7,6 +7,10 @@
   color: #cfb389;
 }
 
+.input-helper:hover .MuiOutlinedInput-notchedOutline {
+  border: 2px solid #cfb389 !important;
+}
+
 .input-helper .PrivateNotchedOutline-root-1 {
   font-size: 20px;
   background: rgba(255, 255, 255, 0.17);
