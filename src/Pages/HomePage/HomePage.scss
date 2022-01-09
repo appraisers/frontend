@@ -16,7 +16,7 @@
     line-height: 45px;
     width: 50%;
     padding-left: 2%;
-    margin-top: 10%; 
+    margin-top: 10%;
 
     .greeting-main {
       padding-left: 2vw;
@@ -56,11 +56,17 @@
         display: inline-block;
       }
 
-      .link-restore {
-        color: #cfb389;
-        display: inline-block;
-        margin-left: 14px;
-        font-size: 30px;
+      .restore-link {
+        .link-restore {
+          color: #cfb389;
+          display: inline-block;
+          margin-left: 14px;
+          font-size: 30px;
+        }
+
+        :hover {
+          text-decoration: underline;
+        }
       }
 
       .main-button-helper {

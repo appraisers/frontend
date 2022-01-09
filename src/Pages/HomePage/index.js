@@ -56,7 +56,7 @@ const HomePage = () => {
               <p className="entrance">Войти</p>
             </ButtonHelper>
             <p className="restore">Забыли пароль?</p>
-            <NavLink to="/forgot_password">
+            <NavLink to="/forgot_password" className="restore-link">
               <span className="link-restore">Восcтановить</span>
             </NavLink>
           </div>
