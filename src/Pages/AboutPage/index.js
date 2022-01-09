@@ -1,13 +1,12 @@
 import aboutPagePicture from "../../assets/illustrations/aboutPagePicture.png";
-import Header from "../../Components/Header";
-import AuthorizedHeader from "../../Components/AuthorizedHeader";
+import MainHeader from "../../Components/MainHeader";
 
 import "./AboutPage.scss";
 
 const AboutPage = () => {
   return (
     <div>
-      {localStorage.getItem("user") ? <AuthorizedHeader /> : <Header />}
+      <MainHeader />
       <div className="wrapper-description">
         <div className="img-description">
           <img alt="logo" src={aboutPagePicture} />

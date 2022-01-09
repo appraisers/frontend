@@ -24,10 +24,10 @@ const HomePage = () => {
           <span className="greeting-main">
             Собирайте обратную связь в формате опроса по методу «360 градусов»
           </span>
-          <p className="description-main">
+          <span className="description-main">
             Профессиональные качества сотрудника оценивают все, с кем он
             работает: от подчиненных до руководителей
-          </p>
+          </span>
         </div>
         <div className="wrapper-right">
           <div className="login-form">

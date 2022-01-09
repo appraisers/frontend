@@ -1,37 +1,28 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { useState } from "react";
-import { slide as Menu } from "react-burger-menu";
-import { Backdrop, Modal } from "@material-ui/core";
+import { useState } from 'react';
+import { slide as Menu } from 'react-burger-menu';
+import { Backdrop, Modal } from '@material-ui/core';
 
-import Account from "../PersonalData";
-import AlertHelper from "../Alert/Alert";
+import Account from '../PersonalData';
+import AlertHelper from '../Alert/Alert';
 
-import "./Burger.scss";
+import './Burger.scss';
 
 const BurgerMenu = (props) => {
   const [isModal, setIsModal] = useState(false);
   const [openError, setError] = useState(false);
   const [errorText, setErrorText] = useState(false);
-  const [alert, setAlert] = useState("");
+  const [alert, setAlert] = useState('');
 
   return (
     <div>
       {props.isAuth ? (
         <Menu {...props} disableAutoFocus>
           <a className="menu-item" href="#">
-            О проекте
+            О нас
           </a>
           <a className="menu-item" href="#">
-            Результаты
-          </a>
-          <a className="menu-item" href="#">
-            Кафедры
-          </a>
-          <a className="menu-item" href="#" onClick={() => setIsModal(true)}>
-            Аккаунт
-          </a>
-          <a className="menu-item" href="#">
-            Пройти тестирование
+            Личный кабинет
           </a>
         </Menu>
       ) : (
@@ -42,10 +33,6 @@ const BurgerMenu = (props) => {
           <a className="menu-item" href="#">
             Личный кабинет
           </a>
-          <a className="menu-item" href="#">
-            Регистрация
-          </a>
-         
         </Menu>
       )}
       <Modal
@@ -55,7 +42,7 @@ const BurgerMenu = (props) => {
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
-          timeout: 1000,
+          timeout: 1000
         }}
       >
         <Account

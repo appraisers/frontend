@@ -17,14 +17,15 @@
     position: absolute;
     top: 0;
     right: 0;
+    display: flex;
+    justify-content: right;
+    width: 70%;
 
     .nav-main-header-ul {
       display: flex;
-      justify-content: right;
       list-style: none;
       align-items: center;
       text-align: center;
-      width: 100%;
       padding: 2%;
 
       a {

@@ -28,10 +28,6 @@ const Header = () => {
               <NavLink to="#" activeClassName="active-header">
                 <li className="nav-button-main-header">Личный кабинет</li>
               </NavLink>
-
-              <NavLink to="#" activeClassName="active-header">
-                <li className="nav-button-main-header">Регистрация</li>
-              </NavLink>
             </ul>
           </div>
         </>
