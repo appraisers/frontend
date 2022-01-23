@@ -1,10 +1,8 @@
-# Compiled binary addons (https://nodejs.org/api/addons.html)
-build/Release
-
 # Dependency directories
 node_modules/
 jspm_packages/
 .idea
+.vs/
 
 # Optional npm cache directory
 .npm
@@ -15,9 +13,5 @@ jspm_packages/
 # dotenv environment variables file
 .env
 .env.local
-
-.vs/
-files/
-frontend/
 
 build/
