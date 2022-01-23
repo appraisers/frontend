@@ -27,16 +27,7 @@ const HomePage = () => {
           password
         }
       );
-      console.log(res);
-      if (
-        res &&
-        res.data &&
-        res.data.statusCode &&
-        res.data.statusCode === 200
-      ) {
-        localStorage.clear();
-        localStorage.setItem('user', JSON.stringify(res.data.data));
-        localStorage.setItem('email', res.data.data?.email);
+      if (res.data?.statusCode === 200) {
         history.push('/my');
       }
     } catch (e) {
@@ -81,13 +72,8 @@ const HomePage = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <ButtonHelper
-              onClick={loginUser}
-              className="main-button-helper"
-            >
-              <p className="entrance">
-                Войти
-              </p>
+            <ButtonHelper onClick={loginUser} className="main-button-helper">
+              <p className="entrance">Войти</p>
             </ButtonHelper>
             <p className="restore">Забыли пароль?</p>
             <NavLink to="/forgot_password" className="restore-link">
