@@ -3,10 +3,10 @@ import { Switch, Route } from "react-router-dom";
 
 import RestorePassword from './Pages/RestorePassword/RestorePasswordFirstPage';
 import SecondPasswordPage from "./Pages/RestorePassword/RestorePasswordSecondPage";
-
 import Main from './Pages/HomePage';
 import About from './Pages/AboutPage';
 import PageNotFound from "./Pages/404";
+import AccountPage from './Pages/AccountPage';
 
 const App = () => {
     return (
@@ -16,6 +16,7 @@ const App = () => {
                 <Route path="/forgot_password" component={RestorePassword} />
                 <Route path="/forgot_password_2" component={SecondPasswordPage} />
                 <Route path='/about' component={About} />
+                <Route path='/my' component={AccountPage} />
                 <Route component={PageNotFound} />
             </Switch>
         </div>
