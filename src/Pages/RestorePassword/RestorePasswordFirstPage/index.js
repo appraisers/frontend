@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import AlertHelper from '../../../../Components/Alert/Alert';
-import BackgroundImage from '../../../../Components/BackgroundImage';
-import InputHelper from '../../../../Components/InputHelper';
-import ButtonHelper from '../../../../Components/ButtonHelper';
+import AlertHelper from '../../../Components/Alert/Alert';
+import BackgroundImage from '../../../Components/BackgroundImage';
+import InputHelper from '../../../Components/InputHelper';
+import ButtonHelper from '../../../Components/ButtonHelper';
 
 import './RestorePasswordFirstPage.scss';
 

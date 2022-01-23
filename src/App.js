@@ -1,8 +1,8 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
-import RestorePassword from './Pages/LoginPages/RestorePassword/RestorePasswordFirstPage';
-import SecondPasswordPage from "./Pages/LoginPages/RestorePassword/RestorePasswordSecondPage";
+import RestorePassword from './Pages/RestorePassword/RestorePasswordFirstPage';
+import SecondPasswordPage from "./Pages/RestorePassword/RestorePasswordSecondPage";
 
 import Main from './Pages/HomePage';
 import About from './Pages/AboutPage';
