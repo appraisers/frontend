@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useHistory, NavLink } from 'react-router-dom';
+import axios from 'axios';
 
 import Header from '../../Components/MainHeader';
 import BackgroundImage from '../../Components/BackgroundImage';
 import InputHelper from '../../Components/InputHelper';
 import ButtonHelper from '../../Components/ButtonHelper';
+import AlertHelper from '../../Components/Alert';
 
 import './HomePage.scss';
 
@@ -12,6 +14,37 @@ const HomePage = () => {
   const history = useHistory();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [openError, setError] = useState(false);
+  const [errorText, setErrorText] = useState(false);
+  const [alert, setAlert] = useState('');
+
+  const loginUser = async () => {
+    try {
+      const res = await axios.post(
+        `${process.env.REACT_APP_SERVER_ENDPOINT}/auth/login`,
+        {
+          email,
+          password
+        }
+      );
+      console.log(res);
+      if (
+        res &&
+        res.data &&
+        res.data.statusCode &&
+        res.data.statusCode === 200
+      ) {
+        localStorage.clear();
+        localStorage.setItem('user', JSON.stringify(res.data.data));
+        localStorage.setItem('email', res.data.data?.email);
+        history.push('/my');
+      }
+    } catch (e) {
+      setAlert('warning');
+      setErrorText('Неправильный E-mail или пароль');
+      setError(true);
+    }
+  };
 
   return (
     <div>
@@ -49,11 +82,12 @@ const HomePage = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
             <ButtonHelper
-              // onClick={() => history.push('/my')}
-              // disabled={openError}
+              onClick={loginUser}
               className="main-button-helper"
             >
-              <p className="entrance">Войти</p>
+              <p className="entrance">
+                Войти
+              </p>
             </ButtonHelper>
             <p className="restore">Забыли пароль?</p>
             <NavLink to="/forgot_password" className="restore-link">
@@ -62,6 +96,13 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+
+      <AlertHelper
+        isOpen={openError}
+        text={errorText}
+        alertColor={alert}
+        onClose={setError}
+      />
     </div>
   );
 };
