@@ -15,4 +15,4 @@ jobs:
           npm install --legacy-peer-deps
       - name: npm build
         run: |
-          npm build
+          build
