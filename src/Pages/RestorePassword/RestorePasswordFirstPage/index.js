@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 import AlertHelper from '../../../Components/Alert';
 import BackgroundImage from '../../../Components/BackgroundImage';
@@ -29,9 +30,30 @@ const RestorePasswordFirstPage = () => {
     }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (email.match(regexpEmail)) {
-      history.push('/forgot_password_2');
+      try {
+        const res = await axios.post(
+          `${process.env.REACT_APP_SERVER_ENDPOINT}/auth/forgot_password`,
+          {
+            email
+          }
+        );
+        if (res.data?.statusCode === 200) {
+          setAlert('success');
+          setErrorText(`Письмо на восстановление успешно отправлено`);
+          setError(true);
+          window.setTimeout(() => history.push('/'), 3000);
+        } else {
+          setAlert('warning');
+          setErrorText('Пользователь с такой почтой не найден');
+          setError(true);
+        }
+      } catch (e) {
+        setAlert('warning');
+        setErrorText('Внутренняя ошибка сервера');
+        setError(true);
+      }
     }
   };
 

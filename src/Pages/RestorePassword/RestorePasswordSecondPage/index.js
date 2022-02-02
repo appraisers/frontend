@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 import AlertHelper from '../../../Components/Alert';
 import BackgroundImage from '../../../Components/BackgroundImage';
@@ -11,6 +12,7 @@ import './RestorePasswordSecondPage.scss';
 const RestorePasswordSecondPage = () => {
   const history = useHistory();
   const RegexPassword = /(\w|@)+/;
+  const token = window.location.pathname.split('/')?.[2];
 
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
@@ -46,15 +48,41 @@ const RestorePasswordSecondPage = () => {
     }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (
       password.length &&
       repeatPassword.length &&
       password === repeatPassword
     ) {
-      history.push('/');
+      try {
+        const res = await axios.post(
+          `${process.env.REACT_APP_SERVER_ENDPOINT}/auth/reset_password`,
+          {
+            password,
+            forgotPasswordToken: token
+          }
+        );
+        if (res.data?.statusCode === 200) {
+          setAlert('success');
+          setErrorText(`Пароль успешно обновлен`);
+          setError(true);
+          window.setTimeout(() => history.push('/'), 3000);
+        } else {
+          setAlert('warning');
+          setErrorText('Ошибка обновления пароля');
+          setError(true);
+        }
+      } catch (e) {
+        setAlert('warning');
+        setErrorText('Внутренняя ошибка сервера');
+        setError(true);
+      }
     }
   };
+
+  if (!token) {
+    history.push('/');
+  }
 
   return (
     <div>
