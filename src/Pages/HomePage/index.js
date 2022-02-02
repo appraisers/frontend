@@ -79,6 +79,12 @@ const HomePage = () => {
             <NavLink to="/forgot_password" className="restore-link">
               <span className="link-restore">Восcтановить</span>
             </NavLink>
+
+            {/* temp for testing */}
+              <NavLink to="/survey" className="restore-link">
+                <span className="link-restore">test</span>
+              </NavLink>
+
           </div>
         </div>
       </div>
