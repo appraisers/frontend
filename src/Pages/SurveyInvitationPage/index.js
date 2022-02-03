@@ -1,16 +1,14 @@
 import { NavLink } from 'react-router-dom';
-
-import './SurveyInvitationPage.scss';
 import profileImage from '../../assets/images/profile-img.jpg';
 import logoRight from '../../assets/images/logo.svg';
+import './SurveyInvitationPage.scss';
 
 const SurveyInvitationPage = () => {
-
   const name = "Name surname";
   const post = "Test post";
   const organization = "Test organization";
   return (
-    <div>
+    <div className='body'>
       <div className="header">
         <span className="logo">
           <img src={logoRight} className="logo-left" alt="logo" />

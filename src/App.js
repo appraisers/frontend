@@ -8,7 +8,6 @@ import About from './Pages/AboutPage';
 import PageNotFound from "./Pages/404";
 import AccountPage from './Pages/AccountPage';
 
-// temp
 import SurveyInvitationPage from "./Pages/SurveyInvitationPage";
 
 const App = () => {
@@ -20,8 +19,7 @@ const App = () => {
                 <Route path="/forgot_password_2" component={SecondPasswordPage} />
                 <Route path='/about' component={About} />
                 <Route path='/my' component={AccountPage} />
-                {/* temp */}
-                <Route path="/survey" component={SurveyInvitationPage} />
+                <Route path="/appraise-invite" component={SurveyInvitationPage} />
                 <Route component={PageNotFound} />
                 
             </Switch>
