@@ -7,8 +7,8 @@ import Main from './Pages/HomePage';
 import About from './Pages/AboutPage';
 import PageNotFound from "./Pages/404";
 import AccountPage from './Pages/AccountPage';
-
 import SurveyInvitationPage from "./Pages/SurveyInvitationPage";
+import SurveyPage from "./Pages/SurveyPage";
 
 const App = () => {
     return (
@@ -20,6 +20,7 @@ const App = () => {
                 <Route path='/about' component={About} />
                 <Route path='/my' component={AccountPage} />
                 <Route path="/appraise-invite" component={SurveyInvitationPage} />
+                <Route path='/survey' component={SurveyPage} />
                 <Route component={PageNotFound} />
                 
             </Switch>

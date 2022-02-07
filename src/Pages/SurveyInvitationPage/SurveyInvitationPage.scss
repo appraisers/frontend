@@ -1,245 +1,116 @@
-.body {
-  height: 100vh;
+.survey-invite-body {
   width: 100vw;
   margin: 0;
   padding: 0;
+  position:fixed;
 
-  .header {
+  .survey-invite-header {
     display: flex;
     justify-content: space-between;
     width: 100vw;
-    height: 10%;
+    height: 80px;
     background-color: black;
-    box-sizing: border-box;
-    padding: 0.4rem 1.5rem;
 
-    .logo {
-      padding: 0.2rem 0;
+    .survey-invite-logo {
+      padding: 3px 0;
       text-align: center;
+      
 
-      .logo-left {
-        height: 80%;
+      .survey-invite-logo-left {
+        height: 90%;
       }
 
-      .logo-right {
-        height: 80%;
+      .survey-invite-logo-right {
+        height: 90%;
+        
       }
     }
   }
 
-  .container {
+  .survey-invite-container {
     width: 100vw;
-    height: 80%;
     background: rgba(207, 179, 137, 0.19);
     display: flex;
     flex-direction: column;
-    box-sizing: border-box;
-    padding: 1rem;
+    padding: 5px;
 
-    .profile {
-      width: 300px;
-      height: 450px;
+    .survey-invite-profile {
+      max-width: 60%;
+      height: 60%;
       background: rgba(207, 179, 137, 0.46);
       box-shadow: -5px 7px 15px rgba(0, 0, 0, 0.25);
       border-radius: 40px;
       margin: 5px auto;
       text-align: center;
+      padding: 4px;
 
-      .evaluatee {
-        padding: 5px;
+      .survey-invite-evaluatee {
+        margin: 6px;
       }
 
-      .horizontal-rule {
-        border: 0.2px solid rgba(0, 0, 0, 0.1);
+      .survey-invite-horizontal-rule {
+        border: 0.2px solid rgba(0, 0, 0, 0.2);
       }
 
-      .profile-image {
-        margin-top: 4px;
+      .survey-invite-profile-image {
+        margin: 4px auto;
       }
 
-      .profile-identity {
+      .survey-invite-profile-identity {
         width: 90%;
         margin: 0 auto;
         text-align: left;
 
-        .profile-identity-details {
+        .survey-invite-profile-identity-details {
           list-style-type: none;
 
-          .profile-detail {
+          .survey-invite-profile-detail {
             font-size: 18px;
           }
-          .profile-input {
+          .survey-invite-profile-input {
             font-size: 18px;
             font-weight: 600;
-            padding-left: 10px;
+            margin-left: 10px;
           }
         }
       }
     }
 
-    .description-container {
+    .survey-invite-description-container {
       width: 85%;
-      margin: 0 auto;
+      margin: 4px auto;
 
-      .description-header {
+      .survey-invite-description-header {
         font-size: 24px;
         text-align: left;
         margin: 5px 0;
       }
 
-      .description {
+      .survey-invite-description {
         font-size: 17px;
         text-align: center;
-        line-height: 24px;
+        line-height: 22px;
       }
 
-      .survey-link {
-        .link-to-survey {
+      .survey-invite-survey-link {
+        .survey-invite-link-to-survey {
           color: white;
           background-color: #cfb389;
           box-sizing: border-box;
-          padding: 10px;
+          padding: 2%;
           border-radius: 5px;
           display: block;
-          width: 128px;
+          width: 8rem;
           margin: 4px auto;
         }
 
-        .link-to-survey:hover {
+        .survey-invite-link-to-survey:hover {
           background-color: black;
-          padding: 9px;
           color: #ecd1a9;
         }
 
-        .link-to-survey:active {
+        .survey-invite-link-to-survey:active {
           margin-top: 10px;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 300px) {
-  .body {
-    .container {
-      height: 100vh;
-
-      .profile {
-        width: 250px;
-        background: rgba(207, 179, 137, 0.46);
-        box-shadow: -5px 7px 15px rgba(0, 0, 0, 0.25);
-        border-radius: 40px;
-        margin: 1px auto;
-        text-align: center;
-
-        .evaluatee {
-          padding: 2px;
-        }
-
-        .horizontal-rule {
-          border: 0.2px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .profile-image {
-          display: block;
-          margin: 2px auto;
-        }
-
-        .profile-identity {
-          width: 100%;
-          margin: 0 auto;
-          text-align: left;
-
-          .profile-identity-details {
-            list-style-type: none;
-
-            .profile-detail {
-              font-size: 18px;
-              padding-left: 10px;
-            }
-
-            .profile-input {
-              font-size: 18px;
-              font-weight: 600;
-              padding-left: 20px;
-            }
-          }
-        }
-      }
-
-      .description-container {
-        box-sizing: border-box;
-        padding: 16px 8px;
-        width: 100%;
-
-        .description-header {
-          font-size: 24px;
-          text-align: left;
-          margin: 5px 0;
-        }
-
-        .description {
-          font-size: 17px;
-          text-align: center;
-          line-height: 22px;
-        }
-
-        .survey-link {
-          .link-to-survey {
-            color: white;
-            background-color: #cfb389;
-            box-sizing: border-box;
-            padding: 8px;
-            border-radius: 5px;
-            display: block;
-            width: 128px;
-            margin: 4px auto;
-          }
-
-          .link-to-survey:hover {
-            background-color: black;
-            padding: 9px;
-            color: #ecd1a9;
-          }
-
-          .link-to-survey:active {
-            position: relative;
-            top: 2px;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media screen and (min-width: 541px) {
-  .body {
-    .container {
-      flex-direction: row-reverse;
-      justify-content: space-between;
-      
-
-      .description-container {
-        box-sizing: border-box;
-        padding: 64px 32px;
-        width: 60%;
-
-        .description-header {
-          font-size: 27px;
-          text-align: center;
-          margin: 5px 0;
-        }
-
-        .description {
-          font-size: 17px;
-          text-align: center;
-          line-height: 24px;
-        }
-
-        .survey-link {
-          .link-to-survey {
-            margin: 7px auto;
-          }
         }
       }
     }
@@ -247,129 +118,54 @@
 }
 
 @media screen and (min-width: 700px) {
-  .body {
-    .container {
-      .description-container {
-        padding: 72px 32px;
-        width: 60%;
+  .survey-invite-body {
+    height: 100vh;
 
-        .description-header {
-          font-size: 30px;
-          text-align: left;
-          margin: 5px 0;
-        }
-
-        .description {
-          font-size: 18px;
-          text-align: center;
-          line-height: 24px;
-        }
-
-        .survey-link {
-          .link-to-survey {
-            margin: 7px auto;
-          }
-        }
-      }
+    .survey-invite-header{
+      height: 10%;
     }
-  }
-}
-
-@media screen and (min-width: 900px) {
-  .body {
-    .container {
-      padding: 40px;
-
-      .description-container {
-        padding: 80px 40px;
-        width: 55%;
-      }
-
-      .survey-link {
-        .link-to-survey {
-          margin: 10px auto;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (min-width: 1250px) {
-  .body {
-    .container {
-      padding: 48px;
-
-      .description-container {
-        padding: 48px 24px;
-        width: 55%;
-
-        .description-header {
-          font-size: 33px;
-        }
-        .description {
-          font-size: 20px;
-        }
-
-        .survey-link {
-          .link-to-survey {
-            margin: 15px auto;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media screen and (min-width: 767px) and (min-height: 1023px) {
-  .body {
-    .container {
-      flex-direction: column;
+    .survey-invite-container {
+      flex-direction: row-reverse;
       justify-content: space-evenly;
+      height: 80%;
 
-      .description-container {
-        height: 30rem;
-        width: 100%;
+      .survey-invite-profile {
+        width: 30%;
+        height: 75%;
+        margin: 4%;
+        padding: 2%;
 
-        .description-header {
-          font-size: 30px;
-          text-align: left;
-          margin: 5px 0;
+        .survey-invite-profile-image {
+          margin: 8px auto;
+          height: 45%;
+          width: 90%;
         }
 
-        .description {
-          font-size: 20px;
-          text-align: center;
-          line-height: 24px;
-        }
-
-        .survey-link {
-          .link-to-survey {
-            font-size: 20px;
-            margin: 10px auto;
-            padding: 16px 37px;
-            width: 208px;
+        .survey-invite-profile-identity {
+          .survey-invite-profile-identity-details {
+            .survey-invite-profile-input {
+              font-size: 18px;
+              font-weight: 600;
+              margin-left: 4%;
+            }
           }
         }
       }
-      .profile {
-        width: 350px;
-        height: 500px;
 
-        .profile-image {
-          margin-top: 10px;
+      .survey-invite-description-container {
+        width: 60%;
+        margin: 10%;
+
+        .survey-invite-description {
+          font-size: 19px;
+          line-height: 25px;
         }
 
-        .profile-identity {
-          margin: 10px auto;
-
-          .profile-identity-details {
-            .profile-detail {
-              font-size: 20px;
-            }
-            .profile-input {
-              font-size: 22px;
-              margin-left: 9px;
-            }
+        .survey-invite-survey-link {
+          .survey-invite-link-to-survey {
+            padding: 7px;
+            max-width: 8rem;
+            margin: 3% auto;
           }
         }
       }
