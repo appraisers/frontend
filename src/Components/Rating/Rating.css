@@ -1,0 +1,16 @@
+.rc-rate {
+  font-size: 36px;
+}
+
+.rc-rate-star {
+  color: #aca9a9;
+}
+
+.rc-rate-star-half .rc-rate-star-first,
+.rc-rate-star-full .rc-rate-star-second {
+  color: gold;
+}
+.rc-rate-star-half:hover .rc-rate-star-first,
+.rc-rate-star-full:hover .rc-rate-star-second {
+  color: rgb(231, 199, 18);
+}
