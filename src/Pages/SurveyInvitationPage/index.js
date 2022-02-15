@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
-
 import profileImage from '../../assets/images/profile-img.jpg';
-import logoRight from '../../assets/images/logo.svg';
+import logoLeft from '../../assets/images/logo-left.svg';
+import logoRight from '../../assets/images/logo-right.svg';
 import './SurveyInvitationPage.scss';
 
 const SurveyInvitationPage = () => {
@@ -12,7 +12,7 @@ const SurveyInvitationPage = () => {
     <div className='survey-invite-body'>
       <div className="survey-invite-header">
         <span className="survey-invite-logo">
-          <img src={logoRight} className="survey-invite-logo-left" alt="logo" />
+          <img src={logoLeft} className="survey-invite-logo-left" alt="logo" />
         </span>
         <span className="survey-invite-logo">
           <img src={logoRight} className="survey-invite-logo-right" alt="logo" />

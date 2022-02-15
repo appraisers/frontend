@@ -1,0 +1,14 @@
+<svg width="132" height="79" viewBox="0 0 132 79" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M32.2674 18.1042C32.2674 27.3747 25.283 34.7083 16.8837 34.7083C8.48441 34.7083 1.5 27.3747 1.5 18.1042C1.5 8.83362 8.48441 1.5 16.8837 1.5C25.283 1.5 32.2674 8.83362 32.2674 18.1042Z" stroke="#CFB389" stroke-width="3"/>
+<ellipse cx="16.8837" cy="18.1042" rx="4.60465" ry="4.9375" fill="#CFB389"/>
+<line x1="39.907" y1="14.9583" x2="132" y2="14.9583" stroke="#CFB389" stroke-width="3"/>
+<line x1="39.907" y1="24.8333" x2="113.581" y2="24.8333" stroke="#CFB389" stroke-width="3"/>
+<line x1="39.907" y1="57.75" x2="132" y2="57.75" stroke="#CFB389" stroke-width="3"/>
+<line x1="39.907" y1="67.625" x2="113.581" y2="67.625" stroke="#CFB389" stroke-width="3"/>
+<mask id="path-7-inside-1_397_115" fill="white">
+<rect y="42.7917" width="33.7674" height="36.2083" rx="2"/>
+</mask>
+<rect y="42.7917" width="33.7674" height="36.2083" rx="2" stroke="#CFB389" stroke-width="6" mask="url(#path-7-inside-1_397_115)"/>
+<line y1="-1.5" x2="22.3052" y2="-1.5" transform="matrix(0.634733 -0.772731 0.727008 0.686629 15.3488 69.9026)" stroke="#CFB389" stroke-width="3"/>
+<path d="M6.28418 59.25L15.9349 68.2683" stroke="#CFB389" stroke-width="3"/>
+</svg>
