@@ -79,13 +79,6 @@ const HomePage = () => {
             <NavLink to="/forgot_password" className="restore-link">
               <span className="link-restore">Восcтановить</span>
             </NavLink>
-
-            <NavLink to="/survey" className="restore-link">
-              <span className="link-restore">survey</span>
-            </NavLink>
-            <NavLink to="/appraise-invite" className="restore-link">
-              <span className="link-restore">invite</span>
-            </NavLink>
           </div>
         </div>
       </div>
