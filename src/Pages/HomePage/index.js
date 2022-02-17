@@ -28,6 +28,8 @@ const HomePage = () => {
         }
       );
       if (res.data?.statusCode === 200) {
+        const tokenData = res.data?.authToken;
+        localStorage.setItem('tokenData', tokenData);
         history.push('/my');
       }
     } catch (e) {
