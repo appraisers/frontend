@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-
 import axios from 'axios';
 
 import AlertHelper from '../../Components/Alert';
-import logoRight from '../../assets/images/logo.svg';
+import logoLeft from '../../assets/images/logo-left.svg';
+import logoRight from '../../assets/images/logo-right.svg';
 import StarRating from '../../Components/Rating/index.js';
 import './SurveyPage.scss';
 
@@ -104,7 +104,7 @@ const SurveyPage = () => {
     <div className="survey-body">
       <div className="survey-header">
         <span className="survey-logo">
-          <img src={logoRight} className="survey-logo-left" alt="logo" />
+          <img src={logoLeft} className="survey-logo-left" alt="logo" />
           <span className="question-number">
             Вопрос N<sup className="survey-underline">o</sup> {questionNumber}
           </span>
