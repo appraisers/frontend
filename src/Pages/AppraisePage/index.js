@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import AlertHelper from '../../Components/Alert';
 import logoLeft from '../../assets/images/logo-left.svg';
 import logoRight from '../../assets/images/logo-right.svg';
 import StarRating from '../../Components/Rating/index.js';
-import './SurveyPage.scss';
+import './AppraisePage.scss';
 
 const LIMIT = 4;
 
-const SurveyPage = () => {
+const AppraisePage = () => {
   const history = useHistory();
+  const { userId } = useParams();
   const [answers, setAnswers] = useState([]);
   const [questions, setQuestions] = useState(null);
   const [offset, setOffset] = useState(0);
@@ -32,6 +33,7 @@ const SurveyPage = () => {
         const res = await axios.post(
           `${process.env.REACT_APP_SERVER_ENDPOINT}/review/add_answer`,
           {
+            userId,
             ids: arrayQuestionsIds,
             answers: arrayAnswers
           },
@@ -71,7 +73,7 @@ const SurveyPage = () => {
 
   useEffect(() => {
     getQuestions();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [offset]);
 
   const handleChange = (prev, index, value) => {
@@ -88,7 +90,7 @@ const SurveyPage = () => {
     if (findAnswer.length) {
       const elementIndex = copyPrev.indexOf(findAnswer[0]);
       copyPrev.splice(elementIndex, 1, newObject);
-      
+
       // If cancelled choise
       if (value === 0) {
         copyPrev.splice(elementIndex, 1);
@@ -150,4 +152,4 @@ const SurveyPage = () => {
   );
 };
 
-export default SurveyPage;
+export default AppraisePage;

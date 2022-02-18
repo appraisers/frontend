@@ -7,8 +7,8 @@ import Main from './Pages/HomePage';
 import About from './Pages/AboutPage';
 import PageNotFound from "./Pages/404";
 import AccountPage from './Pages/AccountPage';
-import SurveyInvitationPage from "./Pages/SurveyInvitationPage";
-import SurveyPage from "./Pages/SurveyPage";
+import InviteAppraisePage from "./Pages/InviteAppraisePage";
+import AppraisePage from "./Pages/AppraisePage";
 
 const App = () => {
     return (
@@ -19,10 +19,9 @@ const App = () => {
                 <Route path="/forgot_password_2" component={SecondPasswordPage} />
                 <Route path='/about' component={About} />
                 <Route path='/my' component={AccountPage} />
-                <Route path="/appraise-invite" component={SurveyInvitationPage} />
-                <Route path='/survey' component={SurveyPage} />
-                <Route component={PageNotFound} />
-                
+                <Route path="/invite-appraise/:userId" component={InviteAppraisePage} />
+                <Route path='/appraise/:userId' component={AppraisePage} />
+                <Route component={PageNotFound} />      
             </Switch>
         </div>
     );
