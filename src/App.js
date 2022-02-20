@@ -16,7 +16,7 @@ const App = () => {
             <Switch>
                 <Route path='/' exact component={Main} />
                 <Route path="/forgot_password" component={RestorePassword} />
-                <Route path="/forgot_password_2" component={SecondPasswordPage} />
+                <Route path="/forgot_password_2/:token" component={SecondPasswordPage} />
                 <Route path='/about' component={About} />
                 <Route path='/my' component={AccountPage} />
                 <Route path="/invite-appraise/:userId" component={InviteAppraisePage} />
