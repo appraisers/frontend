@@ -9,6 +9,7 @@ import PageNotFound from "./Pages/404";
 import AccountPage from './Pages/AccountPage';
 import InviteAppraisePage from "./Pages/InviteAppraisePage";
 import AppraisePage from "./Pages/AppraisePage";
+import LastAnswerPage from "./Pages/LastAnswerPage";
 
 const App = () => {
     return (
@@ -21,6 +22,7 @@ const App = () => {
                 <Route path='/my' component={AccountPage} />
                 <Route path="/invite-appraise/:userId" component={InviteAppraisePage} />
                 <Route path='/appraise/:userId' component={AppraisePage} />
+                <Route path='/appraise-description/:userId' component={LastAnswerPage} />
                 <Route component={PageNotFound} />      
             </Switch>
         </div>

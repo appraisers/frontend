@@ -3,7 +3,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import AlertHelper from '../../Components/Alert';
-import SurveyHeader from '../../Components/SurveyHeader';
+import AuthorizedHeader from '../../Components/AuthorizedHeader';
 import StarRating from '../../Components/Rating/index.js';
 import './AppraisePage.scss';
 
@@ -103,7 +103,7 @@ const AppraisePage = () => {
 
   return (
     <div className="survey-body">
-      <SurveyHeader title={`тема  ${questionNumber} из ${questions.length}`} />
+      <AuthorizedHeader title={`тема  ${questionNumber} из ${questions.length}`} />
       <div className="survey-main">
         <div className="survey-questions">
           <h1 className="survey-aspect">{surveyAspect}</h1>

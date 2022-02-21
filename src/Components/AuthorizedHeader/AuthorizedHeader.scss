@@ -8,16 +8,18 @@
   .survey-logo {
     padding: 3px 0;
     text-align: center;
+    padding-top: 2%;
 
     .survey-logo-left {
-      height: 90%;
+      height: 70%;
       margin-left: 25px;
     }
 
     .survey-logo-right {
-      height: 90%;
+      height: 70%;
     }
   }
+
   .question-number {
     color: #cfb389;
     font-size: 24px;
@@ -26,8 +28,3 @@
   }
 }
 
-@media screen and (min-width: 700px) {
-  .survey-header {
-    height: 10%;
-  }
-}

@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import AlertHelper from '../../Components/Alert';
 import profileImage from '../../assets/images/profile-img.jpg';
-import SurveyHeader from '../../Components/SurveyHeader';
+import AuthorizedHeader from '../../Components/AuthorizedHeader';
 import './InviteAppraisePage.scss';
 
 const InviteAppraisePage = () => {
@@ -41,7 +41,7 @@ const InviteAppraisePage = () => {
 
   return (
     <div className="survey-invite-body">
-      <SurveyHeader />
+      <AuthorizedHeader />
       <div className="survey-invite-container">
         <div className="survey-invite-profile">
           <h3 className="survey-invite-evaluatee">Информация оцениваемого</h3>
