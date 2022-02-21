@@ -4,8 +4,7 @@ import axios from 'axios';
 
 import AlertHelper from '../../Components/Alert';
 import profileImage from '../../assets/images/profile-img.jpg';
-import logoLeft from '../../assets/images/logo-left.svg';
-import logoRight from '../../assets/images/logo-right.svg';
+import SurveyHeader from '../../Components/SurveyHeader';
 import './InviteAppraisePage.scss';
 
 const InviteAppraisePage = () => {
@@ -34,26 +33,15 @@ const InviteAppraisePage = () => {
       window.setTimeout(() => history.push('/my'), 2000);
     }
   };
-  
+
   useEffect(() => {
     getUser();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div className="survey-invite-body">
-      <div className="survey-invite-header">
-        <span className="survey-invite-logo">
-          <img src={logoLeft} className="survey-invite-logo-left" alt="logo" />
-        </span>
-        <span className="survey-invite-logo">
-          <img
-            src={logoRight}
-            className="survey-invite-logo-right"
-            alt="logo"
-          />
-        </span>
-      </div>
+      <SurveyHeader />
       <div className="survey-invite-container">
         <div className="survey-invite-profile">
           <h3 className="survey-invite-evaluatee">Информация оцениваемого</h3>
@@ -104,11 +92,11 @@ const InviteAppraisePage = () => {
           </NavLink>
 
           <AlertHelper
-          isOpen={openError}
-          text={errorText}
-          alertColor={alert}
-          onClose={setError}
-        />
+            isOpen={openError}
+            text={errorText}
+            alertColor={alert}
+            onClose={setError}
+          />
         </div>
       </div>
     </div>
