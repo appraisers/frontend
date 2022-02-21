@@ -1,0 +1,33 @@
+.survey-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  height: 10%;
+  background-color: black;
+
+  .survey-logo {
+    padding: 3px 0;
+    text-align: center;
+
+    .survey-logo-left {
+      height: 90%;
+      margin-left: 25px;
+    }
+
+    .survey-logo-right {
+      height: 90%;
+    }
+  }
+  .question-number {
+    color: #cfb389;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .survey-header {
+    height: 10%;
+  }
+}
