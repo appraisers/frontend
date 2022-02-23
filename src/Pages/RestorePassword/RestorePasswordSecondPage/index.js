@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
+import Header from '../../../Components/MainHeader';
 import AlertHelper from '../../../Components/Alert';
 import BackgroundImage from '../../../Components/BackgroundImage';
 import ButtonHelper from '../../../Components/ButtonHelper';
@@ -86,6 +87,8 @@ const RestorePasswordSecondPage = () => {
 
   return (
     <div>
+      <Header />
+      
       <BackgroundImage />
 
       <div className="second-password">

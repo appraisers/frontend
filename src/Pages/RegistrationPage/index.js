@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useHistory, NavLink } from 'react-router-dom';
 import axios from 'axios';
 
-import HeaderLogotype from '../../Components/HeaderLogo';
 import AlertHelper from '../../Components/Alert';
+import Header from '../../Components/MainHeader';
 import BackgroundImage from '../../Components/BackgroundImage';
 import ButtonHelper from '../../Components/ButtonHelper';
 import InputHelper from '../../Components/InputHelper';
@@ -11,7 +11,7 @@ import InputPassword from '../../Components/InputPassword';
 
 import './RegistrationPage.scss';
 
-const RestorePasswordSecondPage = () => {
+const RegistrationPage = () => {
   const history = useHistory();
   const RegexPassword = /(\w|@)+/;
   const token = window.location.pathname.split('/')?.[2];
@@ -90,7 +90,8 @@ const RestorePasswordSecondPage = () => {
 
   return (
     <div>
-      <HeaderLogotype />
+      <Header />
+
       <BackgroundImage />
 
       <div className="registration-main-container">
@@ -146,4 +147,4 @@ const RestorePasswordSecondPage = () => {
   );
 };
 
-export default RestorePasswordSecondPage;
+export default RegistrationPage;

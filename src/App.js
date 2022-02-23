@@ -11,7 +11,6 @@ import AccountPage from './Pages/AccountPage';
 import InviteAppraisePage from "./Pages/InviteAppraisePage";
 import AppraisePage from "./Pages/AppraisePage";
 
-
 const App = () => {
     return (
         <div className="App">
