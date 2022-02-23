@@ -59,20 +59,21 @@ const RestorePasswordSecondPage = () => {
     ) {
       try {
         const res = await axios.post(
-          `${process.env.REACT_APP_SERVER_ENDPOINT}/auth/reset_password`,
+          `${process.env.REACT_APP_SERVER_ENDPOINT}/auth/registration`,
           {
+            fullname,
             password,
-            forgotPasswordToken: token
+            token
           }
         );
         if (res.data?.statusCode === 200) {
           setAlert('success');
-          setErrorText(`Пароль успешно обновлен`);
+          setErrorText(`Пользователь успешно создан`);
           setError(true);
           window.setTimeout(() => history.push('/'), 3000);
         } else {
           setAlert('warning');
-          setErrorText('Ошибка обновления пароля');
+          setErrorText('Ошибка регистрации');
           setError(true);
         }
       } catch (e) {
@@ -82,6 +83,10 @@ const RestorePasswordSecondPage = () => {
       }
     }
   };
+
+  if (!token) {
+    history.push('/');
+  }
 
   return (
     <div>
