@@ -42,7 +42,7 @@ const HomePage = () => {
 
   return (
     <div>
-      <Header />
+      <Header withButton />
 
       <BackgroundImage />
 

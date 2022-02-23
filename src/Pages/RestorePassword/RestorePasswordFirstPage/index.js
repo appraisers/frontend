@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
+import Header from '../../../Components/MainHeader';
 import AlertHelper from '../../../Components/Alert';
 import BackgroundImage from '../../../Components/BackgroundImage';
 import InputHelper from '../../../Components/InputHelper';
@@ -61,6 +62,8 @@ const RestorePasswordFirstPage = () => {
 
   return (
     <div>
+      <Header />
+
       <BackgroundImage />
 
       <div className="restore-password">
