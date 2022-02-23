@@ -8,7 +8,7 @@ import './MainHeader.scss';
 
 const MOBILE_SCREEN_WIDTH = 700;
 
-const Header = () => {
+const Header = ({ withButton }) => {
   const { width } = useWindowDimensions();
 
   return (
@@ -19,17 +19,19 @@ const Header = () => {
             <img className="main-header-icon" src={appLogo} alt="logo" />
           </NavLink>
 
-          <div className="main-header-container">
-            <ul className="nav-main-header-ul">
-              <NavLink to="#" activeClassName="active-header">
-                <li className="nav-button-main-header">О нас</li>
-              </NavLink>
+          {withButton && (
+            <div className="main-header-container">
+              <ul className="nav-main-header-ul">
+                <NavLink to="#" activeClassName="active-header">
+                  <li className="nav-button-main-header">О нас</li>
+                </NavLink>
 
-              <NavLink to="#" activeClassName="active-header">
-                <li className="nav-button-main-header">Личный кабинет</li>
-              </NavLink>
-            </ul>
-          </div>
+                <NavLink to="#" activeClassName="active-header">
+                  <li className="nav-button-main-header">Личный кабинет</li>
+                </NavLink>
+              </ul>
+            </div>
+          )}
         </>
       ) : (
         <BurgerMenu pageWrapId="page-wrap" />
