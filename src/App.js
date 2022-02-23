@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
-import Registration from "./Pages/Registration";
+import Registration from "./Pages/RegistrationPage";
 import RestorePassword from './Pages/RestorePassword/RestorePasswordFirstPage';
 import SecondPasswordPage from "./Pages/RestorePassword/RestorePasswordSecondPage";
 import Main from './Pages/HomePage';
@@ -16,7 +16,6 @@ const App = () => {
     return (
         <div className="App">
             <Switch>
-                <Route path='/registration' component={Registration} />
                 <Route path='/' exact component={Main} />
                 <Route path="/forgot_password" component={RestorePassword} />
                 <Route path="/forgot_password_2" component={SecondPasswordPage} />
@@ -24,6 +23,7 @@ const App = () => {
                 <Route path='/my' component={AccountPage} />
                 <Route path="/invite-appraise/:userId" component={InviteAppraisePage} />
                 <Route path='/appraise/:userId' component={AppraisePage} />
+                <Route path='/registration' component={Registration} />
                 <Route component={PageNotFound} />      
             </Switch>
         </div>
