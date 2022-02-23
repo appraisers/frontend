@@ -19,7 +19,6 @@ const AppraisePage = () => {
   const [errorText, setErrorText] = useState(false);
   const [alert, setAlert] = useState('');
 
-  const questionNumber = 1;
   const surveyAspect = 'Эффективность';
 
   const getQuestions = async () => {
@@ -38,7 +37,7 @@ const AppraisePage = () => {
           },
           {
             headers: {
-              Authorization: localStorage.getItem('tokenData')
+              Authorization: localStorage.getItem('token')
             }
           }
         );
@@ -61,7 +60,7 @@ const AppraisePage = () => {
           setQuestions(res.data.questions);
         }
       } else {
-        history.push('/my');
+        history.push(`/appraise-description/${userId}`);
       }
     } catch (e) {
       setAlert('warning');
@@ -103,7 +102,7 @@ const AppraisePage = () => {
 
   return (
     <div className="survey-body">
-      <AuthorizedHeader title={`тема  ${questionNumber} из ${questions.length}`} />
+      <AuthorizedHeader />
       <div className="survey-main">
         <div className="survey-questions">
           <h1 className="survey-aspect">{surveyAspect}</h1>
