@@ -1,6 +1,6 @@
 import { Backdrop, Modal } from '@material-ui/core';
 
-import './SimpleModal.scss';
+import './SimpleModal.scss'
 
 const SimpleModal = ({ onClose, open, children }) => {
   return (

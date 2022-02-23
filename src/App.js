@@ -11,6 +11,7 @@ import AccountPage from './Pages/AccountPage';
 import InviteAppraisePage from "./Pages/InviteAppraisePage";
 import AppraisePage from "./Pages/AppraisePage";
 import LastAnswerPage from "./Pages/LastAnswerPage";
+import AllUsersPage from "./Pages/AllUsersPage";
 
 const App = () => {
     return (
@@ -25,6 +26,7 @@ const App = () => {
                 <Route path='/appraise/:userId' component={AppraisePage} />
                 <Route path='/appraise-description/:userId' component={LastAnswerPage} />
                 <Route path='/registration' component={Registration} />
+                <Route path='/users' component={AllUsersPage} />
                 <Route component={PageNotFound} />      
             </Switch>
         </div>
