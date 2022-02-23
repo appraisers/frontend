@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import Header from '../../../Components/MainHeader';
@@ -13,7 +13,7 @@ import './RestorePasswordSecondPage.scss';
 const RestorePasswordSecondPage = () => {
   const history = useHistory();
   const RegexPassword = /(\w|@)+/;
-  const token = window.location.pathname.split('/')?.[2];
+  const { token } = useParams();
 
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');

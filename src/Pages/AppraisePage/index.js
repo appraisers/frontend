@@ -3,8 +3,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import AlertHelper from '../../Components/Alert';
-import logoLeft from '../../assets/images/logo-left.svg';
-import logoRight from '../../assets/images/logo-right.svg';
+import AuthorizedHeader from '../../Components/AuthorizedHeader';
 import StarRating from '../../Components/Rating/index.js';
 import './AppraisePage.scss';
 
@@ -104,17 +103,7 @@ const AppraisePage = () => {
 
   return (
     <div className="survey-body">
-      <div className="survey-header">
-        <span className="survey-logo">
-          <img src={logoLeft} className="survey-logo-left" alt="logo" />
-          <span className="question-number">
-            Вопрос N<sup className="survey-underline">o</sup> {questionNumber}
-          </span>
-        </span>
-        <span className="survey-logo">
-          <img src={logoRight} className="survey-logo-right" alt="logo" />
-        </span>
-      </div>
+      <AuthorizedHeader title={`тема  ${questionNumber} из ${questions.length}`} />
       <div className="survey-main">
         <div className="survey-questions">
           <h1 className="survey-aspect">{surveyAspect}</h1>

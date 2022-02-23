@@ -11,7 +11,10 @@ const BurgerMenu = (props) => {
           <a className="menu-item" href="#">
             О нас
           </a>
-          <a className="menu-item" href="#">
+          <a className="menu-item" href="/">
+            Главная страница
+          </a>
+          <a className="menu-item" href="/my">
             Личный кабинет
           </a>
         </Menu>
@@ -20,7 +23,7 @@ const BurgerMenu = (props) => {
           <a className="menu-item" href="#">
             О нас
           </a>
-          <a className="menu-item" href="#">
+          <a className="menu-item" href="/my">
             Личный кабинет
           </a>
         </Menu>

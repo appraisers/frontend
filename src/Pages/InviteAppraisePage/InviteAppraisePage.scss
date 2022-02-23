@@ -2,31 +2,7 @@
   width: 100vw;
   margin: 0;
   padding: 0;
-  position:fixed;
-
-  .survey-invite-header {
-    display: flex;
-    justify-content: space-between;
-    width: 100vw;
-    height: 10%;
-    background-color: black;
-
-    .survey-invite-logo {
-      padding: 3px 0;
-      text-align: center;
-      
-
-      .survey-invite-logo-left {
-        height: 90%;
-        margin-left: 25px;
-      }
-
-      .survey-invite-logo-right {
-        height: 90%;
-        
-      }
-    }
-  }
+  position: fixed;
 
   .survey-invite-container {
     width: 100vw;
@@ -122,9 +98,6 @@
   .survey-invite-body {
     height: 100vh;
 
-    .survey-invite-header{
-      height: 10%;
-    }
     .survey-invite-container {
       flex-direction: row-reverse;
       justify-content: space-evenly;

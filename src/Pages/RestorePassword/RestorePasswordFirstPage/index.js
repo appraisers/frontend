@@ -24,15 +24,17 @@ const RestorePasswordFirstPage = () => {
       setAlert('error');
       setErrorText(`Пример: jsmith@example.com`);
       setError(true);
-    } else {
-      setAlert('success');
-      setErrorText(`Корректый E-mail`);
-      setError(true);
+      return false;
     }
+
+    setAlert('success');
+    setErrorText(`Корректый E-mail`);
+    setError(true);
+    return true;
   };
 
   const handleSubmit = async () => {
-    if (email.match(regexpEmail)) {
+    if (checkEmail(email)) {
       try {
         const res = await axios.post(
           `${process.env.REACT_APP_SERVER_ENDPOINT}/auth/forgot_password`,
@@ -74,13 +76,10 @@ const RestorePasswordFirstPage = () => {
             variant="outlined"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            onBlur={() => checkEmail()}
             required
           />
 
-          <ButtonHelper onClick={handleSubmit}>
-            Продолжить
-          </ButtonHelper>
+          <ButtonHelper onClick={handleSubmit}>Продолжить</ButtonHelper>
 
           <AlertHelper
             isOpen={openError}

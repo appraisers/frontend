@@ -1,0 +1,69 @@
+.last-answer {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: rgba(207, 179, 137, 0.19);
+
+  .last-answer-body {
+    height: 70%;
+    width: 85%;
+    margin: 10%;
+
+    .text-field-span {
+      display: flex;
+      font-weight: medium;
+      color: #000000;
+      font-size: 24px;
+      margin-bottom: 1vw;
+    }
+
+    .MuiInputBase-root {
+      background-color: rgb(255, 255, 255, 0.63);
+    }
+
+    #text-field :focus {
+      color: #000000;
+      background-color: #ffffff;
+    }
+
+    .MuiInputBase-input:focus {
+      color: #000000;
+    }
+
+    .survey-last-answer-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .helper-text-div {
+        .helper-text {
+          display: flex;
+          color: #000000;
+          font-size: 20px;
+        }
+      }
+
+      .survey-last-answer-div {
+        .survey-last-answer-link {
+          .survey-last-answer-text {
+            color: white;
+            background-color: #cfb389;
+            box-sizing: border-box;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            margin: auto;
+          }
+
+          .survey-last-answer-text:hover {
+            background-color: black;
+            color: #ecd1a9;
+          }
+        }
+      }
+    }
+  }
+}
