@@ -21,7 +21,7 @@ const AuthorizedHeader = ({ title }) => {
           </span>
           {title && <span className="question-number">{title}</span>}
           <span className="survey-logo">
-            <NavLink to="/my">
+            <NavLink to="/">
               <img src={logoRight} className="survey-logo-right" alt="logo" />
             </NavLink>
           </span>
