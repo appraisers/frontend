@@ -9,7 +9,7 @@ import SelectHelper from '../SelectHelper';
 
 import './AppraiseModalIcon.scss';
 
-const AppraiseModalIcon = () => {
+const AppraiseModalIcon = ({ userId }) => {
   const [open, setOpen] = useState(false);
   const [openError, setError] = useState(false);
   const [errorText, setErrorText] = useState(false);
@@ -49,7 +49,8 @@ const AppraiseModalIcon = () => {
       const res = await axios.post(
         `${process.env.REACT_APP_SERVER_ENDPOINT}/review/invite_appraise`,
         {
-          email: selectedData
+          email: selectedData,
+          userId
         },
         {
           headers: {
@@ -59,6 +60,7 @@ const AppraiseModalIcon = () => {
       );
       if (res.data?.statusCode === 200) {
         console.log('Приглашение отправлено');
+        setOpen(false);
       }
     } catch (e) {
       setAlert('warning');
@@ -78,6 +80,7 @@ const AppraiseModalIcon = () => {
 
       <SimpleModal open={open} onClose={() => setOpen(false)}>
         <div className="appraise-modal-main-container">
+          <span>Выберите того, кто будет оценивать:</span>
           <SelectHelper
             data={user}
             selectedData={selectedData}
