@@ -80,7 +80,7 @@ const AppraiseModalIcon = ({ userId }) => {
 
       <SimpleModal open={open} onClose={() => setOpen(false)}>
         <div className="appraise-modal-main-container">
-          <span>Выберите того, кто будет оценивать:</span>
+          <span className="appraise-modal-span">Выберите того, кто будет оценивать:</span>
           <SelectHelper
             data={user}
             selectedData={selectedData}
