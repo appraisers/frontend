@@ -25,6 +25,10 @@ const AllUsersPage = () => {
       );
       if (res.data?.statusCode === 200) {
         setUsers(res.data.users);
+      } else {
+        setAlert('warning');
+        setErrorText('Отказано в доступе');
+        setError(true);
       }
     } catch (e) {
       setAlert('warning');

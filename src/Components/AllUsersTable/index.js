@@ -42,11 +42,11 @@ const TableHelper = ({ rows }) => {
         <TableBody>
           {rows.map((row) => (
             <StyledTableRow key={row.id}>
-              <TableCell align="center">{row.fullname}</TableCell>
-              <TableCell align="center">{row.position}</TableCell>
-              <TableCell align="center">{row.rating}</TableCell>
-              <TableCell align="center">{row.numberOfCompletedReviews}</TableCell>
-              <TableCell align="center">{format(new Date(row.updatedReviewAt), 'dd-MM-yyyy HH:MM')}</TableCell>
+              <TableCell align="center">{row.fullname ?? '-'}</TableCell>
+              <TableCell align="center">{row.position ?? '-'}</TableCell>
+              <TableCell align="center">{row.rating ?? '-'}</TableCell>
+              <TableCell align="center">{row.numberOfCompletedReviews ?? '-'}</TableCell>
+              <TableCell align="center">{row.updatedReviewAt? format(new Date(row.updatedReviewAt), 'dd-MM-yyyy HH:MM'): "-"}</TableCell>
               <TableCell align="center">
                 <AppraiseModalIcon userId={row.id} />
               </TableCell>
