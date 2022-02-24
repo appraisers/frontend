@@ -1,4 +1,5 @@
 import React from 'react';
+import { format } from 'date-fns'
 import {
   Table,
   TableBody,
@@ -44,10 +45,10 @@ const TableHelper = ({ rows }) => {
               <TableCell align="center">{row.fullname}</TableCell>
               <TableCell align="center">{row.position}</TableCell>
               <TableCell align="center">{row.rating}</TableCell>
-              <TableCell align="center">{row.id}</TableCell>
-              <TableCell align="center">{row.updatedReviewAt}</TableCell>
+              <TableCell align="center">{row.numberOfCompletedReviews}</TableCell>
+              <TableCell align="center">{format(new Date(row.updatedReviewAt), 'dd-MM-yyyy HH:MM')}</TableCell>
               <TableCell align="center">
-                <AppraiseModalIcon />
+                <AppraiseModalIcon userId={row.id} />
               </TableCell>
             </StyledTableRow>
           ))}
