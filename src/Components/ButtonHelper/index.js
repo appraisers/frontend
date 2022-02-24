@@ -1,9 +1,9 @@
 import './ButtonHelper.css';
 
-const ButtonHelper = ({ onClick, disabled, children }) => {
+const ButtonHelper = ({ className, onClick, disabled, children }) => {
   return (
     <button
-      className="main-button-helper"
+      className={className || "main-button-helper"}
       variant="outlined"
       onClick={onClick}
       disabled={disabled}

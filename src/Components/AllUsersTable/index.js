@@ -44,7 +44,7 @@ const TableHelper = ({ rows }) => {
               <TableCell align="center">{row.fullname}</TableCell>
               <TableCell align="center">{row.position}</TableCell>
               <TableCell align="center">{row.rating}</TableCell>
-              <TableCell align="center">{row.id}</TableCell>
+              <TableCell align="center">{row.numberOfCompletedReviews}</TableCell>
               <TableCell align="center">{row.updatedReviewAt}</TableCell>
               <TableCell align="center">
                 <AppraiseModalIcon />
