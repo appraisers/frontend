@@ -95,7 +95,7 @@ const AppraiseModalIcon = ({ userId }) => {
           </ButtonHelper>
         </div>
       </SimpleModal>
-
+      
       <AlertHelper
         isOpen={openError}
         text={errorText}

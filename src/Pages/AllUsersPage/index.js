@@ -36,6 +36,37 @@ const AllUsersPage = () => {
       setError(true);
     }
   };
+  const toggleUser = async (userId, type) => {
+    try {
+      const res = await axios.post(
+        `${process.env.REACT_APP_SERVER_ENDPOINT}/user/toggle-user`,
+        {
+          userId,
+          type
+        },
+        {
+          headers: {
+            Authorization: localStorage.getItem('token')
+          }
+        }
+      );
+      if (res.data?.statusCode === 200) {
+        if (type === 'delete') {
+          setErrorText('Пользователь удален');
+          setAlert('warning');
+        } else {
+          setErrorText('Пользователь восстановлен');
+          setAlert('success');
+        }
+        setError(true);
+        getAllUsers();
+      }
+    } catch (e) {
+      setAlert('warning');
+      setErrorText('Внутренняя ошибка сервера');
+      setError(true);
+    }
+  };
 
   useEffect(() => {
     getAllUsers();
@@ -46,7 +77,9 @@ const AllUsersPage = () => {
       <AuthorizedHeader title="Список пользователей" />
       <div className="users-body-container">
         <div className="users-table">
-          {users.length > 0 ? <AllUsersTable rows={users} /> : null}
+          {users.length > 0 ? (
+            <AllUsersTable rows={users} toggleUser={toggleUser} />
+          ) : null}
         </div>
 
         <AlertHelper
