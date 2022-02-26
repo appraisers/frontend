@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 import AllUsersTable from '../../Components/AllUsersTable';
@@ -8,6 +9,7 @@ import AuthorizedHeader from '../../Components/AuthorizedHeader';
 import './AllUsersPage.scss';
 
 const AllUsersPage = () => {
+  const history = useHistory();
   const [users, setUsers] = useState([]);
   const [openError, setError] = useState(false);
   const [errorText, setErrorText] = useState(false);
@@ -25,17 +27,21 @@ const AllUsersPage = () => {
       );
       if (res.data?.statusCode === 200) {
         setUsers(res.data.users);
-      } else {
-        setAlert('warning');
-        setErrorText('Отказано в доступе');
-        setError(true);
       }
     } catch (e) {
-      setAlert('warning');
-      setErrorText('Внутренняя ошибка сервера');
-      setError(true);
+      if (String(e).split('code ')?.[1] === '400') {
+        setAlert('warning');
+        setError(true);
+        window.setTimeout(() => history.push('/my'), 2000);
+        setErrorText('Отказано в доступе');
+      } else {
+        setErrorText('Внутренняя ошибка');
+        setAlert('warning');
+        setError(true);
+      }
     }
   };
+
   const toggleUser = async (userId, type) => {
     try {
       const res = await axios.post(
@@ -70,6 +76,7 @@ const AllUsersPage = () => {
 
   useEffect(() => {
     getAllUsers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
