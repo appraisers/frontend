@@ -1,0 +1,134 @@
+.delete-question-main {
+  font-size: 25px;
+  cursor: pointer;
+  margin-left: 5vw;
+  width: 30vw;
+}
+
+.delete-question-div::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+.delete-question-div::-webkit-scrollbar-track {
+  background: rgb(207, 179, 137, 0.6);
+}
+
+.delete-question-div::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 20px;
+}
+
+.delete-question-modal-main-container {
+  color: white;
+  background-color: rgba(207, 179, 137);
+  padding: 1vw;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-height: 60vh;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  text-align: center;
+
+  .delete-question-select-span {
+    display: flex;
+    margin-left: 5vw;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 5vh;
+    align-items: center;
+  }
+
+  .delete-question-span {
+    display: flex;
+    margin-left: 5vw;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 5vh;
+    margin-top: 5vh;
+    align-items: center;
+  }
+
+  .delete-question-select {
+    display: flex;
+    margin-bottom: 5vh;
+    margin-left: 5vw;
+
+    .MuiInputBase-root {
+      width: 50vw;
+    }
+
+    .MuiSelect-select.MuiSelect-select {
+      padding-left: 2vw;
+      text-transform: capitalize;
+    }
+  }
+
+  .delete-question-select-two {
+    display: flex;
+    margin-bottom: 5vh;
+    margin-left: 5vw;
+    width: 70vw;
+    color: black;
+
+    .delete-question-div {
+      outline: 2px solid #cfb389;
+      background-color: #ffffff;
+      border-radius: 10px;
+      width: 100%;
+      overflow-y: scroll;
+      height: 50vh;
+
+      .delete-question-dt {
+        display: flex;
+        padding: 2vw;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 20px;
+      }
+
+      .delete-question-dt:nth-child(odd) {
+        background-color: rgb(255, 255, 255, 0.63);
+      }
+
+      .delete-question-dt:nth-child(even) {
+        background-color: rgb(207, 179, 137, 0.3);
+      }
+
+      .delete-question-div-input {
+        transform: scale(2);
+        color: black;
+      }
+    }
+  }
+
+  .bottom-delete-button-container {
+    .delete-question-button {
+      background: #cfb389;
+      border: 1px solid #000000;
+      box-sizing: border-box;
+      box-shadow: 0px 7px 15px rgba(0, 0, 0, 0.25);
+      border-radius: 5px;
+      font-weight: 500;
+      font-size: 25px;
+      line-height: 30px;
+      color: #ffffff;
+      padding: 1%;
+      cursor: pointer;
+      float: right;
+      margin-right: 10vw;
+    }
+
+    .delete-question-button:hover {
+      padding: 18px 28px;
+      border: 2px solid black;
+      box-shadow: none;
+    }
+
+    .delete-question-button:active {
+      transition: 1ms;
+    }
+  }
+}

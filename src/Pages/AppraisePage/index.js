@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
 
+import { TranslateCategory } from '../../Components/Constants.js';
 import AlertHelper from '../../Components/Alert';
 import AuthorizedHeader from '../../Components/AuthorizedHeader';
-import StarRating from '../../Components/Rating/index.js';
+import StarRating from '../../Components/Rating';
 import './AppraisePage.scss';
 
 const LIMIT = 4;
@@ -14,12 +15,11 @@ const AppraisePage = () => {
   const { userId } = useParams();
   const [answers, setAnswers] = useState([]);
   const [questions, setQuestions] = useState(null);
+  const [categoryQuestions, setCategoryQuestions] = useState('');
   const [offset, setOffset] = useState(0);
   const [openError, setError] = useState(false);
   const [errorText, setErrorText] = useState(false);
   const [alert, setAlert] = useState('');
-
-  const surveyAspect = 'Эффективность';
 
   const getQuestions = async () => {
     let lastAnswer = false;
@@ -58,6 +58,7 @@ const AppraisePage = () => {
           setError('true');
         } else {
           setQuestions(res.data.questions);
+          setCategoryQuestions(res.data.questions?.[0]?.category);
         }
       } else {
         history.push(`/appraise-description/${userId}`);
@@ -68,7 +69,6 @@ const AppraisePage = () => {
       setError(true);
     }
   };
-
   useEffect(() => {
     getQuestions();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -101,16 +101,18 @@ const AppraisePage = () => {
   };
 
   return (
-    <div className="survey-body">
+    <div className="apprise-body">
       <AuthorizedHeader />
-      <div className="survey-main">
-        <div className="survey-questions">
-          <h1 className="survey-aspect">{surveyAspect}</h1>
+      <div className="apprise-main">
+        <div className="apprise-questions">
+          <h1 className="apprise-aspect">
+            {TranslateCategory(categoryQuestions)}
+          </h1>
 
           {questions &&
             questions.map((question) => (
-              <div className="survey-question-container" key={question.id}>
-                <p className="survey-question">{question.description}</p>
+              <div className="apprise-question-container" key={question.id}>
+                <p className="apprise-question">{question.description}</p>
                 <StarRating
                   onChange={(value) => {
                     setAnswers((prev) =>
@@ -123,7 +125,7 @@ const AppraisePage = () => {
         </div>
 
         <span
-          className="survey-link-to-next-question"
+          className="apprise-link-to-next-question"
           onClick={() => setOffset((prev) => prev + LIMIT)}
         >
           Следующий вопрос

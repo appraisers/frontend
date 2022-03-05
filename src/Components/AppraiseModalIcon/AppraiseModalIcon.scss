@@ -17,10 +17,6 @@
   transform: translate(-50%, -50%);
   width: 80%;
   text-align: center;
-  
-  .appraise-modal-span {
-    font-size: 35px;
-  }
 
   .appraise-modal-button {
     background: #cfb389;
@@ -34,5 +30,10 @@
     color: #ffffff;
     padding: 1%;
     cursor: pointer;
+    margin: 5%;
+  }
+
+  .appraise-modal-button:disabled {
+    cursor: not-allowed;
   }
 }

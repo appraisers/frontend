@@ -1,0 +1,156 @@
+.create-question-main {
+  font-size: 25px;
+  cursor: pointer;
+  margin-left: 5vw;
+  width: 30vw;
+}
+
+.create-question-modal-main-container {
+  color: white;
+  background-color: rgba(207, 179, 137);
+  padding: 1vw;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  text-align: center;
+
+  .create-question-select-div-span {
+    display: flex;
+    align-items: center;
+    width: 45vw;
+    height: 10vh;
+
+    .create-question-select-span {
+      display: flex;
+      font-size: 30px;
+    }
+  }
+
+  .create-question-select {
+    display: flex;
+
+    .create-question-select-helper {
+      .MuiInputBase-root {
+        width: 50vw;
+        height: 5vh;
+      }
+
+      .MuiMenu-list {
+        text-transform: capitalize;
+        outline: 0;
+      }
+
+      .MuiSelect-select.MuiSelect-select {
+        padding-left: 2vw;
+      }
+    }
+
+    .create-question-text-field {
+      margin-left: 1vw;
+
+      .MuiFormLabel-root{
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #cfb389;
+        padding: 1%;
+        border-radius: 5px;
+      }
+
+      .input-helper .MuiInputBase-input {
+        color: black;
+        background-color: rgba(255, 255, 255, 0.63);
+        width: 23vw;
+        border-radius: 20px;
+      }
+    }
+  }
+
+  .create-question-textfield-span {
+    display: flex;
+    font-size: 30px;
+    height: 10vh;
+    align-items: flex-end;
+  }
+
+  .create-question-textfield {
+    display: flex;
+    height: 30vh;
+
+    .create-question-textarea {
+      display: flex;
+      border-color: #cfb389;
+      background-color: rgba(255, 255, 255, 0.63);
+      color: black;
+      font-size: 20px;
+      width: 91vw;
+      padding: 1%;
+    }
+  }
+
+  .create-question-button {
+    background: #cfb389;
+    border: 3px solid #cfb389;
+    box-sizing: border-box;
+    box-shadow: 0px 7px 15px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 30px;
+    color: #ffffff;
+    padding: 1%;
+    cursor: pointer;
+    float: right;
+    margin-right: 10vw;
+    margin-top: 5vh;
+  }
+
+  .create-question-button:hover {
+     padding: 18px 28px;
+     border: 2px solid black;
+     box-shadow: none;
+   }
+
+   .create-question-button:active {
+     margin-top: 8px;
+     transition: 1ms;
+   }
+}
+
+@media screen and (max-width: 800px) {
+  .create-question-modal-main-container {
+    .create-question-select-div-span {
+      display: flex;
+      width: 80vw;
+      justify-content: center;
+    }
+
+    .create-question-select {
+      display: flex;
+      flex-direction: column;
+
+      .create-question-select-helper {
+        .MuiInputBase-root {
+          width: 80vw;
+        }
+
+        margin-bottom: 2vh;
+      }
+
+      .create-question-text-field {
+        margin-left: 0;
+
+        .input-helper .MuiInputBase-input {
+          width: 70vw;
+        }
+      }
+    }
+
+    .create-question-textfield-span {
+      display: flex;
+      width: 80vw;
+      justify-content: center;
+    }
+  }
+}

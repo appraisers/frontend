@@ -48,7 +48,6 @@ const LastAnswerPage = () => {
         <span className="text-field-span">Дополните свой отзыв</span>
         <TextField
           onChange={e => setDescription(e.target.value)}
-          multiline
           fullWidth
           rows={20}
           margin="normal"

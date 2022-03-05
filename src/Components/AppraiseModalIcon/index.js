@@ -14,13 +14,13 @@ const AppraiseModalIcon = ({ userId }) => {
   const [openError, setError] = useState(false);
   const [errorText, setErrorText] = useState(false);
   const [alert, setAlert] = useState('');
-  const [user, setUser] = useState([]);
-  const [selectedData, setSelectedData] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [selectedData, setSelectedData] = useState(null);
   const handleChange = (e) => {
-    setSelectedData(e.target.value);
+    setSelectedData(users.find((user) => user.value === e.target.value));
   };
 
-  const userTable = async () => {
+  const getUsersForTable = async () => {
     try {
       const res = await axios.get(
         `${process.env.REACT_APP_SERVER_ENDPOINT}/user/all-invite-users`,
@@ -31,7 +31,11 @@ const AppraiseModalIcon = ({ userId }) => {
         }
       );
       if (res.data?.statusCode === 200) {
-        setUser(res.data?.users);
+        const selectUsersFormat = res.data?.users?.map((user) => ({
+          value: user.email,
+          label: user.fullname
+        }));
+        setUsers(selectUsersFormat);
       }
     } catch (e) {
       setAlert('warning');
@@ -40,16 +44,12 @@ const AppraiseModalIcon = ({ userId }) => {
     }
   };
 
-  useEffect(() => {
-    userTable();
-  }, []);
-
   const inviteReview = async () => {
     try {
       const res = await axios.post(
         `${process.env.REACT_APP_SERVER_ENDPOINT}/review/invite_appraise`,
         {
-          email: selectedData,
+          email: selectedData.value,
           userId
         },
         {
@@ -69,6 +69,10 @@ const AppraiseModalIcon = ({ userId }) => {
     }
   };
 
+  useEffect(() => {
+    getUsersForTable();
+  }, []);
+
   return (
     <div className="appraise-main-container">
       <img
@@ -78,24 +82,31 @@ const AppraiseModalIcon = ({ userId }) => {
         alt="appraise"
       />
 
-      <SimpleModal open={open} onClose={() => setOpen(false)}>
+      <SimpleModal
+        open={open}
+        onClose={() => {
+          setOpen(false);
+          setSelectedData(null);
+        }}
+      >
         <div className="appraise-modal-main-container">
-          <span className="appraise-modal-span">Выберите того, кто будет оценивать:</span>
           <SelectHelper
-            data={user}
+            data={users}
             selectedData={selectedData}
             onChange={handleChange}
+            placeholder="Выберите оцениваемого"
           />
 
           <ButtonHelper
             onClick={inviteReview}
             className="appraise-modal-button"
+            disabled={selectedData == null}
           >
             <p>Сохранить</p>
           </ButtonHelper>
         </div>
       </SimpleModal>
-      
+
       <AlertHelper
         isOpen={openError}
         text={errorText}

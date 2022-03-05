@@ -1,13 +1,22 @@
 .main-select-menu {
   height: 70%;
   width: 55%;
-  margin: 10%;
   background-color: #cfb389;
   border-radius: 10px;
 
   .MuiSelect-select {
-    color: #ffffff;
+    color: black;
     border-radius: 10px;
-    background-color: #cfb389;
+    background-color: rgba(255, 255, 255, 0.63);
   }
+
+  .MuiSelect-select:focus {
+    color: black;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.63);
+  }
+}
+
+.MuiMenu-list {
+  background-color: #cfb389;
 }

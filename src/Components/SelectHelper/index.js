@@ -3,21 +3,26 @@ import { Select, MenuItem } from '@material-ui/core';
 
 import './SelectHelper.scss';
 
-const SelectHelper = ({ data, onChange, selectedData }) => {
+const SelectHelper = ({ data, onChange, selectedData, placeholder }) => {
   return (
     <Select
       className="main-select-menu"
-      value={selectedData}
+      defaultValue={placeholder}
+      value={selectedData == null ? placeholder : selectedData}
       onChange={onChange}
-      placeholder="Выберите оцениваемого"
+      renderValue={() =>
+        selectedData == null ? placeholder : selectedData.label
+      }
+      disableUnderline
     >
       {data?.map((item) => (
         <MenuItem
+          key={item.value}
           className="main-select-menu-item"
-          value={item.email}
+          value={item.value}
           style={{ backgroundColor: '#cfb389', color: 'white ' }}
         >
-          {item.fullname}
+          {item.label}
         </MenuItem>
       ))}
     </Select>
