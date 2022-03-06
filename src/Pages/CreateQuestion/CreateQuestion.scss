@@ -31,6 +31,8 @@
 
   .create-question-select {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
 
     .create-question-select-helper {
       .MuiInputBase-root {
@@ -49,8 +51,6 @@
     }
 
     .create-question-text-field {
-      margin-left: 1vw;
-
       .MuiFormLabel-root{
         background-color: rgba(0, 0, 0, 0.5);
         color: #cfb389;
@@ -62,8 +62,8 @@
         color: black;
         background-color: rgba(255, 255, 255, 0.63);
         width: 23vw;
-        border-radius: 20px;
-      }
+        border-radius: 5px;
+      } 
     }
   }
 
@@ -107,15 +107,15 @@
   }
 
   .create-question-button:hover {
-     padding: 18px 28px;
-     border: 2px solid black;
-     box-shadow: none;
-   }
+    padding: 18px 28px;
+    border: 2px solid black;
+    box-shadow: none;
+  }
 
-   .create-question-button:active {
-     margin-top: 8px;
-     transition: 1ms;
-   }
+  .create-question-button:active {
+    margin-top: 8px;
+    transition: 1ms;
+  }
 }
 
 @media screen and (max-width: 800px) {
