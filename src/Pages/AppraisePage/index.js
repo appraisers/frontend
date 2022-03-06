@@ -9,6 +9,7 @@ import StarRating from '../../Components/Rating';
 import './AppraisePage.scss';
 
 const LIMIT = 4;
+const OFFSET = 0;
 
 const AppraisePage = () => {
   const history = useHistory();
@@ -16,7 +17,7 @@ const AppraisePage = () => {
   const [answers, setAnswers] = useState([]);
   const [questions, setQuestions] = useState(null);
   const [categoryQuestions, setCategoryQuestions] = useState('');
-  const [offset, setOffset] = useState(0);
+  const [offset, setOffset] = useState(OFFSET);
   const [openError, setError] = useState(false);
   const [errorText, setErrorText] = useState(false);
   const [alert, setAlert] = useState('');
@@ -24,6 +25,7 @@ const AppraisePage = () => {
   const getQuestions = async () => {
     let lastAnswer = false;
     try {
+      const user = JSON.parse(localStorage.getItem('user'));
       // If answered post it
       if (answers.length) {
         const arrayAnswers = answers.map((answer) => answer.value);
@@ -33,7 +35,8 @@ const AppraisePage = () => {
           {
             userId,
             ids: arrayQuestionsIds,
-            answers: arrayAnswers
+            answers: arrayAnswers,
+            userPosition: user.position
           },
           {
             headers: {
@@ -50,7 +53,7 @@ const AppraisePage = () => {
       // If not last answer getQuestions
       if (!lastAnswer) {
         const res = await axios.get(
-          `${process.env.REACT_APP_SERVER_ENDPOINT}/question/questions?offset=${offset}&limit=${LIMIT}`
+          `${process.env.REACT_APP_SERVER_ENDPOINT}/question/questions?offset=${offset}&limit=${LIMIT}&position=${user.position}`
         );
         if (res.data?.statusCode !== 200) {
           setAlert('warning');
@@ -124,12 +127,14 @@ const AppraisePage = () => {
             ))}
         </div>
 
-        <span
-          className="apprise-link-to-next-question"
-          onClick={() => setOffset((prev) => prev + LIMIT)}
-        >
-          Следующий вопрос
-        </span>
+        {questions && (
+          <span
+            className="apprise-link-to-next-question"
+            onClick={() => setOffset((prev) => prev + LIMIT)}
+          >
+            Следующий вопрос
+          </span>
+        )}
 
         <AlertHelper
           isOpen={openError}
