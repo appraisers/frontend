@@ -43,6 +43,7 @@
       width: fit-content;
       box-shadow: 0 0 18px 2px rgba(0, 0, 0, 0.3);
       transition: 0.5s;
+      cursor: pointer;
     }
 
     .apprise-link-to-next-question:hover {
@@ -51,11 +52,6 @@
       padding: 18px 28px;
       border: 2px solid #cfb389;
       box-shadow: none;
-    }
-
-    .apprise-link-to-next-question:active {
-      margin-top: 8px;
-      transition: 1ms;
     }
   }
 }

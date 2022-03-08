@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
+import SimpleModal from '../../Components/SimpleModal';
+import ModalPopUp from '../../Components/ModalPopUp';
 
 import { TranslateCategory } from '../../Components/Constants.js';
 import AlertHelper from '../../Components/Alert';
@@ -9,6 +11,7 @@ import StarRating from '../../Components/Rating';
 import './AppraisePage.scss';
 
 const LIMIT = 4;
+let answersLength = 0;
 
 const AppraisePage = () => {
   const history = useHistory();
@@ -20,6 +23,9 @@ const AppraisePage = () => {
   const [openError, setError] = useState(false);
   const [errorText, setErrorText] = useState(false);
   const [alert, setAlert] = useState('');
+  const [modal, setModal] = useState(false);
+  const modalOpen = () => setModal(true);
+  const modalClose = () => setModal(false);
 
   const getQuestions = async () => {
     let lastAnswer = false;
@@ -50,7 +56,7 @@ const AppraisePage = () => {
       // If not last answer getQuestions
       if (!lastAnswer) {
         const res = await axios.get(
-          `${process.env.REACT_APP_SERVER_ENDPOINT}/question/questions?offset=${offset}&limit=${LIMIT}`
+          `${process.env.REACT_APP_SERVER_ENDPOINT}/question/questions?offset=${offset}&limit=${LIMIT}&position=manager`
         );
         if (res.data?.statusCode !== 200) {
           setAlert('warning');
@@ -76,8 +82,10 @@ const AppraisePage = () => {
 
   const handleChange = (prev, index, value) => {
     let copyPrev = [...prev];
+    
 
     const findAnswer = copyPrev.filter((value) => value.id === index);
+    
 
     const newObject = {
       id: index,
@@ -89,7 +97,7 @@ const AppraisePage = () => {
       const elementIndex = copyPrev.indexOf(findAnswer[0]);
       copyPrev.splice(elementIndex, 1, newObject);
 
-      // If cancelled choise
+      // If cancelled choice
       if (value === 0) {
         copyPrev.splice(elementIndex, 1);
       }
@@ -97,7 +105,19 @@ const AppraisePage = () => {
       copyPrev = [...copyPrev, newObject];
     }
 
+    answersLength = copyPrev.length;
     return copyPrev;
+  };
+
+  const nextQuestionsHandler = () => {
+    
+    console.log(answersLength);
+
+    // if (questions.length > answersLength) {
+    //   setOffset((prev) => prev + LIMIT);
+    // } else {
+    //   modalOpen();
+    // }
   };
 
   return (
@@ -115,22 +135,24 @@ const AppraisePage = () => {
                 <p className="apprise-question">{question.description}</p>
                 <StarRating
                   onChange={(value) => {
-                    setAnswers((prev) =>
+                    setAnswers((prev) => 
                       handleChange(prev, question.id, value)
-                    );
+                      );
                   }}
                 />
               </div>
             ))}
         </div>
-
         <span
           className="apprise-link-to-next-question"
-          onClick={() => setOffset((prev) => prev + LIMIT)}
+          onClick={nextQuestionsHandler}
         >
           Следующий вопрос
         </span>
 
+        <SimpleModal open={modal} onClose={modalClose}>
+          <ModalPopUp removeModalHandler={modalClose} />
+        </SimpleModal>
         <AlertHelper
           isOpen={openError}
           text={errorText}
