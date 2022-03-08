@@ -23,9 +23,11 @@
       background-color: rgb(255, 255, 255, 0.63);
     }
 
-    #text-field :focus {
-      color: #000000;
-      background-color: #ffffff;
+    .last-answer-textarea {
+      height: 40vh;
+      width: calc(100% - 20px);
+      font-size: 20px;
+      padding: 10px;
     }
 
     .MuiInputBase-input:focus {

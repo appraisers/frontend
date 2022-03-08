@@ -12,6 +12,7 @@ import './AppraisePage.scss';
 
 const LIMIT = 4;
 let answersLength = 0;
+const OFFSET = 0;
 
 const AppraisePage = () => {
   const history = useHistory();
@@ -19,7 +20,7 @@ const AppraisePage = () => {
   const [answers, setAnswers] = useState([]);
   const [questions, setQuestions] = useState(null);
   const [categoryQuestions, setCategoryQuestions] = useState('');
-  const [offset, setOffset] = useState(0);
+  const [offset, setOffset] = useState(OFFSET);
   const [openError, setError] = useState(false);
   const [errorText, setErrorText] = useState(false);
   const [alert, setAlert] = useState('');
@@ -30,6 +31,7 @@ const AppraisePage = () => {
   const getQuestions = async () => {
     let lastAnswer = false;
     try {
+      const user = JSON.parse(localStorage.getItem('user'));
       // If answered post it
       if (answers.length) {
         const arrayAnswers = answers.map((answer) => answer.value);
@@ -39,7 +41,8 @@ const AppraisePage = () => {
           {
             userId,
             ids: arrayQuestionsIds,
-            answers: arrayAnswers
+            answers: arrayAnswers,
+            userPosition: user.position
           },
           {
             headers: {
@@ -56,7 +59,7 @@ const AppraisePage = () => {
       // If not last answer getQuestions
       if (!lastAnswer) {
         const res = await axios.get(
-          `${process.env.REACT_APP_SERVER_ENDPOINT}/question/questions?offset=${offset}&limit=${LIMIT}&position=manager`
+          `${process.env.REACT_APP_SERVER_ENDPOINT}/question/questions?offset=${offset}&limit=${LIMIT}&position=${user.position}`
         );
         if (res.data?.statusCode !== 200) {
           setAlert('warning');
@@ -82,8 +85,6 @@ const AppraisePage = () => {
 
   const handleChange = (prev, index, value) => {
     let copyPrev = [...prev];
-    
-
     const findAnswer = copyPrev.filter((value) => value.id === index);
     
 
@@ -143,12 +144,15 @@ const AppraisePage = () => {
               </div>
             ))}
         </div>
-        <span
-          className="apprise-link-to-next-question"
-          onClick={nextQuestionsHandler}
-        >
-          Следующий вопрос
-        </span>
+       
+        {questions && (
+          <span
+            className="apprise-link-to-next-question"
+            onClick={nextQuestionsHandler}
+          >
+            Следующий вопрос
+          </span>
+        )}
 
         <SimpleModal open={modal} onClose={modalClose}>
           <ModalPopUp removeModalHandler={modalClose} />

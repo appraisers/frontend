@@ -30,10 +30,8 @@ const LastAnswerPage = () => {
           }
         }
       );
-      if(res.data?.statusCode===200)
-      {
+      if (res.data?.statusCode === 200) {
         history.push(`/my`);
-        
       }
     } catch (e) {
       setAlert('warning');
@@ -46,13 +44,13 @@ const LastAnswerPage = () => {
       <AuthorizedHeader title="Комментарии" />
       <div className="last-answer-body">
         <span className="text-field-span">Дополните свой отзыв</span>
-        <TextField
-          onChange={e => setDescription(e.target.value)}
-          fullWidth
-          rows={20}
+        <textarea
+          className="last-answer-textarea"
           margin="normal"
           variant="outlined"
-          id="text-field"
+          rows={20}
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
         />
         <div className="survey-last-answer-container">
           <div className="helper-text-div">
@@ -67,7 +65,7 @@ const LastAnswerPage = () => {
           </div>
         </div>
       </div>
-      
+
       <AlertHelper
         isOpen={openError}
         text={errorText}

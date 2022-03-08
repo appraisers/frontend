@@ -8,9 +8,6 @@ import SimpleModal from '../../Components/SimpleModal';
 
 import './DeleteQuestion.scss';
 
-const LIMIT = 0;
-const OFFSET = 0;
-
 const DeleteQuestion = () => {
   const [questions, setQuestions] = useState([]);
   const [renderQuestions, setRenderQuestions] = useState([]);
@@ -60,7 +57,7 @@ const DeleteQuestion = () => {
   const getQuestions = async () => {
     try {
       const res = await axios.get(
-        `${process.env.REACT_APP_SERVER_ENDPOINT}/question/questions?offset=${OFFSET}&limit=${LIMIT}`
+        `${process.env.REACT_APP_SERVER_ENDPOINT}/question/questions?allQuestions=true`
       );
       if (res.data?.statusCode !== 200) {
         setAlert('warning');
