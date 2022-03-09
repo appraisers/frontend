@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
+import SimpleModal from '../../Components/SimpleModal';
+import ButtonHelper from '../../Components/ButtonHelper';
 
 import { TranslateCategory } from '../../Components/Constants.js';
 import AlertHelper from '../../Components/Alert';
@@ -21,6 +23,7 @@ const AppraisePage = () => {
   const [openError, setError] = useState(false);
   const [errorText, setErrorText] = useState(false);
   const [alert, setAlert] = useState('');
+  const [modal, setModal] = useState(false);
 
   const getQuestions = async () => {
     let lastAnswer = false;
@@ -79,7 +82,6 @@ const AppraisePage = () => {
 
   const handleChange = (prev, index, value) => {
     let copyPrev = [...prev];
-
     const findAnswer = copyPrev.filter((value) => value.id === index);
 
     const newObject = {
@@ -92,7 +94,7 @@ const AppraisePage = () => {
       const elementIndex = copyPrev.indexOf(findAnswer[0]);
       copyPrev.splice(elementIndex, 1, newObject);
 
-      // If cancelled choise
+      // If cancelled choice
       if (value === 0) {
         copyPrev.splice(elementIndex, 1);
       }
@@ -101,6 +103,14 @@ const AppraisePage = () => {
     }
 
     return copyPrev;
+  };
+
+  const nextQuestionsHandler = () => {
+    if (questions.length === answers.length) {
+      setOffset((prev) => prev + LIMIT);
+    } else {
+      setModal(true);
+    }
   };
 
   return (
@@ -127,14 +137,28 @@ const AppraisePage = () => {
             ))}
         </div>
 
-        {questions && (
-          <span
+        {questions?.length ? (
+          <ButtonHelper
             className="apprise-link-to-next-question"
-            onClick={() => setOffset((prev) => prev + LIMIT)}
+            onClick={nextQuestionsHandler}
           >
             Следующий вопрос
-          </span>
-        )}
+          </ButtonHelper>
+        ) : null}
+
+        <SimpleModal open={modal} onClose={() => setModal(false)}>
+          <div className="modal-child">
+            <p className="modal-child-description">
+              Ответьте на все вопросы, чтобы продолжить
+            </p>
+            <ButtonHelper
+              className="modal-child-exit"
+              onClick={() => setModal(false)}
+            >
+              Назад
+            </ButtonHelper>
+          </div>
+        </SimpleModal>
 
         <AlertHelper
           isOpen={openError}
@@ -143,6 +167,24 @@ const AppraisePage = () => {
           onClose={setError}
         />
       </div>
+
+      <SimpleModal
+        open={modal}
+        onClose={() => setModal(false)}
+        className="simple-modal-style-container"
+      >
+        <div className="modal-child">
+          <p className="modal-child-description">
+            Ответьте на все вопросы, чтобы продолжить
+          </p>
+          <ButtonHelper
+            className="modal-child-exit"
+            onClick={() => setModal(false)}
+          >
+            Назад
+          </ButtonHelper>
+        </div>
+      </SimpleModal>
     </div>
   );
 };
