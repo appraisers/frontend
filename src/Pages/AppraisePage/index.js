@@ -147,16 +147,18 @@ const AppraisePage = () => {
         ) : null}
 
         <SimpleModal open={modal} onClose={() => setModal(false)}>
-          <div className="modal-child">
-            <p className="modal-child-description">
-              Ответьте на все вопросы, чтобы продолжить
-            </p>
-            <ButtonHelper
-              className="modal-child-exit"
-              onClick={() => setModal(false)}
-            >
-              Назад
-            </ButtonHelper>
+          <div className="simple-modal-container-flex">
+            <div className="modal-child">
+              <p className="modal-child-description">
+                Ответьте на все вопросы, чтобы продолжить
+              </p>
+              <ButtonHelper
+                className="modal-child-exit"
+                onClick={() => setModal(false)}
+              >
+                Назад
+              </ButtonHelper>
+            </div>
           </div>
         </SimpleModal>
 
