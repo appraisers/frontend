@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
 import SimpleModal from '../../Components/SimpleModal';
-import ModalPopUp from '../../Components/ModalPopUp';
+import ButtonHelper from '../../Components/ButtonHelper';
 
 import { TranslateCategory } from '../../Components/Constants.js';
 import AlertHelper from '../../Components/Alert';
@@ -24,8 +24,6 @@ const AppraisePage = () => {
   const [errorText, setErrorText] = useState(false);
   const [alert, setAlert] = useState('');
   const [modal, setModal] = useState(false);
-  const modalOpen = () => setModal(true);
-  const modalClose = () => setModal(false);
 
   const getQuestions = async () => {
     let lastAnswer = false;
@@ -111,7 +109,7 @@ const AppraisePage = () => {
     if (questions.length === answers.length) {
       setOffset((prev) => prev + LIMIT);
     } else {
-      modalOpen();
+      setModal(true);
     }
   };
 
@@ -139,18 +137,15 @@ const AppraisePage = () => {
             ))}
         </div>
 
-        {questions?.length && (
-          <span
+        {questions?.length ? (
+          <ButtonHelper
             className="apprise-link-to-next-question"
             onClick={nextQuestionsHandler}
           >
             Следующий вопрос
-          </span>
-        )}
+          </ButtonHelper>
+        ) : null}
 
-        <SimpleModal open={modal} onClose={modalClose}>
-          <ModalPopUp removeModalHandler={modalClose} />
-        </SimpleModal>
         <AlertHelper
           isOpen={openError}
           text={errorText}
@@ -158,6 +153,24 @@ const AppraisePage = () => {
           onClose={setError}
         />
       </div>
+
+      <SimpleModal
+        open={modal}
+        onClose={() => setModal(false)}
+        className="simple-modal-style-container"
+      >
+        <div className="modal-child">
+          <p className="modal-child-description">
+            Ответьте на все вопросы, чтобы продолжить
+          </p>
+          <ButtonHelper
+            className="modal-child-exit"
+            onClick={() => setModal(false)}
+          >
+            Назад
+          </ButtonHelper>
+        </div>
+      </SimpleModal>
     </div>
   );
 };
