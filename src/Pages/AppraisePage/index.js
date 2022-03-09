@@ -11,7 +11,6 @@ import StarRating from '../../Components/Rating';
 import './AppraisePage.scss';
 
 const LIMIT = 4;
-let answersLength = 0;
 const OFFSET = 0;
 
 const AppraisePage = () => {
@@ -86,7 +85,6 @@ const AppraisePage = () => {
   const handleChange = (prev, index, value) => {
     let copyPrev = [...prev];
     const findAnswer = copyPrev.filter((value) => value.id === index);
-    
 
     const newObject = {
       id: index,
@@ -106,19 +104,15 @@ const AppraisePage = () => {
       copyPrev = [...copyPrev, newObject];
     }
 
-    answersLength = copyPrev.length;
     return copyPrev;
   };
 
   const nextQuestionsHandler = () => {
-    
-    console.log(answersLength);
-
-    // if (questions.length > answersLength) {
-    //   setOffset((prev) => prev + LIMIT);
-    // } else {
-    //   modalOpen();
-    // }
+    if (questions.length === answers.length) {
+      setOffset((prev) => prev + LIMIT);
+    } else {
+      modalOpen();
+    }
   };
 
   return (
@@ -136,16 +130,16 @@ const AppraisePage = () => {
                 <p className="apprise-question">{question.description}</p>
                 <StarRating
                   onChange={(value) => {
-                    setAnswers((prev) => 
+                    setAnswers((prev) =>
                       handleChange(prev, question.id, value)
-                      );
+                    );
                   }}
                 />
               </div>
             ))}
         </div>
-       
-        {questions && (
+
+        {questions?.length && (
           <span
             className="apprise-link-to-next-question"
             onClick={nextQuestionsHandler}

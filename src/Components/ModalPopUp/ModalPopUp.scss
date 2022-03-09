@@ -1,14 +1,15 @@
 .modal-child {
-    width: 35%;
-    height: 25%;
+    width: 40%;
+    height: 30%;
     background-color: #3f3f3f;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
     border-radius: 25px;
-    padding: 7px;
+    padding: 5px;
     box-sizing: border-box;
+   
     
 
     .modal-child-description {
@@ -25,17 +26,12 @@
         border: none;
         border-radius: 7px;
         align-self: flex-end;
-        margin-right: 15px;
+        margin-right: 8%;
         cursor: pointer;
         
     }
 
     .popup-card-exit:hover {
-        padding: 7px;
+        padding: 9px;
     }
-
-    .popup-card-exit:active {
-       margin-top: 12px;
-    }
-
 }
