@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import appraiseIcon from '../../assets/icons/appraise-icon.svg';
 import ButtonHelper from '../../Components/ButtonHelper';
 import AlertHelper from '../../Components/Alert';
 import SelectHelper from '../../Components/SelectHelper';
@@ -131,6 +132,12 @@ const DeleteQuestion = () => {
 
   return (
     <div className="delete-question-main">
+        <img
+        src={appraiseIcon}
+        onClick={() => setOpen(true)}
+        className="delete-question-logo"
+        alt="delete-question-logo"
+      />
       <span onClick={() => setOpen(true)} className="delete-question-main-span">
         Удалить вопрос
       </span>

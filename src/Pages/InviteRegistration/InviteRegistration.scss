@@ -1,0 +1,99 @@
+.invite-registration-main {
+  display: flex;
+  align-items: center;
+  margin-left: 5vw;
+  font-size: 25px;
+  cursor: pointer;
+
+  .invite-registration-logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+  }
+}
+
+.invite-registration-modal-main-container {
+  text-align: center;
+  width: 80%;
+  height: 30vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: white;
+  background-color: rgba(207, 179, 137);
+  padding: 1vw;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+
+  .invite-registration-textfield-span {
+    display: flex;
+    font-size: 30px;
+    height: 10vh;
+    align-items: flex-end;
+  }
+
+  .invite-registration-textfield {
+    display: flex;
+
+    .MuiFormLabel-root {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #cfb389;
+      padding: 1%;
+      border-radius: 5px;
+    }
+
+    .input-helper .MuiInputBase-input {
+      color: black;
+      background-color: rgba(255, 255, 255, 0.63);
+      width: 90vw;
+      border-radius: 5px;
+    }
+  }
+
+  .invite-registration-button {
+    background: #cfb389;
+    border: 3px solid #cfb389;
+    box-sizing: border-box;
+    box-shadow: 0px 7px 15px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 30px;
+    color: #ffffff;
+    padding: 1%;
+    cursor: pointer;
+    float: right;
+    margin-right: 10vw;
+    margin-top: 5vh;
+  }
+
+  .invite-registration-button:hover {
+    padding: 18px 28px;
+    border: 2px solid black;
+    box-shadow: none;
+  }
+
+  .invite-registration-button:active {
+    margin-top: 8px;
+    transition: 1ms;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .invite-registration-modal-main-container {
+    height: 40vh;
+    .invite-registration-textfield-span {
+      margin-top: 5vh;
+      width: 80vw;
+      display: flex;
+      justify-content: center;
+    }
+
+    .invite-registration-button-div {
+      display: flex;
+      justify-content: center;
+      margin-left: 10vw;
+      margin-top: 5vh;
+    }
+  }
+}

@@ -4,12 +4,11 @@
 
   .account-page-body {
     display: flex;
+    align-items: center;
 
     .account-page-delete-create {
       width: 30vw;
-      position: absolute;
-      top: 50%;
-
+     
       .account-page-create-question {
         width: 30vw;
       }
@@ -20,14 +19,44 @@
     }
 
     .account-page-profile {
-      position: absolute;
-      left: 20%;
-      width: 75vw;
+      width: 60vw;
       height: 70vh;
       margin-top: 5vh;
       background-color: rgba(0, 0, 0, 0.21);
       padding: 1vw;
       border-radius: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .account-page-main {
+    .account-page-body {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+
+      .account-page-delete-create {
+        width: 100vw;
+        margin-top: 5vh;
+
+        .account-page-create-question {
+          width: 100vw;
+        }
+
+        .account-page-delete-question {
+          width: 100vw;
+        }
+      }
+
+      .account-page-profile {
+        width: 80vw;
+        height: 30vh;
+        margin-top: 5vh;
+        background-color: rgba(0, 0, 0, 0.21);
+        padding: 3vw;
+        border-radius: 20px;
+      }
     }
   }
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import appraiseIcon from '../../assets/icons/appraise-icon.svg';
 import ButtonHelper from '../../Components/ButtonHelper';
 import InputHelper from '../../Components/InputHelper';
 import AlertHelper from '../../Components/Alert';
@@ -95,6 +96,12 @@ const CreateQuestion = () => {
 
   return (
     <div className="create-question-main">
+       <img
+        src={appraiseIcon}
+        onClick={() => setOpen(true)}
+        className="create-question-logo"
+        alt="create-question-logo"
+      />
       <span onClick={() => setOpen(true)} className="create-question-main-span">
         Добавить вопрос
       </span>

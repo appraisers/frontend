@@ -1,8 +1,15 @@
 .delete-question-main {
   font-size: 25px;
-  cursor: pointer;
   margin-left: 5vw;
-  width: 30vw;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  .delete-question-logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+  }
 }
 
 .delete-question-div::-webkit-scrollbar {
