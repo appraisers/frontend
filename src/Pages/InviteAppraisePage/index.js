@@ -3,7 +3,7 @@ import { NavLink, useParams, useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 import AlertHelper from '../../Components/Alert';
-import profileImage from '../../assets/images/profile-img.jpg';
+import profileImage from '../../assets/images/profile-image.svg';
 import AuthorizedHeader from '../../Components/AuthorizedHeader';
 import './InviteAppraisePage.scss';
 
@@ -55,13 +55,13 @@ const InviteAppraisePage = () => {
 
           <ul className="survey-invite-profile-identity">
             <li className="survey-invite-profile-identity-details">
-              <p className="survey-invite-profile-detail">полное имя:</p>
+              <p className="survey-invite-profile-detail">Полное имя:</p>
               <span className="survey-invite-profile-name survey-invite-profile-input">
                 {user.fullname}
               </span>
             </li>
             <li className="survey-invite-profile-identity-details">
-              <p className="survey-invite-profile-detail">должность:</p>
+              <p className="survey-invite-profile-detail">Должность:</p>
               <span className="survey-invite-profile-post survey-invite-profile-input">
                 {user.position}
               </span>

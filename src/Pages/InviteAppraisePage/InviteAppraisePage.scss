@@ -1,19 +1,14 @@
 .survey-invite-body {
-  width: 100vw;
-  margin: 0;
-  padding: 0;
-  position: fixed;
+  min-height: 100vh;
+  background: rgba(207, 179, 137, 0.19);
 
   .survey-invite-container {
-    width: 100vw;
-    background: rgba(207, 179, 137, 0.19);
     display: flex;
     flex-direction: column;
     padding: 5px;
 
     .survey-invite-profile {
       max-width: 60%;
-      height: 60%;
       background: rgba(207, 179, 137, 0.46);
       box-shadow: -5px 7px 15px rgba(0, 0, 0, 0.25);
       border-radius: 40px;
@@ -30,7 +25,9 @@
       }
 
       .survey-invite-profile-image {
-        margin: 4px auto;
+        width: 150px;
+        height: 150px;
+        margin-bottom: 5vh;
       }
 
       .survey-invite-profile-identity {
@@ -44,6 +41,7 @@
           .survey-invite-profile-detail {
             font-size: 18px;
           }
+
           .survey-invite-profile-input {
             font-size: 18px;
             font-weight: 600;
@@ -56,38 +54,53 @@
     .survey-invite-description-container {
       width: 85%;
       margin: 4px auto;
+      margin-top: 5vh;
 
       .survey-invite-description-header {
+        display: flex;
+        justify-content: center;
+        text-align: center;
         font-size: 24px;
-        text-align: left;
         margin: 5px 0;
       }
 
       .survey-invite-description {
+        margin-top: 5vh;
+        margin-bottom: 5vh;
         font-size: 17px;
         text-align: center;
         line-height: 22px;
       }
 
       .survey-invite-survey-link {
+        display: flex;
+        justify-content: center;
+
         .survey-invite-link-to-survey {
-          color: white;
-          background-color: #cfb389;
+          background: #cfb389;
+          border: 3px solid #cfb389;
           box-sizing: border-box;
-          padding: 2%;
+          box-shadow: 0px 7px 15px rgba(0, 0, 0, 0.25);
           border-radius: 5px;
-          display: block;
-          width: 8rem;
-          margin: 4px auto;
+          font-weight: 500;
+          font-size: 30px;
+          line-height: 30px;
+          color: #ffffff;
+          padding: 1%;
+          cursor: pointer;
+          float: right;
+          margin-top: 5vh;
         }
 
-        .survey-invite-link-to-survey:hover {
-          background-color: black;
-          color: #ecd1a9;
+        .survey-invite-link-to-survey:hover { 
+          padding: 18px 28px;
+          border: 2px solid black;
+          box-shadow: none;
         }
 
         .survey-invite-link-to-survey:active {
-          margin-top: 10px;
+          margin-top: 8px;
+          transition: 1ms;
         }
       }
     }
@@ -96,23 +109,19 @@
 
 @media screen and (min-width: 700px) {
   .survey-invite-body {
-    height: 100vh;
+    min-height: 100vh;
 
     .survey-invite-container {
       flex-direction: row-reverse;
       justify-content: space-evenly;
-      height: 90%;
 
       .survey-invite-profile {
         width: 30%;
-        height: 75%;
         margin: 4%;
         padding: 2%;
 
         .survey-invite-profile-image {
           margin: 8px auto;
-          height: 45%;
-          max-width: 90%;
         }
 
         .survey-invite-profile-identity {
@@ -121,25 +130,28 @@
               font-size: 18px;
               font-weight: 600;
               margin-left: 4%;
+              margin-bottom: 5vh;
             }
           }
         }
       }
 
       .survey-invite-description-container {
-        width: 60%;
-        margin: 10%;
+        margin-top: 20vh;
 
-        .survey-invite-description {
-          font-size: 19px;
-          line-height: 25px;
-        }
+        .survey-invite-description-header {
+          .survey-invite-description {
+            font-size: 19px;
+            line-height: 25px;
+            margin-bottom: 0;
+          }
 
-        .survey-invite-survey-link {
-          .survey-invite-link-to-survey {
-            padding: 7px;
-            max-width: 8rem;
-            margin: 3% auto;
+          .survey-invite-survey-link {
+            .survey-invite-link-to-survey {
+              padding: 7px;
+              max-width: 8rem;
+              margin: 3% auto;
+            }
           }
         }
       }

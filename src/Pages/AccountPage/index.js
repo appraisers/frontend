@@ -2,6 +2,7 @@ import AuthorizedHeader from '../../Components/AuthorizedHeader';
 import CreateQuestion from '../CreateQuestion';
 import DeleteQuestion from '../DeleteQuestion';
 import InviteRegistration from '../InviteRegistration';
+import userIcon from '../../assets/icons/user-icon.svg';
 
 import './AccountPage.scss';
 
@@ -14,6 +15,17 @@ const AccountPage = () => {
       />
       <div className="account-page-body">
         <div className="account-page-delete-create">
+          <div className="account-page-all-users">
+            <a href="/users" className="account-page-all-users-url">
+              <img
+                src={userIcon}
+                href="/my"
+                className="account-page-all-users-logo"
+                alt="account-page-all-users-logo"
+              />
+              Таблица пользователей
+            </a>
+          </div>
           <div className="account-page-create-question">
             <CreateQuestion />
           </div>

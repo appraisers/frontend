@@ -46,7 +46,7 @@ const TableHelper = ({ rows, toggleUser }) => {
             <StyledTableRow key={row.id}>
               <TableCell align="center">{row.fullname ?? '-'}</TableCell>
               <TableCell align="center">{row.position ?? '-'}</TableCell>
-              <TableCell align="center">{row.rating ?? '-'}</TableCell>
+              <TableCell align="center">{row.rating.toFixed(1) ?? '-'}</TableCell>
               <TableCell align="center">
                 {row.numberOfCompletedReviews ?? '-'}
               </TableCell>
