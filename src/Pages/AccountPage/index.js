@@ -1,7 +1,8 @@
-import AuthorizedHeader from '../../Components/AuthorizedHeader';
 import CreateQuestion from '../CreateQuestion';
 import DeleteQuestion from '../DeleteQuestion';
 import InviteRegistration from '../InviteRegistration';
+import AuthorizedHeader from '../../Components/AuthorizedHeader';
+import BarChart from '../../Components/BarChart';
 import userIcon from '../../assets/icons/user-icon.svg';
 
 import './AccountPage.scss';
@@ -36,7 +37,9 @@ const AccountPage = () => {
             <InviteRegistration />
           </div>
         </div>
-        <div className="account-page-profile">HERE WILL BE CONTENT</div>
+        <div className="account-page-profile">
+          <BarChart />
+        </div>
       </div>
     </div>
   );
