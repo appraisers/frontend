@@ -26,7 +26,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   }
 }));
 
-const TableHelper = ({ rows, toggleUser }) => {
+const TableHelper = ({ rows, toggleUser, userOnClick }) => {
   return (
     <TableContainer component={Paper}>
       <Table>
@@ -44,9 +44,17 @@ const TableHelper = ({ rows, toggleUser }) => {
         <TableBody>
           {rows.map((row) => (
             <StyledTableRow key={row.id}>
-              <TableCell align="center">{row.fullname ?? '-'}</TableCell>
+              <TableCell
+                align="center"
+                onClick={userOnClick}
+                className="all-users-table-cell-username"
+              >
+                {row.fullname ?? '-'}
+              </TableCell>
               <TableCell align="center">{row.position ?? '-'}</TableCell>
-              <TableCell align="center">{row.rating.toFixed(1) ?? '-'}</TableCell>
+              <TableCell align="center">
+                {Number.parseFloat(row.rating).toFixed(1) ?? '-'}
+              </TableCell>
               <TableCell align="center">
                 {row.numberOfCompletedReviews ?? '-'}
               </TableCell>
