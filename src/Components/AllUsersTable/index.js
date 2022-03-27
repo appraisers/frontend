@@ -46,7 +46,7 @@ const TableHelper = ({ rows, toggleUser, userOnClick }) => {
             <StyledTableRow key={row.id}>
               <TableCell
                 align="center"
-                onClick={userOnClick}
+                onClick={() => userOnClick(row.id)}
                 className="all-users-table-cell-username"
               >
                 {row.fullname ?? '-'}

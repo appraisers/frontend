@@ -82,8 +82,8 @@ const AllUsersPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const OpenModalHandler = (e) => {
-    setSelectedUserID(!!e.target);
+  const OpenModalHandler = (id) => {
+    setSelectedUserID(id);
   };
 
   const fakeRaters = [
