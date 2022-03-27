@@ -14,7 +14,7 @@ import StyledTableRow from '../StyledTableRow';
 
 import './SimpleModalUsers.scss';
 
-const SimpleModalTableHelper = (props, userOnClick) => {
+const SimpleModalTableHelper = (props) => {
   const users = props.users;
   return (
     <>
@@ -52,7 +52,7 @@ const SimpleModalTableHelper = (props, userOnClick) => {
               </TableHead>
               <TableBody>
                 {users.map((user) => (
-                  <StyledTableRow key={user.id} onClick={() => userOnClick(user.id)}>
+                  <StyledTableRow key={user.id}>
                     <TableCell
                       align="center"
                       className="all-users-table-cell-username"
