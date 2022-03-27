@@ -16,7 +16,7 @@ const AllUsersPage = () => {
   const [openError, setError] = useState(false);
   const [errorText, setErrorText] = useState(false);
   const [alert, setAlert] = useState('');
-  const [modal, setModal] = useState(false);
+  const [selectedUserID, setSelectedUserID] = useState('');
 
   const getAllUsers = async () => {
     try {
@@ -82,8 +82,8 @@ const AllUsersPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const ModalOpenHandler = () => {
-    setModal(true);
+  const OpenModalHandler = (e) => {
+    setSelectedUserID(!!e.target);
   };
 
   const fakeRaters = [
@@ -101,7 +101,7 @@ const AllUsersPage = () => {
     },
     {
       id: 3,
-      name: 'Макаров гарнов Александрович',
+      name: 'Макаров Гарнов Александрович',
       date: '2019.11.29 12:33',
       score: 5.0
     },
@@ -111,7 +111,12 @@ const AllUsersPage = () => {
       date: '2021.15.01 10:17',
       score: 4.2
     },
-    { id: 5, name: 'Дмитри махсимович', date: '2022.04.20 6:28', score: 2.5 }
+    {
+      id: 5,
+      name: 'Дмитри Махсимович',
+      date: '2022.04.20 6:28',
+      score: 2.5
+    }
   ];
 
   return (
@@ -123,15 +128,18 @@ const AllUsersPage = () => {
             <AllUsersTable
               rows={users}
               toggleUser={toggleUser}
-              userOnClick={ModalOpenHandler}
+              userOnClick={OpenModalHandler}
             />
           ) : null}
         </div>
 
-        <SimpleModal open={modal} onClose={() => setModal(false)}>
+        <SimpleModal
+          open={!!selectedUserID}
+          onClose={() => setSelectedUserID(false)}
+        >
           <SimpleModalTableHelper
             users={fakeRaters}
-            onClose={() => setModal(false)}
+            onClose={() => setSelectedUserID(false)}
           />
         </SimpleModal>
 

@@ -6,26 +6,16 @@ import {
   TableHead,
   TableRow,
   Paper,
-  TableCell,
-  styled
+  TableCell
 } from '@material-ui/core';
 import RatingPieChart from '../RatingPieChart';
 import ButtonHelper from '../ButtonHelper';
+import StyledTableRow from '../StyledTableRow';
 
 import './SimpleModalUsers.scss';
 
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.action.hover
-  },
-  // hide last border
-  '&:last-child td, &:last-child th': {
-    border: 0
-  }
-}));
-
 const SimpleModalTableHelper = (props) => {
-  const raters = props.users;
+  const users = props.users;
   return (
     <>
       <div className="simple-modal-user-popup">
@@ -61,17 +51,17 @@ const SimpleModalTableHelper = (props) => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {raters.map((rater) => (
-                  <StyledTableRow key={rater.id}>
+                {users.map((user) => (
+                  <StyledTableRow key={user.id}>
                     <TableCell
                       align="center"
                       className="all-users-table-cell-username"
                     >
-                      {rater['name']}
+                      {users.name}
                     </TableCell>
-                    <TableCell align="center">{rater['date']}</TableCell>
+                    <TableCell align="center">{user.date}</TableCell>
                     <TableCell align="center">
-                      {Number.parseFloat(rater['score']).toFixed(1)}
+                      {Number.parseFloat(user.score).toFixed(1)}
                     </TableCell>
                   </StyledTableRow>
                 ))}
@@ -81,7 +71,7 @@ const SimpleModalTableHelper = (props) => {
         </div>
 
         <div className="simple-modal-user-pie-chart">
-          <RatingPieChart data={raters} />
+          <RatingPieChart data={users} />
         </div>
 
         <ButtonHelper
