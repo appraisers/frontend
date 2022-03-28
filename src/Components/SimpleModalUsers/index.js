@@ -14,8 +14,7 @@ import StyledTableRow from '../StyledTableRow';
 
 import './SimpleModalUsers.scss';
 
-const SimpleModalTableHelper = (props) => {
-  const users = props.users;
+const SimpleModalTableHelper = ({ users, onClose }) => {
   return (
     <>
       <div className="simple-modal-user-popup">
@@ -74,10 +73,7 @@ const SimpleModalTableHelper = (props) => {
           <RatingPieChart data={users} />
         </div>
 
-        <ButtonHelper
-          className="simple-modal-user-exit"
-          onClick={props.onClose}
-        >
+        <ButtonHelper className="simple-modal-user-exit" onClick={onClose}>
           Назад
         </ButtonHelper>
       </div>
