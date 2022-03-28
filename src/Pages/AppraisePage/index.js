@@ -167,24 +167,6 @@ const AppraisePage = () => {
           onClose={setError}
         />
       </div>
-
-      <SimpleModal
-        open={modal}
-        onClose={() => setModal(false)}
-        className="simple-modal-style-container"
-      >
-        <div className="modal-child">
-          <p className="modal-child-description">
-            Ответьте на все вопросы, чтобы продолжить
-          </p>
-          <ButtonHelper
-            className="modal-child-exit"
-            onClick={() => setModal(false)}
-          >
-            Назад
-          </ButtonHelper>
-        </div>
-      </SimpleModal>
     </div>
   );
 };
