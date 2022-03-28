@@ -8,23 +8,15 @@ import {
   TableRow,
   Paper,
   TableCell,
-  styled
 } from '@material-ui/core';
 import noDeletedIcon from '../../assets/icons/no-deleted-icon.svg';
 import deletedIcon from '../../assets/icons/deleted-icon.svg';
 import AppraiseModalIcon from '../AppraiseModalIcon';
+import StyledTableRow from "./StyledTableRow";
 
 import './AllUsersTable.scss';
 
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.action.hover
-  },
-  // hide last border
-  '&:last-child td, &:last-child th': {
-    border: 0
-  }
-}));
+
 
 const TableHelper = ({ rows, toggleUser, openUserInfoModal }) => {
   return (
