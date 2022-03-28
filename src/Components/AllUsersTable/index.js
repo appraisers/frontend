@@ -26,7 +26,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   }
 }));
 
-const openUserInfoModal = ({ rows, toggleUser, userOnClick }) => {
+const TableHelper = ({ rows, toggleUser, openUserInfoModal }) => {
   return (
     <TableContainer component={Paper}>
       <Table>
@@ -46,7 +46,7 @@ const openUserInfoModal = ({ rows, toggleUser, userOnClick }) => {
             <StyledTableRow key={row.id}>
               <TableCell
                 align="center"
-                onClick={() => userOnClick(row.id)}
+                onClick={() => openUserInfoModal(row.id)}
                 className="all-users-table-cell-username"
               >
                 {row.fullname ?? '-'}
@@ -91,4 +91,4 @@ const openUserInfoModal = ({ rows, toggleUser, userOnClick }) => {
   );
 };
 
-export default openUserInfoModal;
+export default TableHelper;
