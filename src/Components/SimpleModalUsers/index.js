@@ -39,13 +39,13 @@ const SimpleModalTableHelper = ({ users, onClose }) => {
                     className="simple-modal-table-header"
                     align="center"
                   >
-                    дата
+                    Дата
                   </TableCell>
                   <TableCell
                     className="simple-modal-table-header"
                     align="center"
                   >
-                    рейтинг
+                    Рейтинг
                   </TableCell>
                 </TableRow>
               </TableHead>

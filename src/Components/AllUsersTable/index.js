@@ -26,7 +26,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   }
 }));
 
-const TableHelper = ({ rows, toggleUser, userOnClick }) => {
+const openUserInfoModal = ({ rows, toggleUser, userOnClick }) => {
   return (
     <TableContainer component={Paper}>
       <Table>
@@ -91,4 +91,4 @@ const TableHelper = ({ rows, toggleUser, userOnClick }) => {
   );
 };
 
-export default TableHelper;
+export default openUserInfoModal;

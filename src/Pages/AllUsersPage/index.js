@@ -16,7 +16,7 @@ const AllUsersPage = () => {
   const [openError, setError] = useState(false);
   const [errorText, setErrorText] = useState(false);
   const [alert, setAlert] = useState('');
-  const [selectedUserID, setSelectedUserID] = useState('');
+  const [selectedUserID, setSelectedUserID] = useState(null);
 
   const getAllUsers = async () => {
     try {
@@ -135,11 +135,11 @@ const AllUsersPage = () => {
 
         <SimpleModal
           open={!!selectedUserID}
-          onClose={() => setSelectedUserID(false)}
+          onClose={() => setSelectedUserID(null)}
         >
           <SimpleModalTableHelper
             users={fakeRaters}
-            onClose={() => setSelectedUserID(false)}
+            onClose={() => setSelectedUserID(null)}
           />
         </SimpleModal>
 
