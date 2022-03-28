@@ -12,8 +12,7 @@ import {
 import noDeletedIcon from '../../assets/icons/no-deleted-icon.svg';
 import deletedIcon from '../../assets/icons/deleted-icon.svg';
 import AppraiseModalIcon from '../AppraiseModalIcon';
-import StyledTableRow from "./StyledTableRow";
-
+import StyledTableRow from '../StyledTableRow';
 import './AllUsersTable.scss';
 
 
