@@ -136,7 +136,7 @@ const AllUsersPage = () => {
               toggleUser={toggleUser}
               userOnClick={OpenModalHandler}
               userUpdate={OpenUserUpdateModalHandler}
-            />
+           />
           ) : null}
         </div>
 
