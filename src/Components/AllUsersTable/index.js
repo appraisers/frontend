@@ -52,7 +52,7 @@ const TableHelper = ({ rows, toggleUser, openUserInfoModal, onUpdateUser }) => {
               </TableCell>
               <TableCell align="center">{row.position ?? '-'}</TableCell>
               <TableCell align="center">
-                {Number.parseFloat(row.rating).toFixed(1) ?? '-'}
+                {row.rating? Number.parseFloat(row.rating).toFixed(1) : '-'}
               </TableCell>
               <TableCell align="center">
                 {row.numberOfCompletedReviews ?? '-'}
