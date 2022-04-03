@@ -7,22 +7,23 @@ import {
   TableHead,
   TableRow,
   Paper,
-  TableCell,
+  TableCell
 } from '@material-ui/core';
 import noDeletedIcon from '../../assets/icons/no-deleted-icon.svg';
 import deletedIcon from '../../assets/icons/deleted-icon.svg';
 import AppraiseModalIcon from '../AppraiseModalIcon';
 import StyledTableRow from '../StyledTableRow';
+import PencilIcon from '../../assets/icons/pencilIcon.svg';
+
 import './AllUsersTable.scss';
 
-
-
-const TableHelper = ({ rows, toggleUser, openUserInfoModal }) => {
+const TableHelper = ({ rows, toggleUser, openUserInfoModal, userUpdate }) => {
   return (
     <TableContainer component={Paper}>
       <Table>
         <TableHead>
           <TableRow>
+            <TableCell />
             <TableCell align="center">Имя</TableCell>
             <TableCell align="center">Должность</TableCell>
             <TableCell align="center">Общий рейтинг</TableCell>
@@ -35,6 +36,13 @@ const TableHelper = ({ rows, toggleUser, openUserInfoModal }) => {
         <TableBody>
           {rows.map((row) => (
             <StyledTableRow key={row.id}>
+              <TableCell onClick={() => userUpdate(row.id)}>
+                <img
+                  src={PencilIcon}
+                  className="update-users-icon"
+                  alt="edit-pencil-icon"
+                />
+              </TableCell>
               <TableCell
                 align="center"
                 onClick={() => openUserInfoModal(row.id)}

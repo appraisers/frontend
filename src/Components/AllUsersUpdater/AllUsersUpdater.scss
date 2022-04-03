@@ -1,0 +1,77 @@
+.all-users-updater-container {
+  width: 350px;
+  height: 75%;
+  background-color: #000000;
+  position: absolute;
+  border-radius: 20px;
+  padding: 3%;
+  color: white;
+  box-sizing: border-box;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  .all-users-updater-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;  
+        
+    .label {
+      color: #cfb389;
+      background-color: black;
+      padding: 4px;
+      box-sizing: border-box;
+      font-weight: 700;
+    }
+
+    .all-users-updater-form-input {
+      outline: 1px solid #cfb389;
+      background-color: rgb(85, 79, 66);
+      width: 95%;
+      margin-bottom: 15px;
+      border-radius: 5px;
+            
+    }
+  }
+  .all-users-updater-exit {
+    position: absolute;
+    top: 0;
+    right: 3%;
+    color: #cfb389;
+    font-size: 25px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .all-users-updater-exit:hover {
+    color: red;
+    font-size: 30px;
+  }
+
+  .all-users-updater-description {
+    text-align: center;
+    margin: 5px 0;
+  }
+
+  .all-users-updater-submit {
+    background-color: #cfb389;
+    font-size: 23px;
+    padding: 5px 9px;
+    cursor: pointer;
+    width: 65%;
+    align-self: center;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .all-users-updater-submit:hover {
+    background-color: #9b8564;
+  }
+}
+
+@media only screen and (min-width: 950px) {
+  .all-users-updater-container {
+   height: 78%;
+  }
+}
