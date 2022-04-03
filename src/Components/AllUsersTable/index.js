@@ -17,7 +17,7 @@ import StyledTableRow from '../StyledTableRow';
 
 import './AllUsersTable.scss';
 
-const TableHelper = ({ rows, toggleUser, openUserInfoModal, onUpdateUser }) => {
+const TableHelper = ({ rows, toggleUser, onClickUser, onUpdateUser }) => {
   return (
     <TableContainer component={Paper}>
       <Table>
@@ -45,7 +45,7 @@ const TableHelper = ({ rows, toggleUser, openUserInfoModal, onUpdateUser }) => {
               </TableCell>
               <TableCell
                 align="center"
-                onClick={() => openUserInfoModal(row.id)}
+                onClick={() => onClickUser(row.id)}
                 className="all-users-table-cell-username"
               >
                 {row.fullname ?? '-'}
