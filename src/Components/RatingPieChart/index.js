@@ -1,5 +1,7 @@
 import { PieChart, Pie, Legend } from 'recharts';
 
+import './RatingPieChart.scss';
+
 const data = [
   { name: 'Effectiveness', score: 4.5, fill: 'white' },
   { name: 'Interaction', score: 3.8, fill: '#cfb389' },
@@ -9,8 +11,7 @@ const data = [
 
 const style = {
   top: '95%',
-  lineHeight: '20px',
-  margin: 'auto'
+  lineHeight: '20px'
 };
 
 const RatingPieChart = () => {

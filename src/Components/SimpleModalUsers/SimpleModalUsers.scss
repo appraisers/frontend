@@ -1,6 +1,6 @@
 .simple-modal-user-popup {
   width: 80%;
-  min-height: 70%;
+  height: 79%;
   background-color: #000000;
   position: absolute;
   border-radius: 20px;
@@ -8,7 +8,7 @@
   color: white;
   box-sizing: border-box;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   top: 50%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
@@ -16,7 +16,7 @@
 
   .simple-modal-users-info {
     width: 65%;
-    height: 100%;
+    height: 80%;
 
     .simple-modal-users-username {
       font-size: 28px;
@@ -25,7 +25,6 @@
 
     .simple-modal-table-container {
       width: 100%;
-      height: 80%;
 
       .simple-modal-table-header {
         font-size: 22px;
@@ -34,8 +33,8 @@
   }
 
   .simple-modal-user-pie-chart {
-    width: 28%;
-    height: 80%;
+    width: 35%;
+    height: 100%;
   }
 
   .simple-modal-user-exit {
@@ -55,5 +54,42 @@
 @media only screen and (max-width: 750px) {
   .simple-modal-user-popup {
     flex-direction: column;
+    justify-content: flex-start;
+
+    .simple-modal-users-info {
+      width: 100%;
+      height: 40%;
+
+      .simple-modal-users-username {
+        font-size: 25px;
+        margin-bottom: 5px;
+      }
+
+      .simple-modal-table-container {
+        width: 100%;
+        height: 70%;
+
+        .simple-modal-table-header {
+          font-size: 20px;
+        }
+      }
+    }
+
+    .simple-modal-user-pie-chart {
+      width: 80%;
+    }
+
+    .simple-modal-user-exit {
+      background-color: #cfb389;
+      position: absolute;
+      right: 5%;
+      bottom: 5%;
+      padding: 10px;
+      font-size: 17px;
+      color: white;
+      border: none;
+      border-radius: 7px;
+      cursor: pointer;
+    }
   }
 }
