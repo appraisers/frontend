@@ -7,22 +7,23 @@ import {
   TableHead,
   TableRow,
   Paper,
-  TableCell,
+  TableCell
 } from '@material-ui/core';
 import noDeletedIcon from '../../assets/icons/no-deleted-icon.svg';
 import deletedIcon from '../../assets/icons/deleted-icon.svg';
+import pencilIcon from '../../assets/icons/pencilIcon.svg';
 import AppraiseModalIcon from '../AppraiseModalIcon';
 import StyledTableRow from '../StyledTableRow';
+
 import './AllUsersTable.scss';
 
-
-
-const TableHelper = ({ rows, toggleUser, openUserInfoModal }) => {
+const TableHelper = ({ rows, toggleUser, onClickUser, onUpdateUser }) => {
   return (
     <TableContainer component={Paper}>
       <Table>
         <TableHead>
           <TableRow>
+            <TableCell />
             <TableCell align="center">Имя</TableCell>
             <TableCell align="center">Должность</TableCell>
             <TableCell align="center">Общий рейтинг</TableCell>
@@ -35,9 +36,16 @@ const TableHelper = ({ rows, toggleUser, openUserInfoModal }) => {
         <TableBody>
           {rows.map((row) => (
             <StyledTableRow key={row.id}>
+              <TableCell onClick={() => onUpdateUser(row.id)}>
+                <img
+                  src={pencilIcon}
+                  className="update-users-icon"
+                  alt="edit-pencil-icon"
+                />
+              </TableCell>
               <TableCell
                 align="center"
-                onClick={() => openUserInfoModal(row.id)}
+                onClick={() => onClickUser(row.id)}
                 className="all-users-table-cell-username"
               >
                 {row.fullname ?? '-'}

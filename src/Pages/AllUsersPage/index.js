@@ -7,6 +7,7 @@ import AlertHelper from '../../Components/Alert';
 import AuthorizedHeader from '../../Components/AuthorizedHeader';
 import SimpleModal from '../../Components/SimpleModal';
 import SimpleModalTableHelper from '../../Components/SimpleModalUsers';
+import AllUsersUpdater from '../../Components/AllUsersUpdater';
 
 import './AllUsersPage.scss';
 
@@ -17,6 +18,7 @@ const AllUsersPage = () => {
   const [errorText, setErrorText] = useState(false);
   const [alert, setAlert] = useState('');
   const [selectedUserID, setSelectedUserID] = useState(null);
+  const [userToUpdateId, setUserToUpdateId] = useState(null);
 
   const getAllUsers = async () => {
     try {
@@ -86,6 +88,10 @@ const AllUsersPage = () => {
     setSelectedUserID(id);
   };
 
+  const OpenUserUpdateModalHandler = (id) => {
+    setUserToUpdateId(id);
+  };
+
   const fakeRaters = [
     {
       id: 1,
@@ -128,8 +134,9 @@ const AllUsersPage = () => {
             <AllUsersTable
               rows={users}
               toggleUser={toggleUser}
-              openUserInfoModal={OpenModalHandler}
-            />
+              onClickUser={OpenModalHandler}
+              onUserUpdate={OpenUserUpdateModalHandler}
+           />
           ) : null}
         </div>
 
@@ -140,6 +147,17 @@ const AllUsersPage = () => {
           <SimpleModalTableHelper
             users={fakeRaters}
             onClose={() => setSelectedUserID(null)}
+          />
+        </SimpleModal>
+
+        <SimpleModal
+          open={!!userToUpdateId}
+          onClose={() => setUserToUpdateId(null)}
+        >
+          <AllUsersUpdater
+            users={users}
+            userId={userToUpdateId}
+            onClose={() => setUserToUpdateId(null)}
           />
         </SimpleModal>
 
