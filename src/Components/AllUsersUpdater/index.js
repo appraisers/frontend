@@ -16,13 +16,13 @@ const AllUsersUpdater = ({ users, userId, onClose }) => {
   const [role, setRole] = useState(selectedUser[0].role);
 
   const UpdateUserHandler = (e) => {
-       const updatedUser = {
-      fullName: fullName,
-      email: email,
-      position: position,
-      company: company,
-      role: role
-    };
+    // const updatedUser = {
+    //   fullName: fullName,
+    //   email: email,
+    //   position: position,
+    //   company: company,
+    //   role: role
+    // };
     onClose();
   };
 
