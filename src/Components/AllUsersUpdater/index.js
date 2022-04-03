@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { react, useState } from 'react';
 import ButtonHelper from '../ButtonHelper';
 import InputHelper from '../InputHelper';
 
@@ -16,17 +16,13 @@ const AllUsersUpdater = ({ users, userId, onClose }) => {
   const [role, setRole] = useState(selectedUser[0].role);
 
   const UpdateUserHandler = (e) => {
-    e.preventDefault();
-    const updatedUser = [
-      {
-        fullName: fullName,
-        email: email,
-        position: position,
-        company: company,
-        role: role
-      }
-    ];
-
+       const updatedUser = {
+      fullName: fullName,
+      email: email,
+      position: position,
+      company: company,
+      role: role
+    };
     onClose();
   };
 
@@ -39,7 +35,7 @@ const AllUsersUpdater = ({ users, userId, onClose }) => {
         Редактировать информацию о пользователе
       </h3>
 
-      <form className="all-users-updater-form" onSubmit={UpdateUserHandler}>
+      <div className="all-users-updater-form">
         <InputHelper
           label="Полное имя"
           type="text"
@@ -85,10 +81,13 @@ const AllUsersUpdater = ({ users, userId, onClose }) => {
           onChange={(e) => setRole(e.target.value)}
         />
 
-        <ButtonHelper type="submit" className="all-users-updater-submit">
+        <ButtonHelper
+          onClick={UpdateUserHandler}
+          className="all-users-updater-submit"
+        >
           Сохранить
         </ButtonHelper>
-      </form>
+      </div>
     </div>
   );
 };

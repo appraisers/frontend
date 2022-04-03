@@ -2,7 +2,15 @@ import { TextField } from '@material-ui/core';
 
 import './InputHelper.css';
 
-const InputHelper = ({ label, type, required,className, value, onChange, onBlur }) => {
+const InputHelper = ({
+  label,
+  type,
+  required,
+  className,
+  value,
+  onChange,
+  onBlur
+}) => {
   return (
     <TextField
       InputLabelProps={{

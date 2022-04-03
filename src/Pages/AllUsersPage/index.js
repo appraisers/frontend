@@ -134,8 +134,8 @@ const AllUsersPage = () => {
             <AllUsersTable
               rows={users}
               toggleUser={toggleUser}
-              userOnClick={OpenModalHandler}
-              userUpdate={OpenUserUpdateModalHandler}
+              onClickUser={OpenModalHandler}
+              onUpdateUser={OpenUserUpdateModalHandler}
             />
           ) : null}
         </div>

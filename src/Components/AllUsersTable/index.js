@@ -11,13 +11,13 @@ import {
 } from '@material-ui/core';
 import noDeletedIcon from '../../assets/icons/no-deleted-icon.svg';
 import deletedIcon from '../../assets/icons/deleted-icon.svg';
+import pencilIcon from '../../assets/icons/pencilIcon.svg';
 import AppraiseModalIcon from '../AppraiseModalIcon';
 import StyledTableRow from '../StyledTableRow';
-import PencilIcon from '../../assets/icons/pencilIcon.svg';
 
 import './AllUsersTable.scss';
 
-const TableHelper = ({ rows, toggleUser, openUserInfoModal, userUpdate }) => {
+const TableHelper = ({ rows, toggleUser, openUserInfoModal, onUpdateUser }) => {
   return (
     <TableContainer component={Paper}>
       <Table>
@@ -36,9 +36,9 @@ const TableHelper = ({ rows, toggleUser, openUserInfoModal, userUpdate }) => {
         <TableBody>
           {rows.map((row) => (
             <StyledTableRow key={row.id}>
-              <TableCell onClick={() => userUpdate(row.id)}>
+              <TableCell onClick={() => onUpdateUser(row.id)}>
                 <img
-                  src={PencilIcon}
+                  src={pencilIcon}
                   className="update-users-icon"
                   alt="edit-pencil-icon"
                 />
