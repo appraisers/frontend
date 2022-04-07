@@ -2,29 +2,39 @@ import { PieChart, Pie, Legend } from 'recharts';
 
 import './RatingPieChart.scss';
 
-const data = [
-  { name: 'Effectiveness', score: 4.5, fill: 'white' },
-  { name: 'Interaction', score: 3.8, fill: '#cfb389' },
-  { name: 'Personal qualities', score: 4.0, fill: '#e3e1dc' },
-  { name: 'Ability assessment', score: 4.8, fill: '#dbd112' }
-];
+const RatingPieChart = ({ user }) => {
+  if (user.effectivenessRating == null) {
+    return null;
+  }
 
-const style = {
-  top: '95%',
-  lineHeight: '20px'
-};
+  const data = [
+    { name: 'Effectiveness', rating: user.effectivenessRating, fill: 'white' },
+    { name: 'Interaction', rating: user.interactionRating, fill: '#cfb389' },
+    {
+      name: 'Personal qualities',
+      rating: user.personalQualitiesRating,
+      fill: '#e3e1dc'
+    },
+    {
+      name: 'Ability assessment',
+      rating: user.assessmentOfAbilitiesRating,
+      fill: '#dbd112'
+    }
+  ];
 
-const RatingPieChart = () => {
   return (
     <div className="rating-pie-chart">
       <PieChart width={200} height={200}>
-        <Pie data={data} label outerRadius={80} dataKey="score" />
+        <Pie data={data} label outerRadius={80} dataKey="rating" />
         <Legend
           iconSize={10}
           width={150}
           layout="vertical"
           verticalAlign="middle"
-          wrapperStyle={style}
+          wrapperStyle={{
+            top: '95%',
+            lineHeight: '20px'
+          }}
         />
       </PieChart>
     </div>

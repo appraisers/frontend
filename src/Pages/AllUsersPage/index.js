@@ -14,6 +14,7 @@ import './AllUsersPage.scss';
 const AllUsersPage = () => {
   const history = useHistory();
   const [users, setUsers] = useState([]);
+  const [selectedUser, setSelectedUser] = useState(null);
   const [openError, setError] = useState(false);
   const [errorText, setErrorText] = useState(false);
   const [alert, setAlert] = useState('');
@@ -79,10 +80,39 @@ const AllUsersPage = () => {
     }
   };
 
+  const getInfoSelectedUser = async (userId) => {
+    try {
+      const res = await axios.post(
+        `${process.env.REACT_APP_SERVER_ENDPOINT}/user/get-info`,
+        {
+          userId
+        },
+        {
+          headers: {
+            Authorization: localStorage.getItem('token')
+          }
+        }
+      );
+      if (res.data?.statusCode === 200) {
+        setSelectedUser(res.data.user)
+      }
+    } catch (e) {
+      setAlert('warning');
+      setErrorText('Внутренняя ошибка сервера');
+      setError(true);
+    }
+  };
+
   useEffect(() => {
     getAllUsers();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if(selectedUserID != null) {
+      getInfoSelectedUser(selectedUserID);
+    }
+  }, [selectedUserID]);
 
   const OpenModalHandler = (id) => {
     setSelectedUserID(id);
@@ -91,39 +121,6 @@ const AllUsersPage = () => {
   const OpenUserUpdateModalHandler = (id) => {
     setUserToUpdateId(id);
   };
-
-  const fakeRaters = [
-    {
-      id: 1,
-      name: 'Макаров Андрей Александрович',
-      date: '2021.6.5 8:25',
-      score: 4.5
-    },
-    {
-      id: 2,
-      name: 'Додо Пицца Таганрог',
-      date: '2022.1.25 4:05',
-      score: 3.8
-    },
-    {
-      id: 3,
-      name: 'Макаров Гарнов Александрович',
-      date: '2019.11.29 12:33',
-      score: 5.0
-    },
-    {
-      id: 4,
-      name: 'Андрей Макаров Александрович',
-      date: '2021.15.01 10:17',
-      score: 4.2
-    },
-    {
-      id: 5,
-      name: 'Дмитри Махсимович',
-      date: '2022.04.20 6:28',
-      score: 2.5
-    }
-  ];
 
   return (
     <div className="users-main-container">
@@ -145,7 +142,7 @@ const AllUsersPage = () => {
           onClose={() => setSelectedUserID(null)}
         >
           <SimpleModalTableHelper
-            users={fakeRaters}
+            selectedUser={selectedUser}
             onClose={() => setSelectedUserID(null)}
           />
         </SimpleModal>

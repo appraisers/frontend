@@ -1,4 +1,5 @@
 import React from 'react';
+import { format } from 'date-fns';
 import {
   Table,
   TableBody,
@@ -14,13 +15,19 @@ import StyledTableRow from '../StyledTableRow';
 
 import './SimpleModalUsers.scss';
 
-const SimpleModalTableHelper = ({ users, onClose }) => {
+const SimpleModalTableHelper = ({ selectedUser, onClose }) => {
+  if (selectedUser == null) {
+    return null;
+  }
+
   return (
-    <>
+    <div>
       <div className="simple-modal-user-popup">
         <div className="simple-modal-users-info">
-          <h1 className="simple-modal-users-username">Петров Петр Петрович</h1>
-          <h3>Прохождение опросов</h3>
+          <h1 className="simple-modal-users-username">
+            {selectedUser.fullname}
+          </h1>
+          <h3 className='simple-modal-users-header'>Прохождение опросов</h3>
 
           <TableContainer
             component={Paper}
@@ -50,17 +57,23 @@ const SimpleModalTableHelper = ({ users, onClose }) => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {users.map((user) => (
-                  <StyledTableRow key={user.id}>
+                {selectedUser.review.map((review) => (
+                  <StyledTableRow key={review.id}>
                     <TableCell
                       align="center"
                       className="all-users-table-cell-username"
                     >
-                      {users.name}
+                      {review.description}
                     </TableCell>
-                    <TableCell align="center">{user.date}</TableCell>
                     <TableCell align="center">
-                      {Number.parseFloat(user.score).toFixed(1)}
+                      {review.createdAt
+                        ? format(new Date(review.createdAt), 'dd-MM-yyyy HH:MM')
+                        : '-'}
+                    </TableCell>
+                    <TableCell align="center">
+                      {review.ratingSummary
+                        ? review.ratingSummary.toFixed(1)
+                        : '-'}
                     </TableCell>
                   </StyledTableRow>
                 ))}
@@ -70,14 +83,14 @@ const SimpleModalTableHelper = ({ users, onClose }) => {
         </div>
 
         <div className="simple-modal-user-pie-chart">
-          <RatingPieChart data={users} />
+          <RatingPieChart user={selectedUser} />
         </div>
 
         <ButtonHelper className="simple-modal-user-exit" onClick={onClose}>
           Назад
         </ButtonHelper>
       </div>
-    </>
+    </div>
   );
 };
 
