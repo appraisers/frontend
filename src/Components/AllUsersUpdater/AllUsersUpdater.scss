@@ -1,6 +1,6 @@
 .all-users-updater-container {
-  width: 350px;
-  height: 75%;
+  width: 40vw;
+  height: 55vh;
   background-color: #000000;
   position: absolute;
   border-radius: 20px;
@@ -51,6 +51,7 @@
   .all-users-updater-description {
     text-align: center;
     margin: 5px 0;
+    margin-bottom: 5vh;
   }
 
   .all-users-updater-submit {
@@ -63,6 +64,7 @@
     color: white;
     border: none;
     border-radius: 5px;
+    margin-top: 5vh;
   }
 
   .all-users-updater-submit:hover {
@@ -70,8 +72,9 @@
   }
 }
 
-@media only screen and (min-width: 950px) {
+@media screen and (max-width: 700px) {
   .all-users-updater-container {
-   height: 78%;
+    width: 90vw;
+    height: 50vh;
   }
 }
