@@ -1,11 +1,22 @@
 import { VictoryTheme, VictoryChart, VictoryBar, VictoryStack } from 'victory';
+import useWindowDimensions from '../windowSizeHook/windowSize.js';
 
-const BarChart = () => {
+const BarChart = ({ users }) => {
+  const data = users.map((user) => ({
+    x: user.fullname,
+    y: user.rating
+  }));
+
+  const { width, height } = useWindowDimensions();
+
+  const countedHeight = height > 800 ? height - height * 0.25 : height;
+  const countedWidth = width > 800 ? width - width * 0.35 : width - 30;
+
   return (
     <div className="bar-chart-main-container">
       <VictoryChart
-        height={350}
-        width={500}
+        height={countedHeight}
+        width={countedWidth}
         theme={VictoryTheme.material}
         domainPadding={{ x: 50, y: [0, 20] }}
       >
@@ -16,16 +27,10 @@ const BarChart = () => {
               data: {
                 fill: 'black',
                 stroke: 'gold',
-                strokeWidth: 2,
-                opacity: ({ datum }) => datum.opacity
+                strokeWidth: 3
               }
             }}
-            data={[
-              { x: 'Петр', y: 5, opacity: 1, },
-              { x: 'Иван', y: 4, opacity: 1 },
-              { x: 'Олег', y: 3, opacity: 1 },
-              { x: 'Никита', y: 2, opacity: 1 }
-            ]}
+            data={data}
           />
         </VictoryStack>
       </VictoryChart>

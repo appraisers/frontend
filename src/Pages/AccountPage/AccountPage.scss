@@ -4,44 +4,63 @@
 
   .account-page-body {
     display: flex;
-    align-items: center;
 
-    .account-page-delete-create {
+    .account-page-left-menu {
       width: 30vw;
+      margin-top: 5vh;
+      padding-left: 2vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
 
-      .account-page-all-users {
-        margin-left: 5vw;
-
-        .account-page-all-users-url {
-          display: flex;
-          align-items: center;
-          font-size: 25px;
-          color: black;
-        }
-
-        .account-page-all-users-logo {
-          width: 30px;
-          height: 30px;
-          margin-right: 5px;
-        }
+      .account-page-title {
+        margin-bottom: 5vh;
+        font-size: 25px;
       }
 
-      .account-page-create-question {
-        width: 30vw;
-      }
-
-      .account-page-delete-question {
-        width: 30vw;
+      .account-page-body {
+        display: flex;
+        flex-direction: column;
+        
+        .account-page-all-users {  
+          .account-page-all-users-url {
+            display: flex;
+            align-items: center;
+            font-size: 25px;
+            color: black;
+          }
+  
+          .account-page-all-users-logo {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+          }
+        }
+  
+        .account-page-item {
+          width: 100%;
+        }
       }
     }
 
-    .account-page-profile {
-      width: 60vw;
-      height: 70vh;
-      margin-top: 5vh;
-      background-color: rgba(0, 0, 0, 0.21);
-      padding: 1vw;
-      border-radius: 20px;
+    .account-page-right-block {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin-top: 3vh;
+      font-size: 30px;
+      width: 70vw;
+
+      .account-page-bar {
+        width: 60vw;
+        height: 70vh;
+        margin-top: 5vh;
+        background-color: rgba(0, 0, 0, 0.21);
+        padding: 1vw;
+        border-radius: 20px;
+      }
     }
   }
 }
@@ -53,27 +72,33 @@
       flex-direction: column;
       flex-wrap: wrap;
 
-      .account-page-delete-create {
-        width: 100vw;
-        margin-top: 5vh;
+      .account-page-left-menu {
+        width: 95vw;
 
-        .account-page-create-question {
-          width: 100vw;
-        }
-
-        .account-page-delete-question {
-          width: 100vw;
+        .account-page-item {
+          width: 100%;
         }
       }
 
-      .account-page-profile {
-        width: 80vw;
-        height: 30vh;
-        margin-top: 5vh;
-        background-color: rgba(0, 0, 0, 0.21);
-        padding: 3vw;
-        border-radius: 20px;
+      .account-page-right-block {
+        width: 100vw;
+
+        .account-page-right-block {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+        }
+
+        .account-page-bar {
+          width: 90%;
+          margin-top: 5vh;
+          margin-bottom: 2vh;
+          background-color: rgba(0, 0, 0, 0.21);
+          border-radius: 20px;
+        }
       }
     }
+
   }
 }

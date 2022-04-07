@@ -66,7 +66,7 @@ const TableHelper = ({ rows, toggleUser, onClickUser, onUpdateUser }) => {
                 <AppraiseModalIcon userId={row.id} />
               </TableCell>
               <TableCell align="center">
-                {row.deletedAt == null ? (
+                {row.deletedAt != null ? (
                   <img
                     src={noDeletedIcon}
                     className="toggle-user-logo"
