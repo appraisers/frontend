@@ -94,7 +94,7 @@ const AllUsersPage = () => {
         }
       );
       if (res.data?.statusCode === 200) {
-        setSelectedUser(res.data.user)
+        setSelectedUser(res.data.user);
       }
     } catch (e) {
       setAlert('warning');
@@ -109,7 +109,7 @@ const AllUsersPage = () => {
   }, []);
 
   useEffect(() => {
-    if(selectedUserID != null) {
+    if (selectedUserID != null) {
       getInfoSelectedUser(selectedUserID);
     }
   }, [selectedUserID]);
@@ -133,7 +133,7 @@ const AllUsersPage = () => {
               toggleUser={toggleUser}
               onClickUser={OpenModalHandler}
               onUpdateUser={OpenUserUpdateModalHandler}
-           />
+            />
           ) : null}
         </div>
 
@@ -154,7 +154,10 @@ const AllUsersPage = () => {
           <AllUsersUpdater
             users={users}
             userId={userToUpdateId}
-            onClose={() => setUserToUpdateId(null)}
+            onClose={() => {
+              setUserToUpdateId(null);
+              getAllUsers();
+            }}
           />
         </SimpleModal>
 

@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+
 import ButtonHelper from '../ButtonHelper';
+import AlertHelper from '../Alert';
 import InputHelper from '../InputHelper';
 
 import './AllUsersUpdater.scss';
@@ -9,21 +12,47 @@ const AllUsersUpdater = ({ users, userId, onClose }) => {
     return e.id === userId;
   });
 
-  const [fullName, setFullName] = useState(selectedUser[0].fullname);
+  const [openError, setError] = useState(false);
+  const [errorText, setErrorText] = useState(false);
+  const [alert, setAlert] = useState('');
+  const [fullname, setFullname] = useState(selectedUser[0].fullname);
   const [email, setEmail] = useState(selectedUser[0].email);
   const [position, setPosition] = useState(selectedUser[0].position);
-  const [company, setCompany] = useState(selectedUser[0].company);
+  const [company, setCompany] = useState(selectedUser[0].workplace);
   const [role, setRole] = useState(selectedUser[0].role);
 
-  const UpdateUserHandler = (e) => {
-    // const updatedUser = {
-    //   fullName: fullName,
-    //   email: email,
-    //   position: position,
-    //   company: company,
-    //   role: role
-    // };
-    onClose();
+  const user = JSON.parse(localStorage.getItem('user'));
+  const isAdmin = user?.role === 'admin';
+
+  const updateUserHandler = async () => {
+    try {
+      const res = await axios.post(
+        `${process.env.REACT_APP_SERVER_ENDPOINT}/user/update`,
+        {
+          id: userId,
+          fullname,
+          position,
+          email,
+          workplace: company,
+          role: isAdmin ? role : null
+        },
+        {
+          headers: {
+            Authorization: localStorage.getItem('token')
+          }
+        }
+      );
+      if (res.data?.statusCode === 200) {
+        setErrorText('Данные успешно отредактированн');
+        setAlert('success');
+        setError(true);
+        window.setTimeout(() => onClose(), 2000);
+      }
+    } catch (e) {
+      setAlert('warning');
+      setErrorText('Внутренняя ошибка сервера');
+      setError(true);
+    }
   };
 
   return (
@@ -41,8 +70,8 @@ const AllUsersUpdater = ({ users, userId, onClose }) => {
           type="text"
           className="all-users-updater-form-input"
           variant="outlined"
-          value={fullName}
-          onChange={(e) => setFullName(e.target.value)}
+          value={fullname}
+          onChange={(e) => setFullname(e.target.value)}
         />
 
         <InputHelper
@@ -72,21 +101,30 @@ const AllUsersUpdater = ({ users, userId, onClose }) => {
           onChange={(e) => setCompany(e.target.value)}
         />
 
-        <InputHelper
-          label="Роль"
-          type="text"
-          className="all-users-updater-form-input"
-          variant="outlined"
-          value={role}
-          onChange={(e) => setRole(e.target.value)}
-        />
+        {isAdmin && (
+          <InputHelper
+            label="Роль"
+            type="text"
+            className="all-users-updater-form-input"
+            variant="outlined"
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
+          />
+        )}
 
         <ButtonHelper
-          onClick={UpdateUserHandler}
+          onClick={updateUserHandler}
           className="all-users-updater-submit"
         >
           Сохранить
         </ButtonHelper>
+
+        <AlertHelper
+          isOpen={openError}
+          text={errorText}
+          alertColor={alert}
+          onClose={setError}
+        />
       </div>
     </div>
   );
