@@ -24,7 +24,7 @@ const RatingPieChart = ({ user }) => {
 
   return (
     <div className="rating-pie-chart">
-      <PieChart width={200} height={200}>
+      <PieChart width={250} height={200}>
         <Pie data={data} label outerRadius={80} dataKey="rating" />
         <Legend
           iconSize={10}

@@ -6,7 +6,7 @@ import AllUsersTable from '../../Components/AllUsersTable';
 import AlertHelper from '../../Components/Alert';
 import AuthorizedHeader from '../../Components/AuthorizedHeader';
 import SimpleModal from '../../Components/SimpleModal';
-import SimpleModalTableHelper from '../../Components/SimpleModalUsers';
+import SimpleModalTableHelper from '../../Components/EditUserInfoModal';
 import AllUsersUpdater from '../../Components/AllUsersUpdater';
 
 import './AllUsersPage.scss';

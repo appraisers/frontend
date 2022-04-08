@@ -13,9 +13,9 @@ import RatingPieChart from '../RatingPieChart';
 import ButtonHelper from '../ButtonHelper';
 import StyledTableRow from '../StyledTableRow';
 
-import './SimpleModalUsers.scss';
+import './EditUserInfoModal.scss';
 
-const SimpleModalTableHelper = ({ selectedUser, onClose }) => {
+const EditUserInfoModal = ({ selectedUser, onClose }) => {
   if (selectedUser == null) {
     return null;
   }
@@ -101,4 +101,4 @@ const SimpleModalTableHelper = ({ selectedUser, onClose }) => {
   );
 };
 
-export default SimpleModalTableHelper;
+export default EditUserInfoModal;

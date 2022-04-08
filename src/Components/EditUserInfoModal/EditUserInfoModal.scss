@@ -1,6 +1,6 @@
 .simple-modal-user-popup {
   width: 80%;
-  height: 40vh;
+  height: 80vh;
   background-color: #000000;
   position: absolute;
   border-radius: 20px;
@@ -57,7 +57,7 @@
 
 @media only screen and (max-width: 750px) {
   .simple-modal-user-popup {
-    height: 60vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
