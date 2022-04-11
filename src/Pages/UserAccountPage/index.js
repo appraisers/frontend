@@ -19,7 +19,7 @@ const UserAccountPage = () => {
     <div className="user-account-page">
       <AuthorizedHeader title="Личный кабинет" />
       <div className="user-account-page-container">
-        <UserCard user={tempUser} darkMode={true} />
+        <UserCard user={tempUser} darkMode />
         <div className="user-account-page-review">
           <div className="user-account-page-review-request">
             <h3 className="user-account-page-review-request-header">
