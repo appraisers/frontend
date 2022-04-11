@@ -12,6 +12,7 @@ import InviteAppraisePage from "./Pages/InviteAppraisePage";
 import AppraisePage from "./Pages/AppraisePage";
 import LastAnswerPage from "./Pages/LastAnswerPage";
 import AllUsersPage from "./Pages/AllUsersPage";
+import UserAccountPage from './Pages/UserAccountPage';
 
 const App = () => {
     return (
@@ -22,6 +23,7 @@ const App = () => {
                 <Route path="/forgot_password_2/:token" component={SecondPasswordPage} />
                 <Route path='/about' component={About} />
                 <Route path='/my' component={AccountPage} />
+                <Route path='/my-info' component={UserAccountPage} />
                 <Route path="/invite-appraise/:userId" component={InviteAppraisePage} />
                 <Route path='/appraise/:userId' component={AppraisePage} />
                 <Route path='/appraise-description/:userId' component={LastAnswerPage} />

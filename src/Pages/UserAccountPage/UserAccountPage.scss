@@ -1,0 +1,152 @@
+.user-account-page {
+  min-height: 100vh;
+  width: 100vw;
+  background: rgba(207, 179, 137, 0.19);
+
+  .user-account-page-container {
+    display: flex;
+    height: 60%;
+    width: 80%;
+    margin: 0 auto;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 5%;
+
+    .user-account-page-review {
+      width: 60%;
+      height: 65vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      text-align: center;
+
+      .user-account-page-review-request {
+        width: 70%;
+        height: 35%;
+        border-radius: 20px;
+        background-color: #000000;
+        color: white;
+
+        .user-account-page-review-request-header {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 7px;
+        }
+
+        .user-account-page-review-request-hr {
+          border: 0.2px solid #cfb389;
+        }
+
+        .user-account-page-review-request-button {
+          background-color: #cfb389;
+          color: white;
+          margin: 25px 5px;
+          border: none;
+          border-radius: 10px;
+          cursor: pointer;
+          padding: 3%;
+          font-size: 18px;
+        }
+
+        .user-account-page-review-request-button:hover {
+          padding: 3.5%;
+        }
+      }
+
+      .user-account-page-review-info {
+        width: 70%;
+        height: 35%;
+        border-radius: 20px;
+        background-color: #000000;
+        color: white;
+
+        .user-account-page-review-info-header {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 6px;
+        }
+
+        .user-account-page-review-info-hr {
+          border: 0.2px solid #cfb389;
+        }
+
+        .user-account-page-review-info-button {
+          padding: 2%;
+          background-color: #cfb389;
+          color: white;
+          margin: 25px 4px;
+          border: none;
+          font-size: 19px;
+          border-radius: 10px;
+          cursor: pointer;
+        }
+
+        .user-account-page-review-info-button:hover {
+          padding: 2.2%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .user-account-page {
+    overflow: hidden;
+
+    .user-account-page-container {
+      height: 100%;
+      width: 90%;
+      flex-direction: column;
+      padding: 5% 2%;
+
+      .user-account-page-review {
+        width: 80%;
+        height: 45vh;
+        margin: 0 auto 10px;
+
+        .user-account-page-review-request {
+          width: 60%;
+          height: 35%;
+
+          .user-account-page-review-request-header {
+            padding: 5px;
+          }
+
+          .user-account-page-review-request-button {
+            background-color: #cfb389;
+            color: white;
+            margin: 3%;
+            padding: 1.9%;
+          }
+
+          .user-account-page-review-request-button:hover {
+            padding: 2.2%;
+          }
+        }
+
+        .user-account-page-review-info {
+          width: 60%;
+          height: 35%;
+
+          .user-account-page-review-info-header {
+            padding: 4px;
+          }
+
+          .user-account-page-review-info-button {
+            padding: 1.4%;
+            margin: 1.5%;
+            border: none;
+            font-size: 18px;
+          }
+
+          .user-account-page-review-info-button:hover {
+            padding: 2.2%;
+          }
+        }
+      }
+    }
+  }
+}
