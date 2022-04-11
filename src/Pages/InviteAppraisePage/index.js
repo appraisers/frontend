@@ -67,7 +67,7 @@ const InviteAppraisePage = () => {
             onClose={setError}
           />
         </div>
-        <UserCard user={user} Color={['#cfb389', '#000000']} />
+        <UserCard user={user} darkMode={false} />
       </div>
     </div>
   );
