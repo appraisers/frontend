@@ -3,8 +3,9 @@ import { NavLink, useParams, useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 import AlertHelper from '../../Components/Alert';
-import profileImage from '../../assets/images/profile-image.svg';
 import AuthorizedHeader from '../../Components/AuthorizedHeader';
+import UserCard from '../../Components/UserCard';
+
 import './InviteAppraisePage.scss';
 
 const InviteAppraisePage = () => {
@@ -43,37 +44,6 @@ const InviteAppraisePage = () => {
     <div className="survey-invite-body">
       <AuthorizedHeader />
       <div className="survey-invite-container">
-        <div className="survey-invite-profile">
-          <h3 className="survey-invite-evaluatee">Информация оцениваемого</h3>
-          <hr className="survey-invite-horizontal-rule" />
-
-          <img
-            src={profileImage}
-            className="survey-invite-profile-image"
-            alt="survey invite profile"
-          />
-
-          <ul className="survey-invite-profile-identity">
-            <li className="survey-invite-profile-identity-details">
-              <p className="survey-invite-profile-detail">Полное имя:</p>
-              <span className="survey-invite-profile-name survey-invite-profile-input">
-                {user.fullname}
-              </span>
-            </li>
-            <li className="survey-invite-profile-identity-details">
-              <p className="survey-invite-profile-detail">Должность:</p>
-              <span className="survey-invite-profile-post survey-invite-profile-input">
-                {user.position}
-              </span>
-            </li>
-            <li className="survey-invite-profile-identity-details">
-              <p className="survey-invite-profile-detail">Организация:</p>
-              <span className="survey-invite-profile-organisation survey-invite-profile-input">
-                {user.workplace}
-              </span>
-            </li>
-          </ul>
-        </div>
         <div className="survey-invite-description-container">
           <h1 className="survey-invite-description-header">
             Оцените работу и личные качества {user.fullname}.
@@ -97,6 +67,7 @@ const InviteAppraisePage = () => {
             onClose={setError}
           />
         </div>
+        <UserCard user={user} darkMode={false} />
       </div>
     </div>
   );

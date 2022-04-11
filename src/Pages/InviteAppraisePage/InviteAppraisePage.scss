@@ -4,55 +4,14 @@
 
   .survey-invite-container {
     display: flex;
-    flex-direction: column;
-    padding: 5px;
-
-    .survey-invite-profile {
-      max-width: 60%;
-      background: rgba(207, 179, 137, 0.46);
-      box-shadow: -5px 7px 15px rgba(0, 0, 0, 0.25);
-      border-radius: 40px;
-      margin: 5px auto;
-      text-align: center;
-      padding: 4px;
-
-      .survey-invite-evaluatee {
-        margin: 6px;
-      }
-
-      .survey-invite-horizontal-rule {
-        border: 0.2px solid rgba(0, 0, 0, 0.2);
-      }
-
-      .survey-invite-profile-image {
-        width: 150px;
-        height: 150px;
-        margin-bottom: 5vh;
-      }
-
-      .survey-invite-profile-identity {
-        width: 90%;
-        margin: 0 auto;
-        text-align: left;
-
-        .survey-invite-profile-identity-details {
-          list-style-type: none;
-
-          .survey-invite-profile-detail {
-            font-size: 18px;
-          }
-
-          .survey-invite-profile-input {
-            font-size: 18px;
-            font-weight: 600;
-            margin-left: 10px;
-          }
-        }
-      }
-    }
-
+    width: 70%;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5%;
+    margin: 10px auto;
+       
     .survey-invite-description-container {
-      width: 85%;
+      width: 80%;
       margin: 4px auto;
       margin-top: 5vh;
 
@@ -61,7 +20,7 @@
         justify-content: center;
         text-align: center;
         font-size: 24px;
-        margin: 5px 0;
+        margin: 5px;
       }
 
       .survey-invite-description {
@@ -93,26 +52,20 @@
         }
 
         .survey-invite-link-to-survey:hover { 
-          padding: 18px 28px;
-          border: 2px solid black;
+          padding: 2.5%;
           box-shadow: none;
-        }
-
-        .survey-invite-link-to-survey:active {
-          margin-top: 8px;
-          transition: 1ms;
         }
       }
     }
   }
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (max-width: 700px) {
   .survey-invite-body {
     min-height: 100vh;
 
     .survey-invite-container {
-      flex-direction: row-reverse;
+      flex-direction: column-reverse;
       justify-content: space-evenly;
 
       .survey-invite-profile {
