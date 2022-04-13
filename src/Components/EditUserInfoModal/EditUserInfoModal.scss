@@ -57,7 +57,7 @@
 
 @media only screen and (max-width: 750px) {
   .simple-modal-user-popup {
-    height: 80vh;
+    min-height: 85vh;
     display: flex;
     flex-direction: column;
     align-items: center;

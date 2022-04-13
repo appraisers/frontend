@@ -17,6 +17,7 @@ const AppraisePage = () => {
   const history = useHistory();
   const { userId } = useParams();
   const [answers, setAnswers] = useState([]);
+  const [user, setUser] = useState(null);
   const [questions, setQuestions] = useState(null);
   const [categoryQuestions, setCategoryQuestions] = useState('');
   const [offset, setOffset] = useState(OFFSET);
@@ -28,7 +29,6 @@ const AppraisePage = () => {
   const getQuestions = async () => {
     let lastAnswer = false;
     try {
-      const user = JSON.parse(localStorage.getItem('user'));
       // If answered post it
       if (answers.length) {
         const arrayAnswers = answers.map((answer) => answer.value);
@@ -38,8 +38,7 @@ const AppraisePage = () => {
           {
             userId,
             ids: arrayQuestionsIds,
-            answers: arrayAnswers,
-            userPosition: user.position
+            answers: arrayAnswers
           },
           {
             headers: {
@@ -56,7 +55,7 @@ const AppraisePage = () => {
       // If not last answer getQuestions
       if (!lastAnswer) {
         const res = await axios.get(
-          `${process.env.REACT_APP_SERVER_ENDPOINT}/question/questions?offset=${offset}&limit=${LIMIT}&position=${user.position}`
+          `${process.env.REACT_APP_SERVER_ENDPOINT}/question/questions?offset=${offset}&limit=${LIMIT}&position=${user?.position}`
         );
         if (res.data?.statusCode !== 200) {
           setAlert('warning');
@@ -75,6 +74,35 @@ const AppraisePage = () => {
       setError(true);
     }
   };
+
+  const getAppraiseUser = async () => {
+    try {
+      const res = await axios.post(
+        `${process.env.REACT_APP_SERVER_ENDPOINT}/user/info`,
+        {
+          userId
+        },
+        {
+          headers: {
+            Authorization: localStorage.getItem('token')
+          }
+        }
+      );
+      if (res.data?.statusCode === 200) {
+        setUser(res.data.user);
+      }
+    } catch (e) {
+      setAlert('warning');
+      setErrorText('Внутренняя ошибка сервера');
+      setError(true);
+    }
+  };
+
+  useEffect(() => {
+    getAppraiseUser();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   useEffect(() => {
     getQuestions();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -125,7 +153,11 @@ const AppraisePage = () => {
           {questions &&
             questions.map((question) => (
               <div className="apprise-question-container" key={question.id}>
-                <p className="apprise-question">{question.description}</p>
+                <p className="apprise-question">
+                  {user == null
+                    ? question.description
+                    : question.description.replace('{name}', user.fullname)}
+                </p>
                 <StarRating
                   onChange={(value) => {
                     setAnswers((prev) =>

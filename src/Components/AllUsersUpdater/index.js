@@ -46,7 +46,7 @@ const AllUsersUpdater = ({ users, userId, onClose }) => {
         setErrorText('Данные успешно отредактированн');
         setAlert('success');
         setError(true);
-        window.setTimeout(() => onClose(), 2000);
+        window.setTimeout(() => onClose(), 1000);
       }
     } catch (e) {
       setAlert('warning');

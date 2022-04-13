@@ -49,7 +49,7 @@ const AppraiseModalIcon = ({ userId }) => {
       const res = await axios.post(
         `${process.env.REACT_APP_SERVER_ENDPOINT}/review/invite_appraise`,
         {
-          email: selectedData.value,
+          emails: [selectedData.value],
           userId
         },
         {
@@ -94,7 +94,7 @@ const AppraiseModalIcon = ({ userId }) => {
             data={users}
             selectedData={selectedData}
             onChange={handleChange}
-            placeholder="Выберите оцениваемого"
+            placeholder="Выберите оценивающего"
           />
 
           <ButtonHelper
