@@ -7,7 +7,7 @@ const MenuProps = {
   getContentAnchorEl: null,
   PaperProps: {
     style: {
-      height: "30vh",
+      height: '30vh',
       width: '30%',
       marginTop: '5%',
       padding: '5px 0',
