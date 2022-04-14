@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  MenuItem,
-  ListItemText,
-  Select,
-  Checkbox,
-  FormControl,
-  InputLabel
-} from '@material-ui/core';
+import { MenuItem, ListItemText, Select, Checkbox } from '@material-ui/core';
 
 import './MultiSelectHelper.scss';
 
@@ -47,41 +40,27 @@ const MultiSelectHelper = ({
       <span className="select-helper-modal-exit" onClick={onClose}>
         X
       </span>
-      <FormControl className='select-helper-form'>
-        <InputLabel>выбранный</InputLabel>
-        <Select
-          className="select-helper-dropdown"
-          multiple
-          value={selectedData}
-          renderValue={(selected) => {
-            let renderUser = [];
-            selected.forEach((element) => {
-              renderUser.push(element.label);
-            });
-            return renderUser.join(', ');
-          }}
-          MenuProps={MenuProps}
-          disableUnderline
-          onChange={(e) => onChange(e.target.value)}
-        >
-          {data.map((item) => (
-            <MenuItem
-              key={item.value}
-              value={item}
-              MenuProps={{
-                getContentAnchorEl: null
-              }}
-              
-            >
-              <Checkbox
-                checked={selectedData.indexOf(item) >= 0 ? true : false}
-                color="default"
-              />
-              <ListItemText primary={item.label} />
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+      <Select
+        className="select-helper-dropdown"
+        multiple
+        value={selectedData}
+        renderValue={(selected) => {
+          return selected.map((item) => item.label).join(', ');
+        }}
+        MenuProps={MenuProps}
+        disableUnderline
+        onChange={(e) => onChange(e.target.value)}
+      >
+        {data.map((item) => (
+          <MenuItem key={item.value} value={item}>
+            <Checkbox
+              checked={selectedData.indexOf(item) >= 0}
+              color="default"
+            />
+            <ListItemText primary={item.label} />
+          </MenuItem>
+        ))}
+      </Select>
     </div>
   );
 };

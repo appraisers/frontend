@@ -5,17 +5,14 @@
   padding: 1vh;
   display: block;
 
-  .select-helper-form {
-    width: 100%;
-
-    .select-helper-dropdown {
-      border: 2px solid #cfb389;
-      background-color: rgba(159, 158, 158, 0.63);
-      width: 100%;
-      border-radius: 20px;
-      padding: 0.7vh 1.5vw;
-    }
+  .select-helper-dropdown {
+    border: 2px solid #cfb389;
+    background-color: rgba(159, 158, 158, 0.63);
+    width: 80%;
+    border-radius: 20px;
+    padding: 0.7vh 1.5vw;
   }
+
   .select-helper-header {
     margin: 5px;
     font-size: 19px;
