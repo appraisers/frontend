@@ -5,7 +5,7 @@ import appraiseIcon from '../../assets/icons/appraise-icon.svg';
 import ButtonHelper from '../../Components/ButtonHelper';
 import AlertHelper from '../../Components/Alert';
 import SimpleModal from '../SimpleModal';
-import SelectHelper from '../SelectHelper';
+import MultiSelectHelper from '../MultiSelectHelper';
 
 import './AppraiseModalIcon.scss';
 
@@ -15,10 +15,7 @@ const AppraiseModalIcon = ({ userId }) => {
   const [errorText, setErrorText] = useState(false);
   const [alert, setAlert] = useState('');
   const [users, setUsers] = useState([]);
-  const [selectedData, setSelectedData] = useState(null);
-  const handleChange = (e) => {
-    setSelectedData(users.find((user) => user.value === e.target.value));
-  };
+  const [selectedData, setSelectedData] = useState([]);
 
   const getUsersForTable = async () => {
     try {
@@ -46,10 +43,11 @@ const AppraiseModalIcon = ({ userId }) => {
 
   const inviteReview = async () => {
     try {
+      const emails = selectedData.map((item) => item.value);
       const res = await axios.post(
         `${process.env.REACT_APP_SERVER_ENDPOINT}/review/invite_appraise`,
         {
-          emails: [selectedData.value],
+          emails,
           userId
         },
         {
@@ -90,15 +88,19 @@ const AppraiseModalIcon = ({ userId }) => {
         }}
       >
         <div className="appraise-modal-main-container">
-          <SelectHelper
+          <MultiSelectHelper
             data={users}
             selectedData={selectedData}
-            onChange={handleChange}
+            setSelectedData={setSelectedData}
+            onClose={() => setOpen(false)}
             placeholder="Выберите оценивающего"
           />
 
           <ButtonHelper
-            onClick={inviteReview}
+            onClick={() => {
+              inviteReview();
+              setOpen(false);
+            }}
             className="appraise-modal-button"
             disabled={selectedData == null}
           >

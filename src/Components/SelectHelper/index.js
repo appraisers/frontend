@@ -11,7 +11,7 @@ const SelectHelper = ({
   selectedData,
   placeholder
 }) => {
-  const selectedValue = selectedData? selectedData.value : DEFAULT_PLACEHOLDER_VALUE
+  const selectedValue = selectedData ? selectedData.value : DEFAULT_PLACEHOLDER_VALUE
   
   return (
     <Select

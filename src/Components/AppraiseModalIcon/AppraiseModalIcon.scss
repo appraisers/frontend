@@ -8,19 +8,14 @@
 
 .appraise-modal-main-container {
   color: white;
-  background-color: #a1a1a1;
-  padding: 1vw;
+  background-color: black;
   border-radius: 10px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
+  width: 40%;
   text-align: center;
-
-  .MuiSelect-selectMenu{
-    padding: 10px;
-  }
 
   .appraise-modal-button {
     background: #cfb389;

@@ -1,0 +1,41 @@
+.select-helper-container {
+  width: 80%;
+  height: 40%;
+  margin: 0 auto;
+  padding: 1vh;
+  display: block;
+
+  .select-helper-form {
+    width: 100%;
+
+    .select-helper-dropdown {
+      border: 2px solid #cfb389;
+      background-color: rgba(159, 158, 158, 0.63);
+      width: 100%;
+      border-radius: 20px;
+      padding: 0.7vh 1.5vw;
+    }
+  }
+  .select-helper-header {
+    margin: 5px;
+    font-size: 19px;
+  }
+
+  .select-helper-modal-exit {
+    color: #7b684d;
+    font-size: 20px;
+    position: absolute;
+    cursor: pointer;
+    top: 3%;
+    right: 3%;
+  }
+  .select-helper-modal-exit:hover {
+    color: #cfb389;
+    font-size: 22px;
+  }
+}
+
+.MuiList-root.MuiMenu-list {
+  background-color: white;
+  padding: 0;
+}
