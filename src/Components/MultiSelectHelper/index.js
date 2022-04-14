@@ -7,7 +7,7 @@ const MenuProps = {
   getContentAnchorEl: null,
   PaperProps: {
     style: {
-      height: 250,
+      height: "30vh",
       width: '30%',
       marginTop: '5%',
       padding: '5px 0',
@@ -45,7 +45,7 @@ const MultiSelectHelper = ({
         multiple
         value={selectedData}
         renderValue={(selected) => {
-          return selected.map((item) => item.label).join(', ');
+          return selected.map((item) => item.label)?.join(', ');
         }}
         MenuProps={MenuProps}
         disableUnderline
