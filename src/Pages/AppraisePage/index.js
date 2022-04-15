@@ -104,9 +104,11 @@ const AppraisePage = () => {
   }, []);
 
   useEffect(() => {
-    getQuestions();
+    if(user != null) {
+      getQuestions();
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [offset]);
+  }, [offset, user]);
 
   const handleChange = (prev, index, value) => {
     let copyPrev = [...prev];

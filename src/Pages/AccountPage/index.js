@@ -99,7 +99,7 @@ const AccountPage = () => {
             </div>
           </div>
         </div>
-        <div className="account-page-right-block ">
+        <div className="account-page-right-block">
           <h4>Топ пользователей за {getMonthName()}</h4>
           <div className="account-page-bar">
             {topUsers.length > 0 ? <BarChart users={topUsers} /> : <Skeleton />}
