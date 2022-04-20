@@ -13,22 +13,24 @@ import AppraisePage from "./Pages/AppraisePage";
 import LastAnswerPage from "./Pages/LastAnswerPage";
 import AllUsersPage from "./Pages/AllUsersPage";
 import UserAccountPage from './Pages/UserAccountPage';
+import UserAppraiseStatus from "./Pages/UserAppraiseStatus";
 
 const App = () => {
     return (
         <div className="App">
             <Switch>
                 <Route path='/' exact component={Main} />
-                <Route path="/forgot_password" component={RestorePassword} />
-                <Route path="/forgot_password_2/:token" component={SecondPasswordPage} />
+                <Route path='/forgot_password' component={RestorePassword} />
+                <Route path='/forgot_password_2/:token' component={SecondPasswordPage} />
                 <Route path='/about' component={About} />
                 <Route path='/my' component={AccountPage} />
                 <Route path='/my-info' component={UserAccountPage} />
-                <Route path="/invite-appraise/:userId" component={InviteAppraisePage} />
+                <Route path='/invite-appraise/:userId' component={InviteAppraisePage} />
                 <Route path='/appraise/:userId' component={AppraisePage} />
                 <Route path='/appraise-description/:userId' component={LastAnswerPage} />
                 <Route path='/registration' component={Registration} />
                 <Route path='/users' component={AllUsersPage} />
+                <Route path='/appraise-statuses' component={UserAppraiseStatus} />
                 <Route component={PageNotFound} />      
             </Switch>
         </div>

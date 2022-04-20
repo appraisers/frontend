@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import appraiseIcon from '../../assets/icons/appraise-icon.svg';
+import addQuestionIcon from '../../assets/icons/add-question-icon.svg';
 import ButtonHelper from '../../Components/ButtonHelper';
 import InputHelper from '../../Components/InputHelper';
 import AlertHelper from '../../Components/Alert';
@@ -97,7 +97,7 @@ const CreateQuestion = () => {
   return (
     <div className="create-question-main">
        <img
-        src={appraiseIcon}
+        src={addQuestionIcon}
         onClick={() => setOpen(true)}
         className="create-question-logo"
         alt="create-question-logo"

@@ -8,7 +8,8 @@ import Skeleton from '../../Components/Skeleton';
 import AlertHelper from '../../Components/Alert';
 import AuthorizedHeader from '../../Components/AuthorizedHeader';
 import BarChart from '../../Components/BarChart';
-import userIcon from '../../assets/icons/user-icon.svg';
+import usersTableIcon from '../../assets/icons/users-table-icon.svg';
+import statusIcon from '../../assets/icons/status-icon.svg';
 
 import './AccountPage.scss';
 
@@ -80,7 +81,7 @@ const AccountPage = () => {
             <div className="account-page-all-users">
               <a href="/users" className="account-page-all-users-url">
                 <img
-                  src={userIcon}
+                  src={usersTableIcon}
                   href="/my"
                   className="account-page-all-users-logo"
                   alt="account-page-all-users-logo"
@@ -96,6 +97,19 @@ const AccountPage = () => {
             </div>
             <div className="account-page-item">
               <InviteRegistration />
+            </div>
+            <div className="account-page-item">
+              <a
+                href="/appraise-statuses"
+                className="users-grades-statuses-url"
+              >
+                <img
+                  src={statusIcon}
+                  className="user-grade-status-logo"
+                  alt="users statuses page logo"
+                />
+                Таблица статусов оценок
+              </a>
             </div>
           </div>
         </div>
