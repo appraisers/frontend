@@ -22,24 +22,36 @@
       .account-page-body {
         display: flex;
         flex-direction: column;
-        
-        .account-page-all-users {  
+
+        .account-page-all-users {
           .account-page-all-users-url {
             display: flex;
             align-items: center;
             font-size: 25px;
             color: black;
           }
-  
+
           .account-page-all-users-logo {
             width: 30px;
             height: 30px;
             margin-right: 5px;
           }
         }
-  
+
         .account-page-item {
           width: 100%;
+          .users-grades-statuses-url {
+            display: flex;
+            align-items: center;
+            font-size: 25px;
+            color: black;
+            cursor: pointer;
+
+            .user-grade-status-logo {
+              width: 30px;
+              margin-right: 7px;
+            }
+          }
         }
       }
     }
@@ -99,6 +111,5 @@
         }
       }
     }
-
   }
 }
