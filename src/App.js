@@ -13,7 +13,7 @@ import AppraisePage from "./Pages/AppraisePage";
 import LastAnswerPage from "./Pages/LastAnswerPage";
 import AllUsersPage from "./Pages/AllUsersPage";
 import UserAccountPage from './Pages/UserAccountPage';
-import UserGradeStatus from "./Pages/UserGradeStatus";
+import UserAppraiseStatus from "./Pages/UserAppraiseStatus";
 
 const App = () => {
     return (
@@ -30,7 +30,7 @@ const App = () => {
                 <Route path='/appraise-description/:userId' component={LastAnswerPage} />
                 <Route path='/registration' component={Registration} />
                 <Route path='/users' component={AllUsersPage} />
-                <Route path='/appraise-statuses' component={UserGradeStatus} />
+                <Route path='/appraise-statuses' component={UserAppraiseStatus} />
                 <Route component={PageNotFound} />      
             </Switch>
         </div>

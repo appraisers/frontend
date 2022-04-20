@@ -12,9 +12,9 @@ import {
 } from '@material-ui/core';
 import StyledTableRow from '../../Components/StyledTableRow';
 
-import './UserGradeStatus.scss';
+import './UserAppraiseStatus.scss';
 
-const UserGradeStatus = () => {
+const UserAppraiseStatus = () => {
   const DUMMY_USERS = [
     {
       id: 1,
@@ -46,10 +46,10 @@ const UserGradeStatus = () => {
     }
   ];
   return (
-    <div className="grade-status-container">
+    <div className="appraise-status-container">
       <AuthorizedHeader title="Таблица статусов оценок" />
-      <div className="grade-status-body-container">
-        <div className="grade-status-table">
+      <div className="appraise-status-body-container">
+        <div className="appraise-status-table">
           <TableContainer component={Paper}>
             <Table>
               <TableHead>
@@ -91,4 +91,4 @@ const UserGradeStatus = () => {
   );
 };
 
-export default UserGradeStatus;
+export default UserAppraiseStatus;
