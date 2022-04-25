@@ -65,7 +65,7 @@ const AllUsersPage = () => {
       if (res.data?.statusCode === 200) {
         if (type === 'delete') {
           setErrorText('Пользователь удален');
-          setAlert('warning');
+          setAlert('success');
         } else {
           setErrorText('Пользователь восстановлен');
           setAlert('success');
