@@ -9,8 +9,8 @@ import {
   Paper,
   TableCell
 } from '@material-ui/core';
-import noDeletedIcon from '../../assets/icons/no-deleted-icon.svg';
-import deletedIcon from '../../assets/icons/deleted-icon.svg';
+import restoreIcon from '../../assets/icons/no-deleted-icon.svg';
+import deleteIcon from '../../assets/icons/deleted-icon.svg';
 import pencilIcon from '../../assets/icons/pencilIcon.svg';
 import AppraiseModalIcon from '../AppraiseModalIcon';
 import StyledTableRow from '../StyledTableRow';
@@ -68,17 +68,17 @@ const TableHelper = ({ rows, toggleUser, onClickUser, onUpdateUser }) => {
               <TableCell align="center">
                 {row.deletedAt != null ? (
                   <img
-                    src={noDeletedIcon}
-                    className="toggle-user-logo"
-                    alt="appraise"
-                    onClick={() => toggleUser(row.id, 'delete')}
-                  />
-                ) : (
-                  <img
-                    src={deletedIcon}
+                    src={restoreIcon}
                     className="toggle-user-logo"
                     alt="appraise"
                     onClick={() => toggleUser(row.id, 'restore')}
+                  />
+                ) : (
+                  <img
+                    src={deleteIcon}
+                    className="toggle-user-logo"
+                    alt="appraise"
+                    onClick={() => toggleUser(row.id, 'delete')}
                   />
                 )}
               </TableCell>
