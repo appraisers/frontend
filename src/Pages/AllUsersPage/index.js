@@ -21,6 +21,9 @@ const AllUsersPage = () => {
   const [selectedUserID, setSelectedUserID] = useState(null);
   const [userToUpdateId, setUserToUpdateId] = useState(null);
 
+  const user = JSON.parse(localStorage.getItem('user'));
+  const isAdmin = user?.role === 'admin';
+
   const getAllUsers = async () => {
     try {
       const res = await axios.get(
@@ -133,6 +136,7 @@ const AllUsersPage = () => {
               toggleUser={toggleUser}
               onClickUser={OpenModalHandler}
               onUpdateUser={OpenUserUpdateModalHandler}
+              isAdmin={isAdmin}
             />
           ) : null}
         </div>

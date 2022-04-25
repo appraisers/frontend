@@ -4,7 +4,6 @@ import axios from 'axios';
 import CreateQuestion from '../CreateQuestion';
 import DeleteQuestion from '../DeleteQuestion';
 import InviteRegistration from '../InviteRegistration';
-import Skeleton from '../../Components/Skeleton';
 import AlertHelper from '../../Components/Alert';
 import AuthorizedHeader from '../../Components/AuthorizedHeader';
 import BarChart from '../../Components/BarChart';
@@ -49,7 +48,7 @@ const AccountPage = () => {
       dateNow.getFullYear(),
       dateNow.getMonth() - 1
     );
-    const mlist = [
+    const monthlist = [
       'Январь',
       'Февраль',
       'Март',
@@ -63,7 +62,7 @@ const AccountPage = () => {
       'Ноябрь',
       'Декабрь'
     ];
-    return mlist[lastMonthDate.getMonth()];
+    return monthlist[lastMonthDate.getMonth()];
   };
 
   return (
@@ -116,7 +115,11 @@ const AccountPage = () => {
         <div className="account-page-right-block">
           <h4>Топ пользователей за {getMonthName()}</h4>
           <div className="account-page-bar">
-            {topUsers.length > 0 ? <BarChart users={topUsers} /> : <Skeleton />}
+            {topUsers.length > 0 ? (
+              <BarChart users={topUsers} />
+            ) : (
+              <h3>Список пуст!</h3>
+            )}
           </div>
         </div>
       </div>

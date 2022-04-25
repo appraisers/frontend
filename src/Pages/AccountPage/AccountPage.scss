@@ -66,6 +66,9 @@
       width: 70vw;
 
       .account-page-bar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 60vw;
         height: 70vh;
         margin-top: 5vh;
@@ -82,6 +85,8 @@
     .account-page-body {
       display: flex;
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
       flex-wrap: wrap;
 
       .account-page-left-menu {
@@ -93,14 +98,11 @@
       }
 
       .account-page-right-block {
-        width: 100vw;
-
-        .account-page-right-block {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-direction: column;
-        }
+        width: 95vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;  
+        flex-direction: column;
 
         .account-page-bar {
           width: 90%;

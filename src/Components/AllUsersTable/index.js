@@ -17,7 +17,7 @@ import StyledTableRow from '../StyledTableRow';
 
 import './AllUsersTable.scss';
 
-const TableHelper = ({ rows, toggleUser, onClickUser, onUpdateUser }) => {
+const AllUsersTable = ({ rows, toggleUser, onClickUser, onUpdateUser }) => {
   return (
     <TableContainer component={Paper}>
       <Table>
@@ -90,4 +90,4 @@ const TableHelper = ({ rows, toggleUser, onClickUser, onUpdateUser }) => {
   );
 };
 
-export default TableHelper;
+export default AllUsersTable;
