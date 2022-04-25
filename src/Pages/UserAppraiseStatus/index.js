@@ -21,28 +21,28 @@ const UserAppraiseStatus = () => {
       name: 'Алексей Попов',
       gradedBy: 'Матвей Степанов',
       date: '10:45 23.03.2011',
-      status: 'Оценнено'
+      status: 'Оценено'
     },
     {
       id: 2,
       name: 'Кирилл Иванов',
       gradedBy: 'Данил Морозов',
       date: '15:45 28.12.2021',
-      status: 'Не оценнено'
+      status: 'Не оценено'
     },
     {
       id: 3,
       name: 'Сергей Васильев',
       gradedBy: 'Станислав Козлов',
       date: '18:05 08.09.2021',
-      status: 'Оценнено'
+      status: 'Оценено'
     },
     {
       id: 4,
       name: 'Алексей Семёнов',
       gradedBy: 'Леонид Михайлов ',
       date: '15:04 28.10.2017',
-      status: 'Не оценнено'
+      status: 'Не оценено'
     }
   ];
   return (
@@ -73,7 +73,7 @@ const UserAppraiseStatus = () => {
                         align="center"
                         style={{
                           color:
-                            row.status === 'Оценнено' ? '#32a834' : '#f50717',
+                            row.status === 'Оценено' ? '#32a834' : '#f50717',
                           fontSize: '18px',
                           fontWeight: 'bold'
                         }}
