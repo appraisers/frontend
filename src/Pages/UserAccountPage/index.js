@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 import reviewIcon from '../../assets/icons/review.svg';
@@ -11,22 +11,18 @@ import UserCard from '../../Components/UserCard';
 import './UserAccountPage.scss';
 
 const UserAccountPage = () => {
-  const [user, setUser] = useState({});
   const [openError, setError] = useState(false);
   const [errorText, setErrorText] = useState(false);
   const [alert, setAlert] = useState('');
-  const userId = user.id;
 
-  const getCurrentUser = () => {
-    setUser(localStorage.getItem('user'));
-  };
+  const user = localStorage.getItem('user');
 
   const selfAppraiseHandler = async () => {
     try {
       const res = await axios.post(
         `${process.env.REACT_APP_SERVER_ENDPOINT}/user/request`,
         {
-          userId
+          userId: user?.id
         },
         {
           headers: {
@@ -34,6 +30,7 @@ const UserAccountPage = () => {
           }
         }
       );
+
       if (res.data?.statusCode === 200) {
         setAlert('success');
         setErrorText('Вы успешно запросили оценку на себя');
@@ -45,10 +42,6 @@ const UserAccountPage = () => {
       setError(true);
     }
   };
-
-  useEffect(() => {
-    getCurrentUser();
-  }, []);
 
   return (
     <div className="user-account-page">
