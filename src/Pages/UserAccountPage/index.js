@@ -1,25 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 
 import reviewIcon from '../../assets/icons/review.svg';
 import moreInfoIcon from '../../assets/icons/more-info.svg';
 import AuthorizedHeader from '../../Components/AuthorizedHeader';
 import ButtonHelper from '../../Components/ButtonHelper';
+import AlertHelper from '../../Components/Alert';
 import UserCard from '../../Components/UserCard';
 
 import './UserAccountPage.scss';
 
 const UserAccountPage = () => {
-  const tempUser = {
-    fullname: 'temp user',
-    position: 'test test',
-    workplace: 'Appraisers Plc'
+  const [openError, setError] = useState(false);
+  const [errorText, setErrorText] = useState(false);
+  const [alert, setAlert] = useState('');
+
+  const user = localStorage.getItem('user');
+
+  const selfAppraiseHandler = async () => {
+    try {
+      const res = await axios.post(
+        `${process.env.REACT_APP_SERVER_ENDPOINT}/user/request`,
+        {
+          userId: user?.id
+        },
+        {
+          headers: {
+            Authorization: localStorage.getItem('token')
+          }
+        }
+      );
+
+      if (res.data?.statusCode === 200) {
+        setAlert('success');
+        setErrorText('Вы успешно запросили оценку на себя');
+        setError(true);
+      }
+    } catch (e) {
+      setAlert('warning');
+      setErrorText('Не удалось запросить оценку на себя');
+      setError(true);
+    }
   };
 
   return (
     <div className="user-account-page">
       <AuthorizedHeader title="Личный кабинет" />
       <div className="user-account-page-container">
-        <UserCard user={tempUser} darkMode />
+        <UserCard user={user} darkMode />
         <div className="user-account-page-review">
           <div className="user-account-page-review-request">
             <h3 className="user-account-page-review-request-header">
@@ -32,7 +60,10 @@ const UserAccountPage = () => {
             </h3>
             <hr className="user-account-page-review-request-hr" />
 
-            <ButtonHelper className="user-account-page-review-request-button">
+            <ButtonHelper
+              className="user-account-page-review-request-button"
+              onClick={selfAppraiseHandler}
+            >
               Запросить отзыв на себя
             </ButtonHelper>
           </div>
@@ -56,6 +87,12 @@ const UserAccountPage = () => {
           </div>
         </div>
       </div>
+      <AlertHelper
+        isOpen={openError}
+        text={errorText}
+        alertColor={alert}
+        onClose={setError}
+      />
     </div>
   );
 };
