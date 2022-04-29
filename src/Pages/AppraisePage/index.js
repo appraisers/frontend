@@ -78,7 +78,7 @@ const AppraisePage = () => {
   const getAppraiseUser = async () => {
     try {
       const res = await axios.post(
-        `${process.env.REACT_APP_SERVER_ENDPOINT}/user/info`,
+        `${process.env.REACT_APP_SERVER_ENDPOINT}/user/get-info`,
         {
           userId
         },

@@ -131,6 +131,7 @@ const CreateQuestion = () => {
               <div className="create-question-text-field">
                 <InputHelper
                   onChange={(e) => setWeight(e.target.value)}
+                  className="input-helper"
                   label="Вес"
                   value={weight}
                 />

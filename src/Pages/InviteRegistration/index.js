@@ -81,6 +81,7 @@ const InviteRegistration = () => {
             </span>
             <div className="invite-registration-textfield">
               <InputHelper
+                className="input-helper"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
