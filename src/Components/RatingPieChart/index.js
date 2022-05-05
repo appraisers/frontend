@@ -1,3 +1,4 @@
+import React from 'react';
 import { PieChart, Pie, Legend } from 'recharts';
 
 import './RatingPieChart.scss';
@@ -9,7 +10,7 @@ const RatingPieChart = ({ user }) => {
 
   const data = [
     {
-      name: 'Effectiveness',
+      name: 'Эффективность',
       rating:
         user.effectivenessRating != null
           ? +user.effectivenessRating.toFixed(1)
@@ -17,13 +18,13 @@ const RatingPieChart = ({ user }) => {
       fill: 'white'
     },
     {
-      name: 'Interaction',
+      name: 'Взаимодействие',
       rating:
         user.interactionRating != null ? +user.interactionRating.toFixed(1) : 0,
       fill: '#cfb389'
     },
     {
-      name: 'Personal qualities',
+      name: 'Личные качества',
       rating:
         user.personalQualitiesRating != null
           ? +user.personalQualitiesRating.toFixed(1)
@@ -31,7 +32,7 @@ const RatingPieChart = ({ user }) => {
       fill: '#e3e1dc'
     },
     {
-      name: 'Ability assessment',
+      name: 'Оценка способностей',
       rating:
         user.assessmentOfAbilitiesRating != null
           ? +user.assessmentOfAbilitiesRating.toFixed(1)
