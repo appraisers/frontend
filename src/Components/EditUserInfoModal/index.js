@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+import { FormControlLabel, Checkbox } from '@material-ui/core';
 import { format } from 'date-fns';
 import {
   Table,
@@ -15,7 +16,6 @@ import RatingPieChart from '../RatingPieChart';
 import ButtonHelper from '../ButtonHelper';
 import StyledTableRow from '../StyledTableRow';
 import AlertHelper from '../Alert';
-import { FormControlLabel, Checkbox } from '@material-ui/core';
 
 import './EditUserInfoModal.scss';
 
@@ -25,7 +25,7 @@ const EditUserInfoModal = ({ selectedUser, onReload, onClose }) => {
   const [errorText, setErrorText] = useState(false);
   const [alert, setAlert] = useState('');
 
-  const showUserInfo = async () => {
+  const toggleHandler = async () => {
     try {
       const res = await axios.post(
         `${process.env.REACT_APP_SERVER_ENDPOINT}/user/toggle-show-info`,
@@ -40,19 +40,16 @@ const EditUserInfoModal = ({ selectedUser, onReload, onClose }) => {
       );
       if (res.data?.statusCode === 200) {
         setAlert('success');
-        setErrorText('успешно переключенный!');
+        setErrorText('Успешно Переключенный!');
         setError(true);
         onReload(selectedUser.id);
       }
     } catch (e) {
       setAlert('warning');
-      setErrorText('не удалось переключить!');
+      setErrorText('Не Удалось Переключить!');
       setError(true);
     }
-  };
 
-  const toggleHandler = () => {
-    showUserInfo();
     setChecked(!selectedUser.showInfo);
   };
 
@@ -135,7 +132,11 @@ const EditUserInfoModal = ({ selectedUser, onReload, onClose }) => {
 
         <div className="available-data-check">
           <FormControlLabel
-            control={<Checkbox checked={checked} onClick={toggleHandler} />}
+            control={
+              <Checkbox
+               checked={checked}
+               onClick={toggleHandler}
+              />}
             label="Просмотр подробной информации"
           />
           <ButtonHelper className="simple-modal-user-exit" onClick={onClose}>
