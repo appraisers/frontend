@@ -40,13 +40,13 @@ const EditUserInfoModal = ({ selectedUser, onReload, onClose }) => {
       );
       if (res.data?.statusCode === 200) {
         setAlert('success');
-        setErrorText('Успешно Переключенный!');
+        setErrorText('Успешно!');
         setError(true);
         onReload(selectedUser.id);
       }
     } catch (e) {
       setAlert('warning');
-      setErrorText('Не Удалось Переключить!');
+      setErrorText('Не удалось переключить!');
       setError(true);
     }
 
