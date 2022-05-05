@@ -15,7 +15,7 @@ const UserAccountPage = () => {
   const [errorText, setErrorText] = useState(false);
   const [alert, setAlert] = useState('');
 
-  const user = localStorage.getItem('user');
+  const user = JSON.parse(localStorage.getItem('user'));
 
   const selfAppraiseHandler = async () => {
     try {

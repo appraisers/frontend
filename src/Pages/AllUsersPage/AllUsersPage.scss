@@ -1,6 +1,5 @@
 .users-main-container {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
   min-height: 100vh;
   background: rgba(207, 179, 137, 0.19);
 
@@ -11,12 +10,20 @@
     border-radius: 20px;
     position: absolute;
     left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    top: 40%;
+    -webkit-transform: translate(-50%, -40%);
+    transform: translate(-50%, -40%);
 
     .users-table {
       width: 100%;
+      height: 90%;
     }
+  }
+
+  .all-users-table-sort{
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    font-weight: bold;
   }
 }

@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
+
+import { FormControlLabel, Checkbox } from '@material-ui/core';
 import { format } from 'date-fns';
 import {
   Table,
@@ -12,10 +15,44 @@ import {
 import RatingPieChart from '../RatingPieChart';
 import ButtonHelper from '../ButtonHelper';
 import StyledTableRow from '../StyledTableRow';
+import AlertHelper from '../Alert';
 
 import './EditUserInfoModal.scss';
 
-const EditUserInfoModal = ({ selectedUser, onClose }) => {
+const EditUserInfoModal = ({ selectedUser, onReload, onClose }) => {
+  const [checked, setChecked] = useState(false);
+  const [openError, setError] = useState(false);
+  const [errorText, setErrorText] = useState(false);
+  const [alert, setAlert] = useState('');
+
+  const toggleHandler = async () => {
+    try {
+      const res = await axios.post(
+        `${process.env.REACT_APP_SERVER_ENDPOINT}/user/toggle-show-info`,
+        {
+          userId: selectedUser.id
+        },
+        {
+          headers: {
+            Authorization: localStorage.getItem('token')
+          }
+        }
+      );
+      if (res.data?.statusCode === 200) {
+        setAlert('success');
+        setErrorText('Успешно!');
+        setError(true);
+        onReload(selectedUser.id);
+      }
+    } catch (e) {
+      setAlert('warning');
+      setErrorText('Не удалось переключить!');
+      setError(true);
+    }
+
+    setChecked(!selectedUser.showInfo);
+  };
+
   if (selectedUser == null) {
     return null;
   }
@@ -93,10 +130,27 @@ const EditUserInfoModal = ({ selectedUser, onClose }) => {
           <RatingPieChart user={selectedUser} />
         </div>
 
-        <ButtonHelper className="simple-modal-user-exit" onClick={onClose}>
-          Назад
-        </ButtonHelper>
+        <div className="available-data-check">
+          <FormControlLabel
+            control={
+              <Checkbox
+               checked={checked}
+               onClick={toggleHandler}
+              />}
+            label="Просмотр подробной информации"
+          />
+          <ButtonHelper className="simple-modal-user-exit" onClick={onClose}>
+            Назад
+          </ButtonHelper>
+        </div>
       </div>
+
+      <AlertHelper
+        isOpen={openError}
+        text={errorText}
+        alertColor={alert}
+        onClose={setError}
+      />
     </div>
   );
 };

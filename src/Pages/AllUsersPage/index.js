@@ -148,6 +148,7 @@ const AllUsersPage = () => {
           <SimpleModalTableHelper
             selectedUser={selectedUser}
             onClose={() => setSelectedUserID(null)}
+            onReload={getInfoSelectedUser}
           />
         </SimpleModal>
 
@@ -171,6 +172,9 @@ const AllUsersPage = () => {
           alertColor={alert}
           onClose={setError}
         />
+      </div>
+      <div className="all-users-table-sort">
+        <p>Сортировать по:</p>
       </div>
     </div>
   );
