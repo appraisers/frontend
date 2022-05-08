@@ -22,14 +22,14 @@ const AllUsersPage = () => {
   const [selectedUserID, setSelectedUserID] = useState(null);
   const [userToUpdateId, setUserToUpdateId] = useState(null);
   const [sortType, setSortType] = useState({
-    value: 'Aлфавиту',
+    value: 'Alphabet',
     label: 'Aлфавиту'
   });
 
   const user = JSON.parse(localStorage.getItem('user'));
   const isAdmin = user?.role === 'admin';
 
-  const getAllUsers = async (sortPath) => {
+  const getAllUsers = async (path) => {
     try {
       const res = await axios.get(
         `${process.env.REACT_APP_SERVER_ENDPOINT}/user/all-users`,
@@ -112,7 +112,7 @@ const AllUsersPage = () => {
   };
 
   useEffect(() => {
-    getAllUsers(); // Alredy sorted by alpabets
+    getAllUsers(sortType.value); 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -132,33 +132,14 @@ const AllUsersPage = () => {
 
   const handleChange = (e) => {
     setSortType(sortData.find((sort) => sort.value === e.target.value));
-    let sortPath = 'cute/ass';
-
-    switch (sortType.value) {
-      case 'Aлфавиту':
-        sortPath = 'something';
-        break;
-      case 'Pейтингу':
-        sortPath = 'something';
-        break;
-      case 'Дате':
-        sortPath = 'something';
-        break;
-      case 'Должности':
-        sortPath = 'something';
-        break;
-      default:
-        sortPath = 'default-sort-type';
-    }
-
-    getAllUsers(sortPath);
+    getAllUsers(sortType.value);
   };
 
   const sortData = [
-    { value: 'Aлфавиту', label: 'Aлфавиту' },
-    { value: 'Pейтингу', label: 'Pейтингу' },
-    { value: 'Дате', label: 'Дате' },
-    { value: 'Должности', label: 'Должности' }
+    { value: 'Alphabet', label: 'Aлфавиту' },
+    { value: 'Rating', label: 'Pейтингу' },
+    { value: 'Date', label: 'Дате' },
+    { value: 'Role', label: 'Должности' }
   ];
 
   return (
