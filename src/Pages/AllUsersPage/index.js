@@ -8,6 +8,7 @@ import AuthorizedHeader from '../../Components/AuthorizedHeader';
 import SimpleModal from '../../Components/SimpleModal';
 import SimpleModalTableHelper from '../../Components/EditUserInfoModal';
 import AllUsersUpdater from '../../Components/AllUsersUpdater';
+import SelectHelper from '../../Components/SelectHelper';
 
 import './AllUsersPage.scss';
 
@@ -20,11 +21,15 @@ const AllUsersPage = () => {
   const [alert, setAlert] = useState('');
   const [selectedUserID, setSelectedUserID] = useState(null);
   const [userToUpdateId, setUserToUpdateId] = useState(null);
+  const [sortType, setSortType] = useState({
+    value: 'Aлфавиту',
+    label: 'Aлфавиту'
+  });
 
   const user = JSON.parse(localStorage.getItem('user'));
   const isAdmin = user?.role === 'admin';
 
-  const getAllUsers = async () => {
+  const getAllUsers = async (sortPath) => {
     try {
       const res = await axios.get(
         `${process.env.REACT_APP_SERVER_ENDPOINT}/user/all-users`,
@@ -107,7 +112,7 @@ const AllUsersPage = () => {
   };
 
   useEffect(() => {
-    getAllUsers();
+    getAllUsers(); // Alredy sorted by alpabets
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -124,6 +129,37 @@ const AllUsersPage = () => {
   const OpenUserUpdateModalHandler = (id) => {
     setUserToUpdateId(id);
   };
+
+  const handleChange = (e) => {
+    setSortType(sortData.find((sort) => sort.value === e.target.value));
+    let sortPath = 'cute/ass';
+
+    switch (sortType.value) {
+      case 'Aлфавиту':
+        sortPath = 'something';
+        break;
+      case 'Pейтингу':
+        sortPath = 'something';
+        break;
+      case 'Дате':
+        sortPath = 'something';
+        break;
+      case 'Должности':
+        sortPath = 'something';
+        break;
+      default:
+        sortPath = 'default-sort-type';
+    }
+
+    getAllUsers(sortPath);
+  };
+
+  const sortData = [
+    { value: 'Aлфавиту', label: 'Aлфавиту' },
+    { value: 'Pейтингу', label: 'Pейтингу' },
+    { value: 'Дате', label: 'Дате' },
+    { value: 'Должности', label: 'Должности' }
+  ];
 
   return (
     <div className="users-main-container">
@@ -175,6 +211,12 @@ const AllUsersPage = () => {
       </div>
       <div className="all-users-table-sort">
         <p>Сортировать по:</p>
+        <SelectHelper
+          data={sortData}
+          selectedData={sortType}
+          onChange={handleChange}
+          placeholder="Выберите"
+        />
       </div>
     </div>
   );

@@ -10,9 +10,9 @@
     border-radius: 20px;
     position: absolute;
     left: 50%;
-    top: 40%;
-    -webkit-transform: translate(-50%, -40%);
-    transform: translate(-50%, -40%);
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 
     .users-table {
       width: 100%;
@@ -20,10 +20,34 @@
     }
   }
 
-  .all-users-table-sort{
+  .all-users-table-sort {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 25%;
     position: absolute;
     top: 10%;
-    right: 10%;
+    right: 7%;
     font-weight: bold;
+
+    .MuiInputBase-root {
+      width: 60%;
+      height: 100%;
+      background-color: white;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .MuiSelect-select.MuiSelect-select {
+      padding-left: 1vw;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .users-main-container {
+    .all-users-table-sort {
+      width: 35%;
+    }
   }
 }
