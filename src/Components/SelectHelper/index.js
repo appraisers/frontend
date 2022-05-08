@@ -29,7 +29,7 @@ const SelectHelper = ({
           key={item.value}
           className="main-select-menu-item"
           value={item.value}
-          style={{ backgroundColor: '#cfb389', color: 'white' }}
+          style={{ backgroundColor: 'white', color: 'black' }}
         >
           {item.label}
         </MenuItem>
