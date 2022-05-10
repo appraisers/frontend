@@ -32,6 +32,7 @@ const MultiSelectHelper = ({
       setSelectedData((item) => item.splice(elementIndex, 1));
     }
   };
+
   return (
     <div className="select-helper-container">
       <h2 className="select-helper-header">
@@ -54,7 +55,9 @@ const MultiSelectHelper = ({
         {data.map((item) => (
           <MenuItem key={item.value} value={item}>
             <Checkbox
-              checked={selectedData.indexOf(item) >= 0}
+              checked={
+                !!selectedData.find((selected) => item.value === selected.value)
+              }
               color="default"
             />
             <ListItemText primary={item.label} />
