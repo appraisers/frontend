@@ -12,3 +12,63 @@
 .all-users-table-cell-username, .update-users-icon{
   cursor: pointer;
 }
+
+.delete-user-container {
+  width: 50%;
+  height: 50%;
+  background-color: #3f3f3f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 25px;
+  padding: 5px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+
+  .delete-user-description {
+    color: white;
+    text-align: center;
+    margin-top: 25px;
+  }
+
+  .delete-user-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    .delete-user-right {
+      background-color: #cfb389;
+      padding: 7px;
+      color: white;
+      border: none;
+      border-radius: 7px;
+      margin-right: 8%;
+      cursor: pointer;
+      font-size: 20px;
+    }
+  
+    .delete-user-left {
+      background-color: #cfb389;
+      padding: 7px;
+      color: white;
+      border: none;
+      border-radius: 7px;
+      margin-left: 8%;
+      cursor: pointer;
+      font-size: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) { 
+  .delete-user-container {
+    width: 80%;
+    height: 90%;
+  }
+}

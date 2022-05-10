@@ -22,17 +22,18 @@ const AllUsersPage = () => {
   const [selectedUserID, setSelectedUserID] = useState(null);
   const [userToUpdateId, setUserToUpdateId] = useState(null);
   const [sortType, setSortType] = useState({
-    value: 'Alphabet',
+    value: 'alphabet',
     label: 'Aлфавиту'
   });
 
   const user = JSON.parse(localStorage.getItem('user'));
   const isAdmin = user?.role === 'admin';
 
-  const getAllUsers = async (path) => {
+  const getAllUsers = async (filter) => {
     try {
+      const preparedFilter = filter == null ? '' : `?${filter}=desc`;
       const res = await axios.get(
-        `${process.env.REACT_APP_SERVER_ENDPOINT}/user/all-users`,
+        `${process.env.REACT_APP_SERVER_ENDPOINT}/user/all-users${preparedFilter}`,
         {
           headers: {
             Authorization: localStorage.getItem('token')
@@ -79,7 +80,7 @@ const AllUsersPage = () => {
           setAlert('success');
         }
         setError(true);
-        getAllUsers();
+        getAllUsers(sortType.value);
       }
     } catch (e) {
       setAlert('warning');
@@ -112,7 +113,7 @@ const AllUsersPage = () => {
   };
 
   useEffect(() => {
-    getAllUsers(sortType.value); 
+    getAllUsers(sortType.value);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -131,15 +132,18 @@ const AllUsersPage = () => {
   };
 
   const handleChange = (e) => {
-    setSortType(sortData.find((sort) => sort.value === e.target.value));
-    getAllUsers(sortType.value);
+    const sort = sortData.find((sort) => sort.value === e.target.value)
+    setSortType(sort);
+    if(sort.value != null) {
+      getAllUsers(sort.value);
+    }
   };
 
   const sortData = [
-    { value: 'Alphabet', label: 'Aлфавиту' },
-    { value: 'Rating', label: 'Pейтингу' },
-    { value: 'Date', label: 'Дате' },
-    { value: 'Role', label: 'Должности' }
+    { value: 'alphabet', label: 'Aлфавиту' },
+    { value: 'rating', label: 'Pейтингу' },
+    { value: 'updatedAt', label: 'Дате' },
+    { value: 'position', label: 'Должности' }
   ];
 
   return (

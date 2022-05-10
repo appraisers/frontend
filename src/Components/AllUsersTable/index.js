@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { format } from 'date-fns';
 import {
   Table,
@@ -12,12 +12,16 @@ import {
 import restoreIcon from '../../assets/icons/no-deleted-icon.svg';
 import deleteIcon from '../../assets/icons/deleted-icon.svg';
 import pencilIcon from '../../assets/icons/pencilIcon.svg';
+import SimpleModal from '../SimpleModal';
 import AppraiseModalIcon from '../AppraiseModalIcon';
 import StyledTableRow from '../StyledTableRow';
+import ButtonHelper from '../ButtonHelper';
 
 import './AllUsersTable.scss';
 
 const AllUsersTable = ({ rows, toggleUser, onClickUser, onUpdateUser }) => {
+  const [selectedUser, setSelectedUser] = useState(null);
+
   return (
     <TableContainer component={Paper}>
       <Table>
@@ -52,7 +56,7 @@ const AllUsersTable = ({ rows, toggleUser, onClickUser, onUpdateUser }) => {
               </TableCell>
               <TableCell align="center">{row.position ?? '-'}</TableCell>
               <TableCell align="center">
-                {row.rating? Number.parseFloat(row.rating).toFixed(1) : '-'}
+                {row.rating ? Number.parseFloat(row.rating).toFixed(1) : '-'}
               </TableCell>
               <TableCell align="center">
                 {row.numberOfCompletedReviews ?? '-'}
@@ -63,7 +67,7 @@ const AllUsersTable = ({ rows, toggleUser, onClickUser, onUpdateUser }) => {
                   : '-'}
               </TableCell>
               <TableCell align="center">
-                <AppraiseModalIcon userId={row.id} />
+                <AppraiseModalIcon userId={row.id} users={rows} />
               </TableCell>
               <TableCell align="center">
                 {row.deletedAt != null ? (
@@ -71,14 +75,14 @@ const AllUsersTable = ({ rows, toggleUser, onClickUser, onUpdateUser }) => {
                     src={restoreIcon}
                     className="toggle-user-logo"
                     alt="appraise"
-                    onClick={() => toggleUser(row.id, 'restore')}
+                    onClick={() => setSelectedUser(row)}
                   />
                 ) : (
                   <img
                     src={deleteIcon}
                     className="toggle-user-logo"
                     alt="appraise"
-                    onClick={() => toggleUser(row.id, 'delete')}
+                    onClick={() => setSelectedUser(row)}
                   />
                 )}
               </TableCell>
@@ -86,6 +90,35 @@ const AllUsersTable = ({ rows, toggleUser, onClickUser, onUpdateUser }) => {
           ))}
         </TableBody>
       </Table>
+      <SimpleModal open={!!selectedUser} onClose={() => setSelectedUser(null)}>
+        <div className="delete-user-container">
+          <p className="delete-user-description">
+            Вы уверены что хотите{' '}
+            {selectedUser?.deletedAt != null ? 'восстановить' : 'удалить'}{' '}
+            пользователя?
+          </p>
+          <div className="delete-user-buttons">
+            <ButtonHelper
+              className="delete-user-left"
+              onClick={() => setSelectedUser(null)}
+            >
+              Назад
+            </ButtonHelper>
+            <ButtonHelper
+              className="delete-user-right"
+              onClick={() => {
+                toggleUser(
+                  selectedUser.id,
+                  selectedUser.deletedAt != null ? 'restore' : 'delete'
+                );
+                setSelectedUser(null);
+              }}
+            >
+              Подтвердить
+            </ButtonHelper>
+          </div>
+        </div>
+      </SimpleModal>
     </TableContainer>
   );
 };

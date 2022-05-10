@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 import appraiseIcon from '../../assets/icons/appraise-icon.svg';
@@ -9,37 +9,16 @@ import MultiSelectHelper from '../MultiSelectHelper';
 
 import './AppraiseModalIcon.scss';
 
-const AppraiseModalIcon = ({ userId }) => {
-  const [open, setOpen] = useState(false);
+const AppraiseModalIcon = ({ userId, users }) => {
   const [openError, setError] = useState(false);
   const [errorText, setErrorText] = useState(false);
   const [alert, setAlert] = useState('');
-  const [users, setUsers] = useState([]);
+  const [open, setOpen] = useState(false);
+  const preparedUsers = users?.map((user) => ({
+    value: user.email,
+    label: user.fullname
+  }));
   const [selectedData, setSelectedData] = useState([]);
-
-  const getUsersForTable = async () => {
-    try {
-      const res = await axios.get(
-        `${process.env.REACT_APP_SERVER_ENDPOINT}/user/all-invite-users`,
-        {
-          headers: {
-            Authorization: localStorage.getItem('token')
-          }
-        }
-      );
-      if (res.data?.statusCode === 200) {
-        const selectUsersFormat = res.data?.users?.map((user) => ({
-          value: user.email,
-          label: user.fullname
-        }));
-        setUsers(selectUsersFormat);
-      }
-    } catch (e) {
-      setAlert('warning');
-      setErrorText('Внутренняя ошибка сервера');
-      setError(true);
-    }
-  };
 
   const inviteReview = async () => {
     try {
@@ -57,8 +36,13 @@ const AppraiseModalIcon = ({ userId }) => {
         }
       );
       if (res.data?.statusCode === 200) {
-        console.log('Приглашение отправлено');
-        setOpen(false);
+        setAlert('success');
+        setErrorText('Приглашение отправлено!');
+        setError(true);
+        window.setTimeout(() => {
+          setOpen(false);
+          setSelectedData([]);
+        }, 2000);
       }
     } catch (e) {
       setAlert('warning');
@@ -66,10 +50,6 @@ const AppraiseModalIcon = ({ userId }) => {
       setError(true);
     }
   };
-
-  useEffect(() => {
-    getUsersForTable();
-  }, []);
 
   return (
     <div className="appraise-main-container">
@@ -84,12 +64,12 @@ const AppraiseModalIcon = ({ userId }) => {
         open={open}
         onClose={() => {
           setOpen(false);
-          setSelectedData(null);
+          setSelectedData([]);
         }}
       >
         <div className="appraise-modal-main-container">
           <MultiSelectHelper
-            data={users}
+            data={preparedUsers}
             selectedData={selectedData}
             setSelectedData={setSelectedData}
             onClose={() => setOpen(false)}
@@ -99,7 +79,6 @@ const AppraiseModalIcon = ({ userId }) => {
           <ButtonHelper
             onClick={() => {
               inviteReview();
-              setOpen(false);
             }}
             className="appraise-modal-button"
             disabled={selectedData == null}
