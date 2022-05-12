@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import { FormControlLabel, Checkbox } from '@material-ui/core';
+import { Checkbox } from '@material-ui/core';
 import { format } from 'date-fns';
 import {
   Table,
@@ -20,7 +20,7 @@ import AlertHelper from '../Alert';
 import './EditUserInfoModal.scss';
 
 const EditUserInfoModal = ({ selectedUser, onReload, onClose }) => {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(selectedUser?.showInfo ?? false);
   const [openError, setError] = useState(false);
   const [errorText, setErrorText] = useState(false);
   const [alert, setAlert] = useState('');
@@ -50,8 +50,15 @@ const EditUserInfoModal = ({ selectedUser, onReload, onClose }) => {
       setError(true);
     }
 
-    setChecked(!selectedUser.showInfo);
+    setChecked((prev) => !prev);
   };
+
+  useEffect(() => {
+    if (selectedUser != null && selectedUser.showInfo !== checked) {
+      setChecked(selectedUser.showInfo);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedUser]);
 
   if (selectedUser == null) {
     return null;
@@ -131,14 +138,10 @@ const EditUserInfoModal = ({ selectedUser, onReload, onClose }) => {
         </div>
 
         <div className="available-data-check">
-          <FormControlLabel
-            control={
-              <Checkbox
-               checked={checked}
-               onClick={toggleHandler}
-              />}
-            label="Просмотр подробной информации"
-          />
+          <div>
+            <Checkbox checked={checked} onClick={toggleHandler} />
+            <span onClick={toggleHandler}>Просмотр подробной информации</span>
+          </div>
           <ButtonHelper className="simple-modal-user-exit" onClick={onClose}>
             Назад
           </ButtonHelper>

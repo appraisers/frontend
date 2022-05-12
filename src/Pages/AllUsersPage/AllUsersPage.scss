@@ -23,12 +23,16 @@
   .all-users-table-sort {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     width: 40%;
     position: absolute;
     top: 13%;
     right: 7%;
     font-weight: bold;
+
+    .all-users-table-sort-text {
+      margin-right: 1vw;
+    }
 
     .MuiInputBase-root {
       width: 60%;

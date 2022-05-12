@@ -195,7 +195,7 @@ const AllUsersPage = () => {
         />
       </div>
       <div className="all-users-table-sort">
-        <p>Сортировать по:</p>
+        <p class="all-users-table-sort-text">Сортировать по:</p>
         <SelectHelper
           data={sortData}
           selectedData={sortType}
