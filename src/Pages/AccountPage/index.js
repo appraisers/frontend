@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 import CreateQuestion from '../CreateQuestion';
@@ -17,6 +18,8 @@ const AccountPage = () => {
   const [openError, setError] = useState(false);
   const [errorText, setErrorText] = useState(false);
   const [alert, setAlert] = useState('');
+  const history = useHistory();
+
   const getAllUsers = async () => {
     try {
       const res = await axios.get(
@@ -64,6 +67,11 @@ const AccountPage = () => {
     ];
     return monthlist[lastMonthDate.getMonth()];
   };
+
+  const user = JSON.parse(localStorage.getItem('user'));
+  if (user.role !== 'admin' && user.role !== 'moderator') {
+    history.push('/my-info');
+  }
 
   return (
     <div className="account-page-main">
