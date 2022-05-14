@@ -117,13 +117,14 @@ const CreateQuestion = () => {
             <div className="create-question-select-div-span">
               <span className="create-question-select-span">Категория</span>
             </div>
-            <div className="create-question-select">
-              <div className="create-question-select-helper">
+            <div className="create-question-select-container">
+              <div className="create-question-select-helper-container">
                 {questions.length > 0 ? (
                   <SelectHelper
                     data={questions}
                     selectedData={selectedData}
                     onChange={handleChange}
+                    className="create-question-select-helper"
                     placeholder="Выберите категорию"
                   />
                 ) : null}

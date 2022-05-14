@@ -35,31 +35,34 @@
     }
   }
 
-  .create-question-select {
+  .create-question-select-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    .create-question-select-helper {
-      .MuiInputBase-root {
+    .create-question-select-helper-container {
+      .create-question-select-helper {
+        background-color: #f1e9dc;
+        text-align: left;
+        border-radius: 10px;
         width: 50vw;
-        height: 5vh;
-      }
 
-      .MuiMenu-list {
-        text-transform: capitalize;
-        outline: 0;
-      }
+        .MuiSelect-select:focus {
+          color: black;
+          border-radius: 10px;
+          background-color: rgba(255, 255, 255, 0.63);
+        }
 
-      .MuiSelect-select.MuiSelect-select {
-        padding-left: 2vw;
+        .MuiSelect-select.MuiSelect-select {
+          padding: 1vh 1vw;
+        }
       }
     }
 
     .create-question-text-field {
-      .MuiFormLabel-root{
+      .MuiFormLabel-root {
         background-color: rgba(0, 0, 0, 0.5);
-        color: #cfb389;
+        color: white;
         padding: 1%;
         border-radius: 5px;
       }
@@ -68,8 +71,8 @@
         color: black;
         background-color: rgba(255, 255, 255, 0.63);
         width: 23vw;
-        border-radius: 5px;
-      } 
+        border-radius: 10px;
+      }
     }
   }
 

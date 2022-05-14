@@ -62,13 +62,21 @@
     margin-bottom: 5vh;
     margin-left: 5vw;
 
-    .MuiInputBase-root {
+    .delete-question-select-helper {
+      background-color: #f1e9dc;
+      text-align: left;
+      border-radius: 10px;
       width: 50vw;
-    }
 
-    .MuiSelect-select.MuiSelect-select {
-      padding-left: 2vw;
-      text-transform: capitalize;
+      .MuiSelect-select:focus {
+        color: black;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.63);
+      }
+
+      .MuiSelect-select.MuiSelect-select {
+        padding: 1vh 1vw;
+      }
     }
   }
 

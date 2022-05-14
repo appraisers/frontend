@@ -157,6 +157,7 @@ const DeleteQuestion = () => {
                 data={categorisOfQuestions}
                 selectedData={selectedQuestion}
                 onChange={handleChange}
+                className = "delete-question-select-helper"
                 placeholder="Выберите категорию"
               />
             </div>

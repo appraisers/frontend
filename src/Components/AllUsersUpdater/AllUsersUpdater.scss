@@ -15,8 +15,8 @@
   .all-users-updater-form {
     width: 100%;
     display: flex;
-    flex-direction: column;  
-        
+    flex-direction: column;
+
     .label {
       color: #cfb389;
       background-color: black;
@@ -31,7 +31,15 @@
       width: 95%;
       margin-bottom: 15px;
       border-radius: 5px;
-            
+    }
+
+    .all-users-updater-select-helper {
+      outline: 1px solid #cfb389;
+      background-color: rgb(85, 79, 66);
+      padding: 8px 12px;
+      width: 95%;
+      margin-bottom: 15px;
+      border-radius: 5px;
     }
   }
   .all-users-updater-exit {
@@ -69,6 +77,16 @@
 
   .all-users-updater-submit:hover {
     background-color: #9b8564;
+  }
+
+  .select-helper-label {
+    color: #cfb389;
+    font-weight: bold;
+    padding: 4px;
+    background-color: black;
+    margin: 7px 13px;
+    z-index: 5;
+    transition: 0.00001s;
   }
 }
 
