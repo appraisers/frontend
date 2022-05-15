@@ -19,6 +19,7 @@ const CreateQuestion = () => {
   const [openError, setError] = useState(false);
   const [errorText, setErrorText] = useState(false);
   const [alert, setAlert] = useState('');
+
   const handleChange = (e) => {
     setSelectedData(
       questions.find((question) => question.value === e.target.value)
@@ -54,8 +55,15 @@ const CreateQuestion = () => {
   };
 
   const addQuestion = async () => {
+    const regex = /^(\d+(\.\d+)?)$/;
+
     try {
-      if (!weight || +weight < 1 || +weight > 10) {
+      if (
+        !weight ||
+        +weight < 1 ||
+        +weight > 10 ||
+        !regex.test(weight)
+        ) {
         setAlert('warning');
         setErrorText('Введите вес вопроса от 1 до 10');
         setError(true);
@@ -96,7 +104,7 @@ const CreateQuestion = () => {
 
   return (
     <div className="create-question-main">
-       <img
+      <img
         src={addQuestionIcon}
         onClick={() => setOpen(true)}
         className="create-question-logo"

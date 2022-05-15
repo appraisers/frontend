@@ -24,8 +24,6 @@ const SelectHelper = ({
       value={selectedValue}
       onChange={onChange}
       label={label}
-      labelId={label}
-      id={label}
       disableUnderline
     >
       <MenuItem
