@@ -11,12 +11,89 @@
     border-radius: 20px;
     position: absolute;
     left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
+    top: 55%;
+    -webkit-transform: translate(-55%, -50%);
     transform: translate(-50%, -50%);
 
     .appraise-status-table {
       width: 100%;
+      height: 80%;
+    }
+  }
+
+  .appraise-status-table-sort {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 40%;
+    position: absolute;
+    top: 13%;
+    right: 7%;
+    font-weight: bold;
+
+    .appraise-status-table-sort-text {
+      margin-right: 1vw;
+    }
+
+    .appraise-status-table-sort-select-helper {
+      border-radius: 8px;
+    }
+
+    .MuiInputBase-root {
+      width: 60%;
+      height: 100%;
+      background-color: white;
+      overflow: hidden;
+    }
+
+    .MuiSelect-select.MuiSelect-select {
+      padding-left: 1vw;
+    }
+
+    .MuiSelect-select {
+      color: black;
+    }
+
+    .MuiSelect-select:focus {
+      color: black;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.63);
+    }
+  }
+
+  .appraise-status-table-selector {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 50%;
+    position: absolute;
+    top: 13%;
+    left: 4%;
+
+    .appraise-status-select-helper {
+      width: 45%;
+      border: 1px solid #cfb389;
+      border-radius: 6px;
+      background-color: white;
+      padding-left: 1vw;
+
+      .MuiMenuItem-button {
+        background-color: #cfb389;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .appraise-status-container {
+    .appraise-status-table-sort {
+      top: 11%;
+      width: 60%;
+    }
+
+    .appraise-status-table-selector {
+      top: 17%;
+      width: 70%;
     }
   }
 }
