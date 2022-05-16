@@ -55,15 +55,8 @@ const CreateQuestion = () => {
   };
 
   const addQuestion = async () => {
-    const regex = /^(\d+(\.\d+)?)$/;
-
     try {
-      if (
-        !weight ||
-        +weight < 1 ||
-        +weight > 10 ||
-        !regex.test(weight)
-        ) {
+      if (!weight || +weight < 1 || +weight > 10) {
         setAlert('warning');
         setErrorText('Введите вес вопроса от 1 до 10');
         setError(true);
@@ -142,6 +135,7 @@ const CreateQuestion = () => {
                   onChange={(e) => setWeight(e.target.value)}
                   className="input-helper"
                   label="Вес"
+                  type="number"
                   value={weight}
                 />
               </div>
