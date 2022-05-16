@@ -19,6 +19,7 @@ const CreateQuestion = () => {
   const [openError, setError] = useState(false);
   const [errorText, setErrorText] = useState(false);
   const [alert, setAlert] = useState('');
+
   const handleChange = (e) => {
     setSelectedData(
       questions.find((question) => question.value === e.target.value)
@@ -96,7 +97,7 @@ const CreateQuestion = () => {
 
   return (
     <div className="create-question-main">
-       <img
+      <img
         src={addQuestionIcon}
         onClick={() => setOpen(true)}
         className="create-question-logo"
@@ -117,13 +118,14 @@ const CreateQuestion = () => {
             <div className="create-question-select-div-span">
               <span className="create-question-select-span">Категория</span>
             </div>
-            <div className="create-question-select">
-              <div className="create-question-select-helper">
+            <div className="create-question-select-container">
+              <div className="create-question-select-helper-container">
                 {questions.length > 0 ? (
                   <SelectHelper
                     data={questions}
                     selectedData={selectedData}
                     onChange={handleChange}
+                    className="create-question-select-helper"
                     placeholder="Выберите категорию"
                   />
                 ) : null}
@@ -133,6 +135,7 @@ const CreateQuestion = () => {
                   onChange={(e) => setWeight(e.target.value)}
                   className="input-helper"
                   label="Вес"
+                  type="number"
                   value={weight}
                 />
               </div>

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { FormControl, InputLabel } from '@material-ui/core';
 
 import ButtonHelper from '../ButtonHelper';
 import AlertHelper from '../Alert';
 import InputHelper from '../InputHelper';
+import SelectHelper from '../SelectHelper';
 
 import './AllUsersUpdater.scss';
 
@@ -17,9 +19,9 @@ const AllUsersUpdater = ({ users, userId, onClose }) => {
   const [alert, setAlert] = useState('');
   const [fullname, setFullname] = useState(selectedUser[0].fullname);
   const [email, setEmail] = useState(selectedUser[0].email);
-  const [position, setPosition] = useState(selectedUser[0].position);
   const [company, setCompany] = useState(selectedUser[0].workplace);
-  const [role, setRole] = useState(selectedUser[0].role);
+  const [position, setPosition] = useState({ value: selectedUser[0].position });
+  const [role, setRole] = useState({ value: selectedUser[0].role });
 
   const user = JSON.parse(localStorage.getItem('user'));
   const isAdmin = user?.role === 'admin';
@@ -55,6 +57,22 @@ const AllUsersUpdater = ({ users, userId, onClose }) => {
     }
   };
 
+  const roleOptions = [
+    { value: 'user', label: 'Пользователь' },
+    { value: 'moderator', label: 'Модератор' },
+    { value: 'admin', label: 'Админ' }
+  ];
+
+  const positionOptions = [
+    { value: 'junior developer', label: 'Джуниор  разработчик' },
+    { value: 'middle developer', label: 'Мидл разработчик' },
+    { value: 'senior developer', label: 'Сеньйор разработчик' },
+    { value: 'tester', label: 'Тестеровщик' },
+    { value: 'boss', label: 'Босс' },
+    { value: 'manager', label: 'Менеджер' },
+    { value: 'default', label: 'По умолчанию' }
+  ];
+
   return (
     <div className="all-users-updater-container">
       <span className="all-users-updater-exit" onClick={onClose}>
@@ -84,15 +102,6 @@ const AllUsersUpdater = ({ users, userId, onClose }) => {
         />
 
         <InputHelper
-          label="Должность"
-          type="text"
-          className="all-users-updater-form-input"
-          variant="outlined"
-          value={position}
-          onChange={(e) => setPosition(e.target.value)}
-        />
-
-        <InputHelper
           label="Организация"
           type="text"
           className="all-users-updater-form-input"
@@ -101,15 +110,26 @@ const AllUsersUpdater = ({ users, userId, onClose }) => {
           onChange={(e) => setCompany(e.target.value)}
         />
 
-        {isAdmin && (
-          <InputHelper
-            label="Роль"
-            type="text"
-            className="all-users-updater-form-input"
-            variant="outlined"
-            value={role}
-            onChange={(e) => setRole(e.target.value)}
+        <FormControl>
+          <InputLabel className="select-helper-label">Должность</InputLabel>
+          <SelectHelper
+            data={positionOptions}
+            selectedData={position}
+            onChange={(e) => setPosition(e.target)}
+            className="all-users-updater-select-helper"
           />
+        </FormControl>
+
+        {isAdmin && (
+          <FormControl>
+            <InputLabel className="select-helper-label">Pоль</InputLabel>
+            <SelectHelper
+              data={roleOptions}
+              selectedData={role}
+              onChange={(e) => setRole(e.target)}
+              className="all-users-updater-select-helper"
+            />
+          </FormControl>
         )}
 
         <ButtonHelper

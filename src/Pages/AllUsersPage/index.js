@@ -132,7 +132,7 @@ const AllUsersPage = () => {
   };
 
   const handleChange = (e) => {
-    const sort = sortData.find((sort) => sort.value === e.target.value)
+    const sort = sortData.find((sort) => sort.value === e.target.value);
     setSortType(sort);
     if(sort.value != null) {
       getAllUsers(sort.value);
@@ -200,7 +200,7 @@ const AllUsersPage = () => {
           data={sortData}
           selectedData={sortType}
           onChange={handleChange}
-          placeholder="Выберите"
+          className = "all-users-table-sort-select-helper"
         />
       </div>
     </div>
