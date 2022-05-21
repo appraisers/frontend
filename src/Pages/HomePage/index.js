@@ -34,9 +34,15 @@ const HomePage = () => {
         history.push('/my');
       }
     } catch (e) {
-      setAlert('warning');
-      setErrorText('Неправильный E-mail или пароль');
-      setError(true);
+      if (String(e).split('code ')?.[1] === '403') {
+        setAlert('warning');
+        setErrorText('Пользователь удален');
+        setError(true);
+      } else {
+        setAlert('warning');
+        setErrorText('Неправильный E-mail или пароль');
+        setError(true);
+      }
     }
   };
 
