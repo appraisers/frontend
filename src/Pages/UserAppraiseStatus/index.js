@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { format } from 'date-fns';
 
 import AuthorizedHeader from '../../Components/AuthorizedHeader';
 import SelectHelper from '../../Components/SelectHelper';
@@ -18,35 +19,32 @@ import StyledTableRow from '../../Components/StyledTableRow';
 import './UserAppraiseStatus.scss';
 
 const UserAppraiseStatus = () => {
-  const [users, setUsers] = useState([]);
+  const [appraises, setAppraises] = useState([]);
   const [openError, setError] = useState(false);
   const [errorText, setErrorText] = useState(false);
   const [alert, setAlert] = useState('');
-  const [rater, setRater] = useState({
-    id: 1,
-    value: 'Алексей Попов',
-    label: 'Матвей Степанов',
-    date: '10:45 23.03.2011',
-    status: 'Оценено'
-  });
-  const [ratedUser, setRatedUser] = useState({
-    id: 4,
-    value: 'Алексей Семёнов',
-    label: 'Леонид Михайлов ',
-    date: '15:04 28.10.2017',
-    status: 'Не оценено'
-  });
-
+  const [user, setUser] = useState(null);
+  const [userDataSelect, setUserDataSelect] = useState([]);
+  const [author, setAuthor] = useState(null);
+  const [authorDataSelect, setAuthorDataSelect] = useState([]);
+  const [limit, ] = useState(50);
+  const [offset, ] = useState(0);
   const [sortType, setSortType] = useState({
     value: 'lastMonth',
     label: 'Последний месяц'
   });
 
-  const getAllUsers = async (filter) => {
+  const getAllAppraises = async (filter, selectedUser, selectedAuthor) => {
+    let preparedFilter = filter == null ? '' : `&${filter}=desc`;
+    if (selectedUser != null) {
+      preparedFilter += `&userId=${selectedUser}`;
+    }
+    if (selectedAuthor != null) {
+      preparedFilter += `&userId=${selectedAuthor}`;
+    }
     try {
-      const preparedFilter = filter == null ? '' : `?${filter}=desc`;
       const res = await axios.get(
-        `${process.env.REACT_APP_SERVER_ENDPOINT}/appraise/get-appraises${preparedFilter}`,
+        `${process.env.REACT_APP_SERVER_ENDPOINT}/appraise/get-appraises?limit=${limit}&offset=${offset}${preparedFilter}`,
         {
           headers: {
             Authorization: localStorage.getItem('token')
@@ -54,7 +52,49 @@ const UserAppraiseStatus = () => {
         }
       );
       if (res.data?.statusCode === 200) {
-        setUsers(res.data.users);
+        setAppraises(res.data.appraises);
+      }
+    } catch (e) {
+      setAlert('warning');
+      setErrorText('Внутренняя ошибка сервера');
+      setError(true);
+    }
+  };
+
+  const getUsersForSelect = async (selectedUser, selectedAuthor) => {
+    let filter = '';
+    if (selectedUser != null) {
+      filter = `&userId=${selectedUser.value}`;
+    }
+    if (selectedAuthor != null) {
+      filter = `&authorId=${selectedAuthor.value}`;
+    }
+
+    try {
+      const res = await axios.get(
+        `${process.env.REACT_APP_SERVER_ENDPOINT}/appraise/get-appraises-users?limit=${limit}&offset=${offset}${filter}`,
+        {
+          headers: {
+            Authorization: localStorage.getItem('token')
+          }
+        }
+      );
+      if (res.data?.statusCode === 200 && res.data.users != null) {
+        const arrayForSelect = res.data.users.map((user) => ({
+          value: user.id,
+          label: user.fullname
+        }));
+        // if nothing selected - set two state
+        // if selected user - set authors for select
+        // if selected author - set users for select
+        if (selectedUser == null && selectedAuthor == null) {
+          setAuthorDataSelect(arrayForSelect);
+          setUserDataSelect(arrayForSelect);
+        } else if (selectedUser != null && selectedAuthor == null) {
+          setAuthorDataSelect(arrayForSelect);
+        } else if (selectedUser == null && selectedAuthor != null) {
+          setUserDataSelect(arrayForSelect);
+        }
       }
     } catch (e) {
       setAlert('warning');
@@ -64,40 +104,15 @@ const UserAppraiseStatus = () => {
   };
 
   useEffect(() => {
-    getAllUsers(sortType.value);
+    getAllAppraises(sortType.value, user?.value ?? null, author?.value ?? null);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [sortType]);
 
-  const DUMMY_USERS = [
-    {
-      id: 1,
-      value: 'Алексей Попов',
-      label: 'Матвей Степанов',
-      date: '10:45 23.03.2011',
-      status: 'Оценено'
-    },
-    {
-      id: 2,
-      value: 'Кирилл Иванов',
-      label: 'Данил Морозов',
-      date: '15:45 28.12.2021',
-      status: 'Не оценено'
-    },
-    {
-      id: 3,
-      value: 'Сергей Васильев',
-      label: 'Станислав Козлов',
-      date: '18:05 08.09.2021',
-      status: 'Оценено'
-    },
-    {
-      id: 4,
-      value: 'Алексей Семёнов',
-      label: 'Леонид Михайлов ',
-      date: '15:04 28.10.2017',
-      status: 'Не оценено'
-    }
-  ];
+  useEffect(() => {
+    getUsersForSelect(user, author);
+    getAllAppraises(sortType.value, user?.value ?? null, author?.value ?? null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user, author]);
 
   const sortData = [
     { value: 'lastMonth', label: 'Последний месяц' },
@@ -107,45 +122,76 @@ const UserAppraiseStatus = () => {
   const handleChange = (e) => {
     const sort = sortData.find((sort) => sort.value === e.target.value);
     setSortType(sort);
-    if (sort.value != null) {
-      getAllUsers(sort.value);
-    }
   };
 
   return (
     <div className="appraise-status-container">
       <AuthorizedHeader title="Таблица статусов оценок" />
+      <div className="appraise-status-page-header">
+        <div className="appraise-status-table-selector">
+          <SelectHelper
+            data={userDataSelect}
+            selectedData={user}
+            placeholder="Выберите оцениваемого"
+            onChange={(e) => setUser(e.target)}
+            className="appraise-status-select-helper"
+          />
+
+          <SelectHelper
+            data={authorDataSelect}
+            selectedData={author}
+            placeholder="Выберите оценивающего"
+            onChange={(e) => setAuthor(e.target)}
+            className="appraise-status-select-helper"
+          />
+        </div>
+
+        <div className="appraise-status-table-sort">
+          <p className="appraise-status-table-sort-text">Сортировать по:</p>
+          <SelectHelper
+            data={sortData}
+            selectedData={sortType}
+            onChange={handleChange}
+            className="appraise-status-table-sort-select-helper"
+          />
+        </div>
+      </div>
+
       <div className="appraise-status-body-container">
         <div className="appraise-status-table">
           <TableContainer component={Paper}>
             <Table>
               <TableHead>
                 <TableRow>
-                  <TableCell align="center">Oценивающий</TableCell>
                   <TableCell align="center">Oцениваемый</TableCell>
+                  <TableCell align="center">Oценивающий</TableCell>
                   <TableCell align="center">Дата</TableCell>
                   <TableCell align="center">Cтатус</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {users &&
-                  users.map((row) => (
+                {appraises &&
+                  appraises.map((row) => (
                     <StyledTableRow key={row.id}>
-                      <TableCell align="center">{row.name ?? '-'}</TableCell>
                       <TableCell align="center">
-                        {row.gradedBy ?? '-'}
+                        {row.user?.fullname ?? '-'}
                       </TableCell>
-                      <TableCell align="center">{row.date ?? '-'}</TableCell>
+                      <TableCell align="center">
+                        {row.author?.fullname ?? '-'}
+                      </TableCell>
+                      <TableCell align="center">
+                        {format(new Date(row.createdAt), 'dd-MM-yyyy HH:MM') ??
+                          '-'}
+                      </TableCell>
                       <TableCell
                         align="center"
                         style={{
-                          color:
-                            row.status === 'Оценено' ? '#32a834' : '#f50717',
+                          color: row.status ? '#32a834' : '#f50717',
                           fontSize: '18px',
                           fontWeight: 'bold'
                         }}
                       >
-                        {row.status ?? '-'}
+                        {row.status ? 'оценено' : 'не оценено'}
                       </TableCell>
                     </StyledTableRow>
                   ))}
@@ -158,30 +204,6 @@ const UserAppraiseStatus = () => {
           text={errorText}
           alertColor={alert}
           onClose={setError}
-        />
-      </div>
-      <div className="appraise-status-table-sort">
-        <p class="appraise-status-table-sort-text">Сортировать по:</p>
-        <SelectHelper
-          data={sortData}
-          selectedData={sortType}
-          onChange={handleChange}
-          className="appraise-status-table-sort-select-helper"
-        />
-      </div>
-
-      <div className="appraise-status-table-selector">
-        <SelectHelper
-          data={DUMMY_USERS}
-          selectedData={rater}
-          onChange={(e) => setRater(e.target)}
-          className="appraise-status-select-helper"
-        />
-        <SelectHelper
-          data={DUMMY_USERS}
-          selectedData={ratedUser}
-          onChange={(e) => setRatedUser(e.target)}
-          className="appraise-status-select-helper"
         />
       </div>
     </div>

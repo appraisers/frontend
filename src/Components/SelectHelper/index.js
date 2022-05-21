@@ -35,7 +35,7 @@ const SelectHelper = ({
       </MenuItem>
       {data?.map((item) => (
         <MenuItem
-          key={item.value}
+          key={`${item.value}-${item.label}`}
           className="main-select-menu-item"
           value={item.value}
           style={{ backgroundColor: 'white', color: 'black' }}
