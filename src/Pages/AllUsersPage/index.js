@@ -94,7 +94,8 @@ const AllUsersPage = () => {
       const res = await axios.post(
         `${process.env.REACT_APP_SERVER_ENDPOINT}/user/get-info`,
         {
-          userId
+          userId,
+          isAdminOrModerator: user?.role === 'admin' || user?.role === 'moderator'
         },
         {
           headers: {
@@ -121,6 +122,7 @@ const AllUsersPage = () => {
     if (selectedUserID != null) {
       getInfoSelectedUser(selectedUserID);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedUserID]);
 
   const OpenModalHandler = (id) => {
