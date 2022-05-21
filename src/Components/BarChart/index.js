@@ -2,10 +2,17 @@ import { VictoryTheme, VictoryChart, VictoryBar, VictoryStack } from 'victory';
 import useWindowDimensions from '../windowSizeHook/windowSize.js';
 
 const BarChart = ({ users }) => {
-  const data = users.map((user) => ({
-    x: user.fullname,
-    y: user.rating
-  }));
+  const data = users
+    .map((user) => {
+      if (user.rating != null) {
+        return {
+          x: user.fullname,
+          y: user.rating
+        };
+      }
+      return null;
+    })
+    .filter(Boolean);
 
   const { width, height } = useWindowDimensions();
 
