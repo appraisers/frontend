@@ -40,7 +40,7 @@ const UserAppraiseStatus = () => {
       preparedFilter += `&userId=${selectedUser}`;
     }
     if (selectedAuthor != null) {
-      preparedFilter += `&userId=${selectedAuthor}`;
+      preparedFilter += `&authorId=${selectedAuthor}`;
     }
     try {
       const res = await axios.get(
@@ -80,7 +80,11 @@ const UserAppraiseStatus = () => {
         }
       );
       if (res.data?.statusCode === 200 && res.data.users != null) {
-        const arrayForSelect = res.data.users.map((user) => ({
+        const usersForSelect = res.data.users.map((user) => ({
+          value: user.id,
+          label: user.fullname
+        }));
+        const authorsForSelect = res.data.authors.map((user) => ({
           value: user.id,
           label: user.fullname
         }));
@@ -88,12 +92,12 @@ const UserAppraiseStatus = () => {
         // if selected user - set authors for select
         // if selected author - set users for select
         if (selectedUser == null && selectedAuthor == null) {
-          setAuthorDataSelect(arrayForSelect);
-          setUserDataSelect(arrayForSelect);
+          setAuthorDataSelect(authorsForSelect);
+          setUserDataSelect(usersForSelect);
         } else if (selectedUser != null && selectedAuthor == null) {
-          setAuthorDataSelect(arrayForSelect);
+          setAuthorDataSelect(authorsForSelect);
         } else if (selectedUser == null && selectedAuthor != null) {
-          setUserDataSelect(arrayForSelect);
+          setUserDataSelect(usersForSelect);
         }
       }
     } catch (e) {
@@ -109,7 +113,9 @@ const UserAppraiseStatus = () => {
   }, [sortType]);
 
   useEffect(() => {
-    getUsersForSelect(user, author);
+    if(user == null | author == null) {
+      getUsersForSelect(user, author);
+    }
     getAllAppraises(sortType.value, user?.value ?? null, author?.value ?? null);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, author]);
