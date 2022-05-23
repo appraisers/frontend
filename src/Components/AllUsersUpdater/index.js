@@ -33,7 +33,7 @@ const AllUsersUpdater = ({ users, userId, onClose }) => {
         {
           id: userId,
           fullname,
-          position,
+          position: position.value,
           email,
           workplace: company,
           role: isAdmin ? role : null
