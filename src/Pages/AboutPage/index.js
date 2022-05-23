@@ -7,6 +7,7 @@ const AboutPage = () => {
   return (
     <div>
       <MainHeader />
+
       <div className="wrapper-description">
         <div className="img-description">
           <img alt="logo" src={aboutPagePicture} />

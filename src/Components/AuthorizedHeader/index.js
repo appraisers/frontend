@@ -22,12 +22,17 @@ const AuthorizedHeader = ({ title }) => {
           {title && <span className="question-number">{title}</span>}
           <span className="survey-logo">
             <NavLink to="/">
-              <img src={logoRight} className="survey-logo-right" alt="logo" />
+              <img
+                src={logoRight}
+                className="survey-logo-right"
+                alt="logo"
+                onClick={() => localStorage.removeItem('user')}
+              />
             </NavLink>
           </span>
         </>
       ) : (
-        <BurgerMenu pageWrapId="page-wrap" isAuth/>
+        <BurgerMenu pageWrapId="page-wrap" isAuth />
       )}
     </div>
   );

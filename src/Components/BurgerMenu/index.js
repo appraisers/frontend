@@ -8,10 +8,11 @@ const BurgerMenu = (props) => {
     <div>
       {props.isAuth ? (
         <Menu {...props} disableAutoFocus>
-          <a className="menu-item" href="#">
-            О нас
-          </a>
-          <a className="menu-item" href="/">
+          <a
+            className="menu-item"
+            href="/"
+            onClick={() => localStorage.removeItem('user')}
+          >
             Главная страница
           </a>
           <a className="menu-item" href="/my">
@@ -20,11 +21,11 @@ const BurgerMenu = (props) => {
         </Menu>
       ) : (
         <Menu {...props}>
-          <a className="menu-item" href="#">
-            О нас
+          <a className="menu-item" href="/">
+            Вход
           </a>
-          <a className="menu-item" href="/my">
-            Личный кабинет
+          <a className="menu-item" href="/forgot_password">
+            Восстановить пароль
           </a>
         </Menu>
       )}
