@@ -18,6 +18,7 @@ const MenuProps = {
 
 const MultiSelectHelper = ({
   data,
+  title,
   setSelectedData,
   selectedData,
   onClose
@@ -36,7 +37,7 @@ const MultiSelectHelper = ({
   return (
     <div className="select-helper-container">
       <h2 className="select-helper-header">
-        Приглашение на прохождение опроса
+       {title}
       </h2>
       <span className="select-helper-modal-exit" onClick={onClose}>
         X

@@ -14,10 +14,17 @@ const AppraiseModalIcon = ({ userId, users }) => {
   const [errorText, setErrorText] = useState(false);
   const [alert, setAlert] = useState('');
   const [open, setOpen] = useState(false);
-  const preparedUsers = users?.map((user) => ({
-    value: user.email,
-    label: user.fullname
-  }));
+  const preparedUsers = users
+    ?.map((user) => {
+      if (user.id !== userId) {
+        return {
+          value: user.email,
+          label: user.fullname
+        };
+      }
+      return null;
+    })
+    .filter(Boolean);
   const [selectedData, setSelectedData] = useState([]);
 
   const inviteReview = async () => {
@@ -70,6 +77,7 @@ const AppraiseModalIcon = ({ userId, users }) => {
         <div className="appraise-modal-main-container">
           <MultiSelectHelper
             data={preparedUsers}
+            title = "Приглашение на прохождение опроса"
             selectedData={selectedData}
             setSelectedData={setSelectedData}
             onClose={() => setOpen(false)}
