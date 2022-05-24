@@ -74,7 +74,7 @@ const AppraiseModalIcon = ({ userId, users }) => {
           setSelectedData([]);
         }}
       >
-        <div className="appraise-modal-main-container">
+        <div className="appraise-modal-container">
           <h2 className="appraise-modal-header">
             Приглашение на прохождение опроса
           </h2>
@@ -85,7 +85,6 @@ const AppraiseModalIcon = ({ userId, users }) => {
             data={preparedUsers}
             selectedData={selectedData}
             setSelectedData={setSelectedData}
-            onClose={() => setOpen(false)}
             placeholder="Выберите оценивающего"
           />
 

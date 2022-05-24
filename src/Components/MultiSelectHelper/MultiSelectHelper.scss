@@ -1,17 +1,9 @@
-.select-helper-container {
+.select-helper-dropdown {
+  border: 2px solid #cfb389;
+  background-color: rgba(159, 158, 158, 0.63);
   width: 80%;
-  height: 40%;
-  margin: 0 auto;
-  padding: 1vh;
-  display: block;
-
-  .select-helper-dropdown {
-    border: 2px solid #cfb389;
-    background-color: rgba(159, 158, 158, 0.63);
-    width: 80%;
-    border-radius: 20px;
-    padding: 0.7vh 1.5vw;
-  }
+  border-radius: 20px;
+  padding: 0.7vh 1.5vw;
 }
 
 .MuiList-root.MuiMenu-list {

@@ -16,11 +16,7 @@ const MenuProps = {
   }
 };
 
-const MultiSelectHelper = ({
-  data,
-  setSelectedData,
-  selectedData
-}) => {
+const MultiSelectHelper = ({ data, setSelectedData, selectedData }) => {
   const onChange = (item) => {
     const elementIndex = selectedData.indexOf(
       (selectedItem) => item === selectedItem
@@ -33,31 +29,29 @@ const MultiSelectHelper = ({
   };
 
   return (
-    <div className="select-helper-container">
-      <Select
-        className="select-helper-dropdown"
-        multiple
-        value={selectedData}
-        renderValue={(selected) => {
-          return selected.map((item) => item.label)?.join(', ');
-        }}
-        MenuProps={MenuProps}
-        disableUnderline
-        onChange={(e) => onChange(e.target.value)}
-      >
-        {data.map((item) => (
-          <MenuItem key={item.value} value={item}>
-            <Checkbox
-              checked={
-                !!selectedData.find((selected) => item.value === selected.value)
-              }
-              color="default"
-            />
-            <ListItemText primary={item.label} />
-          </MenuItem>
-        ))}
-      </Select>
-    </div>
+    <Select
+      className="select-helper-dropdown"
+      multiple
+      value={selectedData}
+      renderValue={(selected) => {
+        return selected.map((item) => item.label)?.join(', ');
+      }}
+      MenuProps={MenuProps}
+      disableUnderline
+      onChange={(e) => onChange(e.target.value)}
+    >
+      {data.map((item) => (
+        <MenuItem key={item.value} value={item}>
+          <Checkbox
+            checked={
+              !!selectedData.find((selected) => item.value === selected.value)
+            }
+            color="default"
+          />
+          <ListItemText primary={item.label} />
+        </MenuItem>
+      ))}
+    </Select>
   );
 };
 
