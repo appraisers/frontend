@@ -48,7 +48,7 @@ const HomePage = () => {
 
   return (
     <div>
-      <Header withButton />
+      <Header />
 
       <BackgroundImage />
 

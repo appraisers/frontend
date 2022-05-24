@@ -73,7 +73,7 @@ const RestorePasswordFirstPage = () => {
           <InputHelper
             label="Почта"
             type="email"
-            variant="outlined"
+            className="input-helper"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
