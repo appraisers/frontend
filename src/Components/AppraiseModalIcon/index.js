@@ -75,9 +75,14 @@ const AppraiseModalIcon = ({ userId, users }) => {
         }}
       >
         <div className="appraise-modal-main-container">
+          <h2 className="appraise-modal-header">
+            Приглашение на прохождение опроса
+          </h2>
+          <span className="appraise-modal-exit" onClick={() => setOpen(false)}>
+            X
+          </span>
           <MultiSelectHelper
             data={preparedUsers}
-            title = "Приглашение на прохождение опроса"
             selectedData={selectedData}
             setSelectedData={setSelectedData}
             onClose={() => setOpen(false)}

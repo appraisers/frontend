@@ -17,6 +17,25 @@
   width: 40%;
   text-align: center;
 
+  .appraise-modal-header {
+    text-align: center;
+    margin: 0.5rem 1rem;
+    font-size: 22px;
+  }
+
+  .appraise-modal-exit {
+    color: #cfb389;
+    font-size: 1.5rem;
+    position: absolute;
+    cursor: pointer;
+    top: 3%;
+    right: 3%;
+  }
+  .appraise-modal-exit:hover {
+    color: red;
+    font-size: 1.8rem;
+  }
+
   .appraise-modal-button {
     background: #cfb389;
     border: 3px solid #cfb389;

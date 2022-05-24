@@ -18,10 +18,8 @@ const MenuProps = {
 
 const MultiSelectHelper = ({
   data,
-  title,
   setSelectedData,
-  selectedData,
-  onClose
+  selectedData
 }) => {
   const onChange = (item) => {
     const elementIndex = selectedData.indexOf(
@@ -36,12 +34,6 @@ const MultiSelectHelper = ({
 
   return (
     <div className="select-helper-container">
-      <h2 className="select-helper-header">
-       {title}
-      </h2>
-      <span className="select-helper-modal-exit" onClick={onClose}>
-        X
-      </span>
       <Select
         className="select-helper-dropdown"
         multiple
