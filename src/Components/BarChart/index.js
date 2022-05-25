@@ -16,7 +16,7 @@ const BarChart = ({ users }) => {
 
   const { width, height } = useWindowDimensions();
 
-  const countedHeight = height > 800 ? height - height * 0.25 : height;
+  const countedHeight = height > 800 ? height - height * 0.35 : height-40;
   const countedWidth = width > 800 ? width - width * 0.35 : width - 30;
 
   return (
@@ -25,7 +25,7 @@ const BarChart = ({ users }) => {
         height={countedHeight}
         width={countedWidth}
         theme={VictoryTheme.material}
-        domainPadding={{ x: 50, y: [0, 20] }}
+        domainPadding={{ x: 50, y: [0, 85] }}
       >
         <VictoryStack style={{ zIndex: 1000 }}>
           <VictoryBar
