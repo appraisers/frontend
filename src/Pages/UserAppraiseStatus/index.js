@@ -27,8 +27,8 @@ const UserAppraiseStatus = () => {
   const [userDataSelect, setUserDataSelect] = useState([]);
   const [author, setAuthor] = useState(null);
   const [authorDataSelect, setAuthorDataSelect] = useState([]);
-  const [limit, ] = useState(50);
-  const [offset, ] = useState(0);
+  const [limit] = useState(50);
+  const [offset] = useState(0);
   const [sortType, setSortType] = useState({
     value: 'lastMonth',
     label: 'Последний месяц'
@@ -113,7 +113,7 @@ const UserAppraiseStatus = () => {
   }, [sortType]);
 
   useEffect(() => {
-    if(user == null | author == null) {
+    if (user == null | author == null) {
       getUsersForSelect(user, author);
     }
     getAllAppraises(sortType.value, user?.value ?? null, author?.value ?? null);

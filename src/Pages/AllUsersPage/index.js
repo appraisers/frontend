@@ -95,7 +95,8 @@ const AllUsersPage = () => {
         `${process.env.REACT_APP_SERVER_ENDPOINT}/user/get-info`,
         {
           userId,
-          isAdminOrModerator: user?.role === 'admin' || user?.role === 'moderator'
+          isAdminOrModerator:
+            user?.role === 'admin' || user?.role === 'moderator'
         },
         {
           headers: {
@@ -136,7 +137,7 @@ const AllUsersPage = () => {
   const handleChange = (e) => {
     const sort = sortData.find((sort) => sort.value === e.target.value);
     setSortType(sort);
-    if(sort.value != null) {
+    if (sort.value != null) {
       getAllUsers(sort.value);
     }
   };
