@@ -1,9 +1,4 @@
-import {
-  VictoryTheme,
-  VictoryChart,
-  VictoryBar,
-  VictoryStack
-} from 'victory';
+import { VictoryTheme, VictoryChart, VictoryBar, VictoryStack } from 'victory';
 import useWindowDimensions from '../windowSizeHook/windowSize.js';
 
 const BarChart = ({ users }) => {
@@ -11,10 +6,12 @@ const BarChart = ({ users }) => {
   const data = users
     .map((user) => {
       if (user.rating != null) {
-        let temp = user.fullname.split(" ")
-        let  userName = temp[0]+ ". " + temp[1][0];
+        let splittedUserName = user.fullname.split(' ');
+        let shortenedName = splittedUserName[0];
+        if (splittedUserName[1]?.[0] != null)
+          shortenedName += `. ${splittedUserName[1][0].toUpperCase()}`;
         return {
-          x:  width > 950 ? user.fullname : userName,
+          x: width > 950 ? user.fullname : shortenedName,
           y: user.rating
         };
       }

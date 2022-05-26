@@ -113,7 +113,7 @@ const UserAppraiseStatus = () => {
   }, [sortType]);
 
   useEffect(() => {
-    if ((user == null) | (author == null)) {
+    if (user == null | author == null) {
       getUsersForSelect(user, author);
     }
     getAllAppraises(sortType.value, user?.value ?? null, author?.value ?? null);
