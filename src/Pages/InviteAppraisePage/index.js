@@ -46,12 +46,14 @@ const InviteAppraisePage = () => {
       <div className="survey-invite-container">
         <div className="survey-invite-description-container">
           <h1 className="survey-invite-description-header">
-            Оцените работу и личные качества {user.fullname}.
+            Оцените работу и личные качества {user.fullname + 'a'}
           </h1>
           <p className="survey-invite-description">
             Оценка происходит в виде тестирования. Можно выбрать только один
             ответ на каждый вопрос. Если Вы не знаете, как ответить, выберите
-            номер вопроса в пункте “Не знаю”. Отвечайте честно. Опрос анонимный.
+            номер вопроса в пункте “Не знаю”.
+            <br />
+            Отвечайте честно. Опрос анонимный.
           </p>
 
           <NavLink
