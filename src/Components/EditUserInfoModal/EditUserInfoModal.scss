@@ -29,7 +29,8 @@
 
     .simple-modal-table-container {
       width: 100%;
-      height: auto;
+      max-height:80%;
+      overflow-y: scroll;
 
       .simple-modal-table-header {
         font-size: 22px;
