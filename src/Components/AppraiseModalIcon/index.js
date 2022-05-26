@@ -85,7 +85,6 @@ const AppraiseModalIcon = ({ userId, users }) => {
             data={preparedUsers}
             selectedData={selectedData}
             setSelectedData={setSelectedData}
-            placeholder="Выберите оценивающего"
           />
 
           <ButtonHelper

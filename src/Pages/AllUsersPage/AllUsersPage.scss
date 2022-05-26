@@ -1,6 +1,6 @@
 .users-main-container {
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
   background: rgba(207, 179, 137, 0.19);
 
   .users-body-container {
@@ -16,7 +16,8 @@
 
     .users-table {
       width: 100%;
-      height: 90%;
+      max-height: 100%;
+      overflow-y: scroll;
     }
   }
 
