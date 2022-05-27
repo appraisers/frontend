@@ -40,6 +40,11 @@ const InviteAppraisePage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const userFromStotage = JSON.parse(localStorage.getItem('user'));
+  if (userFromStotage == null) {
+    history.push('/');
+  }
+
   return (
     <div className="survey-invite-body">
       <AuthorizedHeader />
@@ -50,8 +55,9 @@ const InviteAppraisePage = () => {
           </h1>
           <p className="survey-invite-description">
             Оценка происходит в виде тестирования. Можно выбрать только один
-            ответ на каждый вопрос. Если Вы не знаете, как ответить, выберите
-            номер вопроса в пункте “Не знаю”.
+            ответ на каждый вопрос. 
+            <br />
+            Оценивать одного человека можно раз в полгода.
             <br />
             Отвечайте честно. Опрос анонимный.
           </p>
