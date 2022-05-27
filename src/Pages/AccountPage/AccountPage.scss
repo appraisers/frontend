@@ -1,6 +1,7 @@
 .account-page-main {
   background: rgba(207, 179, 137, 0.19);
-  min-height: 100vh;
+  min-height: 106vh;
+  overflow-y: hidden;
 
   .account-page-body {
     display: flex;
@@ -66,7 +67,7 @@
       margin-top: 3vh;
       font-size: 30px;
       width: 70vw;
-     
+
       .account-page-bar {
         display: flex;
         align-items: center;
@@ -103,9 +104,9 @@
         width: 95vw;
         display: flex;
         align-items: center;
-        justify-content: center;  
+        justify-content: center;
         flex-direction: column;
-        
+
         .account-page-bar {
           width: 90%;
           margin-top: 5vh;
