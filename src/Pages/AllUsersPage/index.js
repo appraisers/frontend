@@ -6,8 +6,8 @@ import AllUsersTable from '../../Components/AllUsersTable';
 import AlertHelper from '../../Components/Alert';
 import AuthorizedHeader from '../../Components/AuthorizedHeader';
 import SimpleModal from '../../Components/SimpleModal';
-import SimpleModalTableHelper from '../../Components/EditUserInfoModal';
-import AllUsersUpdater from '../../Components/AllUsersUpdater';
+import UserFullInfo from '../../Components/UserFullInfo';
+import UserUpdater from '../../Components/UserUpdater';
 import SelectHelper from '../../Components/SelectHelper';
 
 import './AllUsersPage.scss';
@@ -31,7 +31,7 @@ const AllUsersPage = () => {
 
   const getAllUsers = async (filter) => {
     try {
-      const preparedFilter = filter == null ? '' : `?${filter}=desc`;
+      const preparedFilter = filter == null ? '' : `?${filter}=${filter === 'alphabet'? 'asc': 'desc'}`;
       const res = await axios.get(
         `${process.env.REACT_APP_SERVER_ENDPOINT}/user/all-users${preparedFilter}`,
         {
@@ -169,10 +169,11 @@ const AllUsersPage = () => {
           open={!!selectedUserID}
           onClose={() => setSelectedUserID(null)}
         >
-          <SimpleModalTableHelper
+          <UserFullInfo
             selectedUser={selectedUser}
             onClose={() => setSelectedUserID(null)}
             onReload={getInfoSelectedUser}
+            isAdmin
           />
         </SimpleModal>
 
@@ -180,7 +181,7 @@ const AllUsersPage = () => {
           open={!!userToUpdateId}
           onClose={() => setUserToUpdateId(null)}
         >
-          <AllUsersUpdater
+          <UserUpdater
             users={users}
             userId={userToUpdateId}
             onClose={() => {

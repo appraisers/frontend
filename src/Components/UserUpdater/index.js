@@ -7,9 +7,9 @@ import AlertHelper from '../Alert';
 import InputHelper from '../InputHelper';
 import SelectHelper from '../SelectHelper';
 
-import './AllUsersUpdater.scss';
+import './UserUpdater.scss';
 
-const AllUsersUpdater = ({ users, userId, onClose }) => {
+const UserUpdater = ({ users, userId, onClose }) => {
   const selectedUser = users.filter((e) => {
     return e.id === userId;
   });
@@ -150,4 +150,4 @@ const AllUsersUpdater = ({ users, userId, onClose }) => {
   );
 };
 
-export default AllUsersUpdater;
+export default UserUpdater;

@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+
 import reviewIcon from '../../assets/icons/review.svg';
 import moreInfoIcon from '../../assets/icons/more-info.svg';
+import SimpleModal from '../../Components/SimpleModal';
+import UserFullInfo from '../../Components/UserFullInfo';
 import AuthorizedHeader from '../../Components/AuthorizedHeader';
 import ButtonHelper from '../../Components/ButtonHelper';
 import AlertHelper from '../../Components/Alert';
@@ -14,8 +17,35 @@ const UserAccountPage = () => {
   const [openError, setError] = useState(false);
   const [errorText, setErrorText] = useState(false);
   const [alert, setAlert] = useState('');
+  const [userInfo, setUserInfo] = useState(null);
 
   const user = JSON.parse(localStorage.getItem('user'));
+
+  const getInfoAboutUser = async (userId) => {
+    try {
+      const res = await axios.post(
+        `${process.env.REACT_APP_SERVER_ENDPOINT}/user/get-info`,
+        {
+          userId,
+          isAdminOrModerator:
+            user?.role === 'admin' || user?.role === 'moderator'
+        },
+        {
+          headers: {
+            Authorization: localStorage.getItem('token')
+          }
+        }
+      );
+      if (res.data?.statusCode === 200) {
+        setUserInfo(res.data.user);
+        localStorage.setItem('user', JSON.stringify(res.data?.user));
+      }
+    } catch (e) {
+      setAlert('warning');
+      setErrorText('Внутренняя ошибка сервера');
+      setError(true);
+    }
+  };
 
   const selfAppraiseHandler = async () => {
     try {
@@ -38,7 +68,7 @@ const UserAccountPage = () => {
       }
     } catch (e) {
       setAlert('warning');
-      setErrorText('Не удалось запросить оценку на себя');
+      setErrorText('Последняя оценка была меньше 6 месяцев назад');
       setError(true);
     }
   };
@@ -78,12 +108,24 @@ const UserAccountPage = () => {
             </h3>
             <hr className="user-account-page-review-info-hr" />
 
-            {/* <ButtonHelper className="user-account-page-review-info-button">
-                Запросить
-              </ButtonHelper> */}
-            <ButtonHelper className="user-account-page-review-info-button">
+            <ButtonHelper
+              className="user-account-page-review-info-button"
+              onClick={() => getInfoAboutUser(user.id)}
+              disabled={!user.showInfo}
+            >
               Посмотреть
             </ButtonHelper>
+
+            <SimpleModal
+              open={!!userInfo}
+              onClose={() => setUserInfo(null)}
+            >
+              <UserFullInfo
+                selectedUser={userInfo}
+                onClose={() => setUserInfo(null)}
+                onReload={() => getInfoAboutUser(user.id)}
+              />
+            </SimpleModal>
           </div>
         </div>
       </div>

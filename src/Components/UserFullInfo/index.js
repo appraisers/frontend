@@ -17,9 +17,9 @@ import ButtonHelper from '../ButtonHelper';
 import StyledTableRow from '../StyledTableRow';
 import AlertHelper from '../Alert';
 
-import './EditUserInfoModal.scss';
+import './UserFullInfo.scss';
 
-const EditUserInfoModal = ({ selectedUser, onReload, onClose }) => {
+const EditUserInfoModal = ({ selectedUser, onReload, onClose, isAdmin }) => {
   const [checked, setChecked] = useState(selectedUser?.showInfo ?? false);
   const [openError, setError] = useState(false);
   const [errorText, setErrorText] = useState(false);
@@ -138,10 +138,12 @@ const EditUserInfoModal = ({ selectedUser, onReload, onClose }) => {
         </div>
 
         <div className="available-data-check">
-          <div>
-            <Checkbox checked={checked} onClick={toggleHandler} />
-            <span onClick={toggleHandler}>Просмотр подробной информации</span>
-          </div>
+          {isAdmin && (
+            <div>
+              <Checkbox checked={checked} onClick={toggleHandler} />
+              <span onClick={toggleHandler}>Просмотр подробной информации</span>
+            </div>
+          )}
           <ButtonHelper className="simple-modal-user-exit" onClick={onClose}>
             Назад
           </ButtonHelper>
