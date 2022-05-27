@@ -28,7 +28,7 @@ const BarChart = ({ users }) => {
         height={countedHeight}
         width={countedWidth}
         theme={VictoryTheme.material}
-        domainPadding={{ x: 50, y: [0, 90] }}
+        domainPadding={{ x: 50, y: [0, 70] }}
       >
         <VictoryStack style={{ zIndex: 1000 }}>
           <VictoryBar
