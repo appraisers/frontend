@@ -19,7 +19,7 @@ const BarChart = ({ users }) => {
     })
     .filter(Boolean);
 
-  const countedHeight = height > 800 ? height - height * 0.45 : height - 65;
+  const countedHeight = height > 800 ? height - height * 0.50 : height - 99;
   const countedWidth = width > 800 ? width - width * 0.35 : width - 30;
 
   return (
